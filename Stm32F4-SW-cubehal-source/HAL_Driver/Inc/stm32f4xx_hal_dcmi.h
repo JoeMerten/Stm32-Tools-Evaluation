@@ -33,7 +33,7 @@
   * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   *
   ******************************************************************************
-  */ 
+  */
 
 /* Define to prevent recursive inclusion -------------------------------------*/
 #ifndef __STM32F4xx_HAL_DCMI_H
@@ -60,25 +60,25 @@
 /** @addtogroup DCMI DCMI
   * @brief DCMI HAL module driver
   * @{
-  */  
+  */
 
 /* Exported types ------------------------------------------------------------*/
 /** @defgroup DCMI_Exported_Types DCMI Exported Types
   * @{
   */
-/** 
+/**
   * @brief DCMI Error source
   */
 typedef enum
-{ 
+{
   DCMI_ERROR_SYNC = 1,     /*!< Synchronisation error */
   DCMI_OVERRUN   = 2,      /*!< DCMI Overrun */
 }DCMI_ErrorTypeDef;
 
 
-/** 
+/**
   * @brief  HAL DCMI State structures definition
-  */ 
+  */
 typedef enum
 {
   HAL_DCMI_STATE_RESET             = 0x00,  /*!< DCMI not yet initialized or disabled  */
@@ -88,7 +88,7 @@ typedef enum
   HAL_DCMI_STATE_ERROR             = 0x04   /*!< DCMI error state                      */
 }HAL_DCMI_StateTypeDef;
 
-/** 
+/**
   * @brief  DCMI handle Structure definition
   */
 typedef struct
@@ -136,10 +136,10 @@ typedef struct
 
 /** @defgroup DCMI_Capture_Mode DCMI Capture Mode
   * @{
-  */ 
-#define DCMI_MODE_CONTINUOUS           ((uint32_t)0x00000000)  /*!< The received data are transferred continuously 
+  */
+#define DCMI_MODE_CONTINUOUS           ((uint32_t)0x00000000)  /*!< The received data are transferred continuously
                                                                     into the destination memory through the DMA             */
-#define DCMI_MODE_SNAPSHOT             ((uint32_t)DCMI_CR_CM)  /*!< Once activated, the interface waits for the start of 
+#define DCMI_MODE_SNAPSHOT             ((uint32_t)DCMI_CR_CM)  /*!< Once activated, the interface waits for the start of
                                                                     frame and then transfers a single frame through the DMA */
 /**
   * @}
@@ -147,10 +147,10 @@ typedef struct
 
 /** @defgroup DCMI_Synchronization_Mode DCMI Synchronization Mode
   * @{
-  */ 
+  */
 #define DCMI_SYNCHRO_HARDWARE        ((uint32_t)0x00000000)   /*!< Hardware synchronization data capture (frame/line start/stop)
                                                                    is synchronized with the HSYNC/VSYNC signals                  */
-#define DCMI_SYNCHRO_EMBEDDED        ((uint32_t)DCMI_CR_ESS)  /*!< Embedded synchronization data capture is synchronized with 
+#define DCMI_SYNCHRO_EMBEDDED        ((uint32_t)DCMI_CR_ESS)  /*!< Embedded synchronization data capture is synchronized with
                                                                    synchronization codes embedded in the data flow               */
 
 /**
@@ -166,7 +166,7 @@ typedef struct
 /**
   * @}
   */
- 
+
 /** @defgroup DCMI_VSYNC_Polarity DCMI VSYNC Polarity
   * @{
   */
@@ -179,7 +179,7 @@ typedef struct
 
 /** @defgroup DCMI_HSYNC_Polarity DCMI HSYNC Polarity
   * @{
-  */ 
+  */
 #define DCMI_HSPOLARITY_LOW     ((uint32_t)0x00000000)     /*!< Horizontal synchronization active Low  */
 #define DCMI_HSPOLARITY_HIGH    ((uint32_t)DCMI_CR_HSPOL)  /*!< Horizontal synchronization active High */
 
@@ -231,7 +231,7 @@ typedef struct
 
 /** @defgroup DCMI_Window_Height DCMI Window Height
   * @{
-  */ 
+  */
 #define DCMI_WINDOW_HEIGHT    ((uint32_t)0x1FFF)  /*!< Window Height */
 
 /**
@@ -254,23 +254,23 @@ typedef struct
   * @{
   */
 
-/** 
+/**
   * @brief   DCMI SR register
-  */ 
+  */
 #define DCMI_FLAG_HSYNC     ((uint32_t)0x2001)
 #define DCMI_FLAG_VSYNC     ((uint32_t)0x2002)
 #define DCMI_FLAG_FNE       ((uint32_t)0x2004)
-/** 
-  * @brief   DCMI RISR register  
-  */ 
+/**
+  * @brief   DCMI RISR register
+  */
 #define DCMI_FLAG_FRAMERI    ((uint32_t)DCMI_RISR_FRAME_RIS)
 #define DCMI_FLAG_OVFRI      ((uint32_t)DCMI_RISR_OVF_RIS)
 #define DCMI_FLAG_ERRRI      ((uint32_t)DCMI_RISR_ERR_RIS)
 #define DCMI_FLAG_VSYNCRI    ((uint32_t)DCMI_RISR_VSYNC_RIS)
 #define DCMI_FLAG_LINERI     ((uint32_t)DCMI_RISR_LINE_RIS)
-/** 
-  * @brief   DCMI MISR register  
-  */ 
+/**
+  * @brief   DCMI MISR register
+  */
 #define DCMI_FLAG_FRAMEMI    ((uint32_t)0x1001)
 #define DCMI_FLAG_OVFMI      ((uint32_t)0x1002)
 #define DCMI_FLAG_ERRMI      ((uint32_t)0x1004)
@@ -278,17 +278,17 @@ typedef struct
 #define DCMI_FLAG_LINEMI     ((uint32_t)0x1010)
 /**
   * @}
-  */ 
+  */
 
 /**
   * @}
   */
- 
+
 /* Exported macro ------------------------------------------------------------*/
 /** @defgroup DCMI_Exported_Macros DCMI Exported Macros
   * @{
   */
-  
+
 /** @brief Reset DCMI handle state
   * @param  __HANDLE__: specifies the DCMI handle.
   * @retval None
@@ -343,7 +343,7 @@ typedef struct
 /**
   * @brief  Enable the specified DCMI interrupts.
   * @param  __HANDLE__:    DCMI handle
-  * @param  __INTERRUPT__: specifies the DCMI interrupt sources to be enabled. 
+  * @param  __INTERRUPT__: specifies the DCMI interrupt sources to be enabled.
   *         This parameter can be any combination of the following values:
   *            @arg DCMI_IT_FRAME: Frame capture complete interrupt mask
   *            @arg DCMI_IT_OVF: Overflow interrupt mask
@@ -357,7 +357,7 @@ typedef struct
 /**
   * @brief  Disable the specified DCMI interrupts.
   * @param  __HANDLE__: DCMI handle
-  * @param  __INTERRUPT__: specifies the DCMI interrupt sources to be enabled. 
+  * @param  __INTERRUPT__: specifies the DCMI interrupt sources to be enabled.
   *         This parameter can be any combination of the following values:
   *            @arg DCMI_IT_FRAME: Frame capture complete interrupt mask
   *            @arg DCMI_IT_OVF: Overflow interrupt mask
@@ -385,16 +385,16 @@ typedef struct
 /**
   * @}
   */
-      
+
 /* Exported functions --------------------------------------------------------*/
 /** @addtogroup DCMI_Exported_Functions
   * @{
   */
 
-/** @addtogroup DCMI_Exported_Functions_Group1 
+/** @addtogroup DCMI_Exported_Functions_Group1
  * @{
  */
- 
+
 /* Initialization and de-initialization functions *****************************/
 HAL_StatusTypeDef HAL_DCMI_Init(DCMI_HandleTypeDef *hdcmi);
 HAL_StatusTypeDef HAL_DCMI_DeInit(DCMI_HandleTypeDef *hdcmi);
@@ -403,11 +403,11 @@ void       HAL_DCMI_MspDeInit(DCMI_HandleTypeDef* hdcmi);
 /**
   * @}
   */
-  
-/** @addtogroup DCMI_Exported_Functions_Group2 
+
+/** @addtogroup DCMI_Exported_Functions_Group2
  * @{
  */
- 
+
 /* IO operation functions *****************************************************/
 HAL_StatusTypeDef HAL_DCMI_Start_DMA(DCMI_HandleTypeDef* hdcmi, uint32_t DCMI_Mode, uint32_t pData, uint32_t Length);
 HAL_StatusTypeDef HAL_DCMI_Stop(DCMI_HandleTypeDef* hdcmi);
@@ -419,8 +419,8 @@ void       HAL_DCMI_IRQHandler(DCMI_HandleTypeDef *hdcmi);
 /**
   * @}
   */
-  
-/** @addtogroup DCMI_Exported_Functions_Group3 
+
+/** @addtogroup DCMI_Exported_Functions_Group3
  * @{
  */
 /* Peripheral Control functions ***********************************************/
@@ -430,8 +430,8 @@ HAL_StatusTypeDef     HAL_DCMI_DisableCROP(DCMI_HandleTypeDef *hdcmi);
 /**
   * @}
   */
-  
-/** @addtogroup DCMI_Exported_Functions_Group4 
+
+/** @addtogroup DCMI_Exported_Functions_Group4
  * @{
  */
 /* Peripheral State functions *************************************************/
@@ -447,38 +447,38 @@ uint32_t              HAL_DCMI_GetError(DCMI_HandleTypeDef *hdcmi);
 
 /* Private types -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
-/* Private constants ---------------------------------------------------------*/   
+/* Private constants ---------------------------------------------------------*/
 /* Private macro -------------------------------------------------------------*/
 /** @defgroup DCMI_Private_Macros DCMI Private Macros
   * @{
   */
 #define IS_DCMI_CAPTURE_MODE(MODE)(((MODE) == DCMI_MODE_CONTINUOUS) || \
                                    ((MODE) == DCMI_MODE_SNAPSHOT))
-                                                                                                
+
 #define IS_DCMI_SYNCHRO(MODE)(((MODE) == DCMI_SYNCHRO_HARDWARE) || \
                               ((MODE) == DCMI_SYNCHRO_EMBEDDED))
-                              
+
 #define IS_DCMI_PCKPOLARITY(POLARITY)(((POLARITY) == DCMI_PCKPOLARITY_FALLING) || \
                                       ((POLARITY) == DCMI_PCKPOLARITY_RISING))
-                                      
+
 #define IS_DCMI_VSPOLARITY(POLARITY)(((POLARITY) == DCMI_VSPOLARITY_LOW) || \
                                      ((POLARITY) == DCMI_VSPOLARITY_HIGH))
-                                     
+
 #define IS_DCMI_HSPOLARITY(POLARITY)(((POLARITY) == DCMI_HSPOLARITY_LOW) || \
                                      ((POLARITY) == DCMI_HSPOLARITY_HIGH))
-                                     
+
 #define IS_DCMI_MODE_JPEG(JPEG_MODE)(((JPEG_MODE) == DCMI_JPEG_DISABLE) || \
                                      ((JPEG_MODE) == DCMI_JPEG_ENABLE))
-                                     
+
 #define IS_DCMI_CAPTURE_RATE(RATE) (((RATE) == DCMI_CR_ALL_FRAME)         || \
                                     ((RATE) == DCMI_CR_ALTERNATE_2_FRAME) || \
                                     ((RATE) == DCMI_CR_ALTERNATE_4_FRAME))
-                                    
+
 #define IS_DCMI_EXTENDED_DATA(DATA)(((DATA) == DCMI_EXTEND_DATA_8B)  || \
                                     ((DATA) == DCMI_EXTEND_DATA_10B) || \
                                     ((DATA) == DCMI_EXTEND_DATA_12B) || \
                                     ((DATA) == DCMI_EXTEND_DATA_14B))
-                                    
+
 #define IS_DCMI_WINDOW_COORDINATE(COORDINATE) ((COORDINATE) <= DCMI_WINDOW_COORDINATE)
 
 #define IS_DCMI_WINDOW_HEIGHT(HEIGHT) ((HEIGHT) <= DCMI_WINDOW_HEIGHT)
@@ -491,11 +491,11 @@ uint32_t              HAL_DCMI_GetError(DCMI_HandleTypeDef *hdcmi);
 /** @addtogroup DCMI_Private_Functions DCMI Private Functions
   * @{
   */
-  
+
 /**
   * @}
   */
-      
+
 #endif /* STM32F407xx || STM32F417xx || STM32F427xx || STM32F437xx ||\
           STM32F429xx || STM32F439xx || STM32F446xx || STM32F469xx ||\
           STM32F479xx */
@@ -503,10 +503,10 @@ uint32_t              HAL_DCMI_GetError(DCMI_HandleTypeDef *hdcmi);
 /**
   * @}
   */
-    
+
 /**
   * @}
-  */ 
+  */
 
 #ifdef __cplusplus
 }

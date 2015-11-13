@@ -5,7 +5,7 @@
   * @version V1.4.1
   * @date    09-October-2015
   * @brief   PCD HAL module driver.
-  *          This file provides firmware functions to manage the following 
+  *          This file provides firmware functions to manage the following
   *          functionalities of the USB Peripheral Controller:
   *           + Extended features functions
   *
@@ -37,7 +37,7 @@
   * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   *
   ******************************************************************************
-  */ 
+  */
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f4xx_hal.h"
@@ -54,7 +54,7 @@
 #if defined(STM32F405xx) || defined(STM32F415xx) || defined(STM32F407xx) || defined(STM32F417xx) || \
     defined(STM32F427xx) || defined(STM32F437xx) || defined(STM32F429xx) || defined(STM32F439xx) || \
     defined(STM32F401xC) || defined(STM32F401xE) || defined(STM32F411xE) || defined(STM32F446xx) || \
-    defined(STM32F469xx) || defined(STM32F479xx) 
+    defined(STM32F469xx) || defined(STM32F479xx)
 /* Private types -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
 /* Private constants ---------------------------------------------------------*/
@@ -67,12 +67,12 @@
   */
 
 /** @defgroup PCDEx_Exported_Functions_Group1 Peripheral Control functions
-  * @brief    PCDEx control functions 
+  * @brief    PCDEx control functions
   *
-@verbatim  
+@verbatim
  ===============================================================================
                  ##### Extended features functions #####
- ===============================================================================  
+ ===============================================================================
     [..]  This section provides functions allowing to:
       (+) Update FIFO configuration
 
@@ -93,17 +93,17 @@ HAL_StatusTypeDef HAL_PCDEx_SetTxFiFo(PCD_HandleTypeDef *hpcd, uint8_t fifo, uin
   uint32_t Tx_Offset = 0;
 
   /*  TXn min size = 16 words. (n  : Transmit FIFO index)
-      When a TxFIFO is not used, the Configuration should be as follows: 
+      When a TxFIFO is not used, the Configuration should be as follows:
           case 1 :  n > m    and Txn is not used    (n,m  : Transmit FIFO indexes)
          --> Txm can use the space allocated for Txn.
          case2  :  n < m    and Txn is not used    (n,m  : Transmit FIFO indexes)
          --> Txn should be configured with the minimum space of 16 words
-     The FIFO is used optimally when used TxFIFOs are allocated in the top 
+     The FIFO is used optimally when used TxFIFOs are allocated in the top
          of the FIFO.Ex: use EP1 and EP2 as IN instead of EP1 and EP3 as IN ones.
      When DMA is used 3n * FIFO locations should be reserved for internal DMA registers */
-  
+
   Tx_Offset = hpcd->Instance->GRXFSIZ;
-  
+
   if(fifo == 0)
   {
     hpcd->Instance->DIEPTXF0_HNPTXFSIZ = (uint32_t)(((uint32_t)size << 16) | Tx_Offset);
@@ -115,11 +115,11 @@ HAL_StatusTypeDef HAL_PCDEx_SetTxFiFo(PCD_HandleTypeDef *hpcd, uint8_t fifo, uin
     {
       Tx_Offset += (hpcd->Instance->DIEPTXF[i] >> 16);
     }
-    
+
     /* Multiply Tx_Size by 2 to get higher performance */
-    hpcd->Instance->DIEPTXF[fifo - 1] = (uint32_t)(((uint32_t)size << 16) | Tx_Offset);        
+    hpcd->Instance->DIEPTXF[fifo - 1] = (uint32_t)(((uint32_t)size << 16) | Tx_Offset);
   }
-  
+
   return HAL_OK;
 }
 
@@ -132,11 +132,11 @@ HAL_StatusTypeDef HAL_PCDEx_SetTxFiFo(PCD_HandleTypeDef *hpcd, uint8_t fifo, uin
 HAL_StatusTypeDef HAL_PCDEx_SetRxFiFo(PCD_HandleTypeDef *hpcd, uint16_t size)
 {
   hpcd->Instance->GRXFSIZ = size;
-  
+
   return HAL_OK;
 }
 
-#if defined(STM32F446xx) || defined(STM32F469xx) || defined(STM32F479xx) 
+#if defined(STM32F446xx) || defined(STM32F469xx) || defined(STM32F479xx)
 /**
   * @brief  Activate LPM feature
   * @param  hpcd: PCD handle
@@ -144,14 +144,14 @@ HAL_StatusTypeDef HAL_PCDEx_SetRxFiFo(PCD_HandleTypeDef *hpcd, uint16_t size)
   */
 HAL_StatusTypeDef HAL_PCDEx_ActivateLPM(PCD_HandleTypeDef *hpcd)
 {
-  USB_OTG_GlobalTypeDef *USBx = hpcd->Instance;  
-  
+  USB_OTG_GlobalTypeDef *USBx = hpcd->Instance;
+
   hpcd->lpm_active = ENABLE;
   hpcd->LPM_State = LPM_L0;
   USBx->GINTMSK |= USB_OTG_GINTMSK_LPMINTM;
   USBx->GLPMCFG |= (USB_OTG_GLPMCFG_LPMEN | USB_OTG_GLPMCFG_LPMACK | USB_OTG_GLPMCFG_ENBESL);
-  
-  return HAL_OK;  
+
+  return HAL_OK;
 }
 
 /**
@@ -161,13 +161,13 @@ HAL_StatusTypeDef HAL_PCDEx_ActivateLPM(PCD_HandleTypeDef *hpcd)
   */
 HAL_StatusTypeDef HAL_PCDEx_DeActivateLPM(PCD_HandleTypeDef *hpcd)
 {
-  USB_OTG_GlobalTypeDef *USBx = hpcd->Instance;  
-  
+  USB_OTG_GlobalTypeDef *USBx = hpcd->Instance;
+
   hpcd->lpm_active = DISABLE;
   USBx->GINTMSK &= ~USB_OTG_GINTMSK_LPMINTM;
   USBx->GLPMCFG &= ~(USB_OTG_GLPMCFG_LPMEN | USB_OTG_GLPMCFG_LPMACK | USB_OTG_GLPMCFG_ENBESL);
-  
-  return HAL_OK;  
+
+  return HAL_OK;
 }
 
 /**

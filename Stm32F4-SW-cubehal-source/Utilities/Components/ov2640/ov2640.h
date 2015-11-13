@@ -34,7 +34,7 @@
   * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   *
   ******************************************************************************
-  */ 
+  */
 
 /* Define to prevent recursive inclusion -------------------------------------*/
 #ifndef __OV2640_H
@@ -42,19 +42,19 @@
 
 #ifdef __cplusplus
  extern "C" {
-#endif 
+#endif
 
 /* Includes ------------------------------------------------------------------*/
 #include "../Common/camera.h"
-   
+
 /** @addtogroup BSP
   * @{
-  */ 
+  */
 
 /** @addtogroup Components
   * @{
-  */ 
-  
+  */
+
 /** @addtogroup ov2640
   * @{
   */
@@ -62,20 +62,20 @@
 /** @defgroup OV2640_Exported_Types
   * @{
   */
-     
+
 /**
   * @}
-  */ 
+  */
 
 /** @defgroup OV2640_Exported_Constants
   * @{
   */
-/** 
-  * @brief  OV2640 ID  
-  */  
+/**
+  * @brief  OV2640 ID
+  */
 #define  OV2640_ID    0x26
-/** 
-  * @brief  OV2640 Registers  
+/**
+  * @brief  OV2640 Registers
   */
 /* OV2640 Registers definition when DSP bank selected (0xFF = 0x00) */
 #define OV2640_DSP_R_BYPASS             0x05
@@ -159,10 +159,10 @@
 #define OV2640_SENSOR_REG5F             0x5F
 #define OV2640_SENSOR_REG60             0x60
 #define OV2640_SENSOR_HISTO_LOW         0x61
-#define OV2640_SENSOR_HISTO_HIGH        0x62 
+#define OV2640_SENSOR_HISTO_HIGH        0x62
 
-/** 
- * @brief  OV2640 Features Parameters  
+/**
+ * @brief  OV2640 Features Parameters
  */
 #define OV2640_BRIGHTNESS_LEVEL0        0x40   /* Brightness level -2         */
 #define OV2640_BRIGHTNESS_LEVEL1        0x30   /* Brightness level -1         */
@@ -184,14 +184,14 @@
 #define OV2640_COLOR_EFFECT_ANTIQUE     0xA640 /* Antique effect              */
 #define OV2640_COLOR_EFFECT_BLUE        0x40A0 /* Blue effect                 */
 #define OV2640_COLOR_EFFECT_GREEN       0x4040 /* Green effect                */
-#define OV2640_COLOR_EFFECT_RED         0xC040 /* Red effect                  */   
+#define OV2640_COLOR_EFFECT_RED         0xC040 /* Red effect                  */
 /**
   * @}
   */
-  
+
 /** @defgroup OV2640_Exported_Functions
   * @{
-  */ 
+  */
 void     ov2640_Init(uint16_t DeviceAddr, uint32_t resolution);
 void     ov2640_Config(uint16_t DeviceAddr, uint32_t feature, uint32_t value, uint32_t BR_value);
 uint16_t ov2640_ReadID(uint16_t DeviceAddr);
@@ -205,7 +205,7 @@ void     CAMERA_Delay(uint32_t delay);
 extern CAMERA_DrvTypeDef   ov2640_drv;
 /**
   * @}
-  */    
+  */
 #ifdef __cplusplus
 }
 #endif
@@ -213,14 +213,14 @@ extern CAMERA_DrvTypeDef   ov2640_drv;
 #endif /* __OV2640_H */
 /**
   * @}
-  */ 
+  */
 
 /**
   * @}
-  */ 
+  */
 
 /**
   * @}
-  */ 
+  */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

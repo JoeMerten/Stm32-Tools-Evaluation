@@ -33,51 +33,51 @@
   * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   *
   ******************************************************************************
-  */ 
+  */
 
 /* Includes ------------------------------------------------------------------*/
 #include "ili9341.h"
 
 /** @addtogroup BSP
   * @{
-  */ 
+  */
 
 /** @addtogroup Components
   * @{
-  */ 
-  
+  */
+
 /** @addtogroup ILI9341
-  * @brief This file provides a set of functions needed to drive the 
+  * @brief This file provides a set of functions needed to drive the
   *        ILI9341 LCD.
   * @{
   */
 
 /** @defgroup ILI9341_Private_TypesDefinitions
   * @{
-  */ 
+  */
 /**
   * @}
-  */ 
+  */
 
 /** @defgroup ILI9341_Private_Defines
   * @{
   */
 /**
   * @}
-  */ 
-  
+  */
+
 /** @defgroup ILI9341_Private_Macros
   * @{
   */
 /**
   * @}
-  */  
+  */
 
 /** @defgroup ILI9341_Private_Variables
   * @{
-  */ 
+  */
 
-LCD_DrvTypeDef   ili9341_drv = 
+LCD_DrvTypeDef   ili9341_drv =
 {
   ili9341_Init,
   ili9341_ReadID,
@@ -92,24 +92,24 @@ LCD_DrvTypeDef   ili9341_drv =
   ili9341_GetLcdPixelWidth,
   ili9341_GetLcdPixelHeight,
   0,
-  0,    
+  0,
 };
 
 /**
   * @}
-  */ 
-  
+  */
+
 /** @defgroup ILI9341_Private_FunctionPrototypes
   * @{
   */
 
 /**
   * @}
-  */ 
-  
+  */
+
 /** @defgroup ILI9341_Private_Functions
   * @{
-  */   
+  */
 
 /**
   * @brief  Power on the LCD.
@@ -120,7 +120,7 @@ void ili9341_Init(void)
 {
   /* Initialize ILI9341 low level bus layer ----------------------------------*/
   LCD_IO_Init();
-  
+
   /* Configure LCD */
   ili9341_WriteReg(0xCA);
   ili9341_WriteData(0xC3);
@@ -176,7 +176,7 @@ void ili9341_Init(void)
   ili9341_WriteData(0xA7);
   ili9341_WriteData(0x27);
   ili9341_WriteData(0x04);
-  
+
   /* Colomn address set */
   ili9341_WriteReg(LCD_COLUMN_ADDR);
   ili9341_WriteData(0x00);
@@ -193,13 +193,13 @@ void ili9341_Init(void)
   ili9341_WriteData(0x01);
   ili9341_WriteData(0x00);
   ili9341_WriteData(0x06);
-  
+
   ili9341_WriteReg(LCD_GRAM);
   LCD_Delay(200);
-  
+
   ili9341_WriteReg(LCD_GAMMA);
   ili9341_WriteData(0x01);
-  
+
   ili9341_WriteReg(LCD_PGAMMA);
   ili9341_WriteData(0x0F);
   ili9341_WriteData(0x29);
@@ -232,7 +232,7 @@ void ili9341_Init(void)
   ili9341_WriteData(0x28);
   ili9341_WriteData(0x2F);
   ili9341_WriteData(0x0F);
-  
+
   ili9341_WriteReg(LCD_SLEEP_OUT);
   LCD_Delay(200);
   ili9341_WriteReg(LCD_DISPLAY_ON);
@@ -329,18 +329,18 @@ uint16_t ili9341_GetLcdPixelHeight(void)
 
 /**
   * @}
-  */ 
-
-/**
-  * @}
-  */ 
-  
-/**
-  * @}
-  */ 
+  */
 
 /**
   * @}
   */
-  
+
+/**
+  * @}
+  */
+
+/**
+  * @}
+  */
+
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

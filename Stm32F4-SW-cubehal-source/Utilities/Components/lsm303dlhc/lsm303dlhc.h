@@ -33,7 +33,7 @@
   * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   *
   ******************************************************************************
-  */ 
+  */
 
 /* Define to prevent recursive inclusion -------------------------------------*/
 #ifndef __LSM303DLHC_H
@@ -48,16 +48,16 @@
 
 /** @addtogroup BSP
   * @{
-  */ 
+  */
 
 /** @addtogroup Components
   * @{
-  */ 
-   
+  */
+
 /** @addtogroup LSM303DLHC
   * @{
   */
-  
+
 /** @defgroup LSM303DLHC_Exported_Types
   * @{
   */
@@ -65,7 +65,7 @@
 /**
   * @}
   */
- 
+
 /******************************************************************************/
 /*************************** START REGISTER MAPPING  **************************/
 /******************************************************************************/
@@ -88,7 +88,7 @@
 #define LSM303DLHC_OUT_Y_L_A                 0x2A  /* Output Register Y acceleration */
 #define LSM303DLHC_OUT_Y_H_A                 0x2B  /* Output Register Y acceleration */
 #define LSM303DLHC_OUT_Z_L_A                 0x2C  /* Output Register Z acceleration */
-#define LSM303DLHC_OUT_Z_H_A                 0x2D  /* Output Register Z acceleration */ 
+#define LSM303DLHC_OUT_Z_H_A                 0x2D  /* Output Register Z acceleration */
 #define LSM303DLHC_FIFO_CTRL_REG_A           0x2E  /* Fifo control Register acceleration */
 #define LSM303DLHC_FIFO_SRC_REG_A            0x2F  /* Fifo src Register acceleration */
 
@@ -117,7 +117,7 @@
 #define LSM303DLHC_OUT_X_H_M                 0x03  /* Output Register X magnetic field */
 #define LSM303DLHC_OUT_X_L_M                 0x04  /* Output Register X magnetic field */
 #define LSM303DLHC_OUT_Z_H_M                 0x05  /* Output Register Z magnetic field */
-#define LSM303DLHC_OUT_Z_L_M                 0x06  /* Output Register Z magnetic field */ 
+#define LSM303DLHC_OUT_Z_L_M                 0x06  /* Output Register Z magnetic field */
 #define LSM303DLHC_OUT_Y_H_M                 0x07  /* Output Register Y magnetic field */
 #define LSM303DLHC_OUT_Y_L_M                 0x08  /* Output Register Y magnetic field */
 
@@ -184,10 +184,10 @@
 /** @defgroup Acc_Full_Scale_Selection
   * @{
   */
-#define LSM303DLHC_FULLSCALE_2G            ((uint8_t)0x00)  /*!< ±2 g */
-#define LSM303DLHC_FULLSCALE_4G            ((uint8_t)0x10)  /*!< ±4 g */
-#define LSM303DLHC_FULLSCALE_8G            ((uint8_t)0x20)  /*!< ±8 g */
-#define LSM303DLHC_FULLSCALE_16G           ((uint8_t)0x30)  /*!< ±16 g */
+#define LSM303DLHC_FULLSCALE_2G            ((uint8_t)0x00)  /*!< Â±2 g */
+#define LSM303DLHC_FULLSCALE_4G            ((uint8_t)0x10)  /*!< Â±4 g */
+#define LSM303DLHC_FULLSCALE_8G            ((uint8_t)0x20)  /*!< Â±8 g */
+#define LSM303DLHC_FULLSCALE_16G           ((uint8_t)0x30)  /*!< Â±16 g */
 /**
   * @}
   */
@@ -205,22 +205,22 @@
 
 /** @defgroup Acc_Block_Data_Update
   * @{
-  */  
+  */
 #define LSM303DLHC_BlockUpdate_Continous   ((uint8_t)0x00) /*!< Continuos Update */
 #define LSM303DLHC_BlockUpdate_Single      ((uint8_t)0x80) /*!< Single Update: output registers not updated until MSB and LSB reading */
 /**
   * @}
   */
-  
+
 /** @defgroup Acc_Endian_Data_selection
   * @{
-  */  
+  */
 #define LSM303DLHC_BLE_LSB                 ((uint8_t)0x00) /*!< Little Endian: data LSB @ lower address */
 #define LSM303DLHC_BLE_MSB                 ((uint8_t)0x40) /*!< Big Endian: data MSB @ lower address */
 /**
   * @}
   */
-  
+
 /** @defgroup Acc_Boot_Mode_selection
   * @{
   */
@@ -228,11 +228,11 @@
 #define LSM303DLHC_BOOT_REBOOTMEMORY       ((uint8_t)0x80)
 /**
   * @}
-  */  
- 
+  */
+
 /** @defgroup Acc_High_Pass_Filter_Mode
   * @{
-  */   
+  */
 #define LSM303DLHC_HPM_NORMAL_MODE_RES     ((uint8_t)0x00)
 #define LSM303DLHC_HPM_REF_SIGNAL          ((uint8_t)0x40)
 #define LSM303DLHC_HPM_NORMAL_MODE         ((uint8_t)0x80)
@@ -243,7 +243,7 @@
 
 /** @defgroup Acc_High_Pass_CUT OFF_Frequency
   * @{
-  */   
+  */
 #define LSM303DLHC_HPFCF_8                 ((uint8_t)0x00)
 #define LSM303DLHC_HPFCF_16                ((uint8_t)0x10)
 #define LSM303DLHC_HPFCF_32                ((uint8_t)0x20)
@@ -251,19 +251,19 @@
 /**
   * @}
   */
-    
+
 /** @defgroup Acc_High_Pass_Filter_status
   * @{
-  */   
+  */
 #define LSM303DLHC_HIGHPASSFILTER_DISABLE  ((uint8_t)0x00)
 #define LSM303DLHC_HIGHPASSFILTER_ENABLE   ((uint8_t)0x08)
 /**
   * @}
   */
-  
+
 /** @defgroup Acc_High_Pass_Filter_Click_status
   * @{
-  */   
+  */
 #define LSM303DLHC_HPF_CLICK_DISABLE       ((uint8_t)0x00)
 #define LSM303DLHC_HPF_CLICK_ENABLE        ((uint8_t)0x04)
 /**
@@ -272,21 +272,21 @@
 
 /** @defgroup Acc_High_Pass_Filter_AOI1_status
   * @{
-  */   
+  */
 #define LSM303DLHC_HPF_AOI1_DISABLE        ((uint8_t)0x00)
-#define LSM303DLHC_HPF_AOI1_ENABLE	       ((uint8_t)0x01)
+#define LSM303DLHC_HPF_AOI1_ENABLE         ((uint8_t)0x01)
 /**
   * @}
   */
-  
+
 /** @defgroup Acc_High_Pass_Filter_AOI2_status
   * @{
-  */   
+  */
 #define LSM303DLHC_HPF_AOI2_DISABLE        ((uint8_t)0x00)
 #define LSM303DLHC_HPF_AOI2_ENABLE         ((uint8_t)0x02)
 /**
   * @}
-  */ 
+  */
 
 /** @defgroup Acc_Interrupt1_Configuration_definition
   * @{
@@ -300,8 +300,8 @@
 #define LSM303DLHC_IT1_OVERRUN             ((uint8_t)0x02)
 /**
   * @}
-  */  
- 
+  */
+
 /** @defgroup Acc_Interrupt2_Configuration_definition
   * @{
   */
@@ -313,11 +313,11 @@
 #define LSM303DLHC_IT2_HLACTIVE            ((uint8_t)0x02)
 /**
   * @}
-  */ 
+  */
 
 /** @defgroup Acc_INT_Combination_Status
   * @{
-  */   
+  */
 #define LSM303DLHC_OR_COMBINATION          ((uint8_t)0x00)  /*!< OR combination of enabled IRQs */
 #define LSM303DLHC_AND_COMBINATION         ((uint8_t)0x80)  /*!< AND combination of enabled IRQs */
 #define LSM303DLHC_MOV_RECOGNITION         ((uint8_t)0x40)  /*!< 6D movement recognition */
@@ -328,7 +328,7 @@
 
 /** @defgroup Acc_INT_Axes
   * @{
-  */   
+  */
 #define LSM303DLHC_Z_HIGH                  ((uint8_t)0x20)  /*!< Z High enabled IRQs */
 #define LSM303DLHC_Z_LOW                   ((uint8_t)0x10)  /*!< Z low enabled IRQs */
 #define LSM303DLHC_Y_HIGH                  ((uint8_t)0x08)  /*!< Y High enabled IRQs */
@@ -338,10 +338,10 @@
 /**
   * @}
   */
-      
+
 /** @defgroup Acc_INT_Click
 * @{
-*/   
+*/
 #define LSM303DLHC_Z_DOUBLE_CLICK          ((uint8_t)0x20)  /*!< Z double click IRQs */
 #define LSM303DLHC_Z_SINGLE_CLICK          ((uint8_t)0x10)  /*!< Z single click IRQs */
 #define LSM303DLHC_Y_DOUBLE_CLICK          ((uint8_t)0x08)  /*!< Y double click IRQs */
@@ -351,10 +351,10 @@
 /**
 * @}
 */
-  
+
 /** @defgroup Acc_INT1_Interrupt_status
   * @{
-  */   
+  */
 #define LSM303DLHC_INT1INTERRUPT_DISABLE   ((uint8_t)0x00)
 #define LSM303DLHC_INT1INTERRUPT_ENABLE    ((uint8_t)0x80)
 /**
@@ -363,7 +363,7 @@
 
 /** @defgroup Acc_INT1_Interrupt_ActiveEdge
   * @{
-  */   
+  */
 #define LSM303DLHC_INT1INTERRUPT_LOW_EDGE  ((uint8_t)0x20)
 #define LSM303DLHC_INT1INTERRUPT_HIGH_EDGE ((uint8_t)0x00)
 /**
@@ -372,7 +372,7 @@
 
 /** @defgroup Mag_Data_Rate
   * @{
-  */ 
+  */
 #define LSM303DLHC_ODR_0_75_HZ              ((uint8_t) 0x00)  /*!< Output Data Rate = 0.75 Hz */
 #define LSM303DLHC_ODR_1_5_HZ               ((uint8_t) 0x04)  /*!< Output Data Rate = 1.5 Hz */
 #define LSM303DLHC_ODR_3_0_HZ               ((uint8_t) 0x08)  /*!< Output Data Rate = 3 Hz */
@@ -384,21 +384,21 @@
 /**
   * @}
   */
- 
+
 /** @defgroup Mag_Full_Scale
   * @{
-  */ 
-#define  LSM303DLHC_FS_1_3_GA               ((uint8_t) 0x20)  /*!< Full scale = ±1.3 Gauss */
-#define  LSM303DLHC_FS_1_9_GA               ((uint8_t) 0x40)  /*!< Full scale = ±1.9 Gauss */
-#define  LSM303DLHC_FS_2_5_GA               ((uint8_t) 0x60)  /*!< Full scale = ±2.5 Gauss */
-#define  LSM303DLHC_FS_4_0_GA               ((uint8_t) 0x80)  /*!< Full scale = ±4.0 Gauss */
-#define  LSM303DLHC_FS_4_7_GA               ((uint8_t) 0xA0)  /*!< Full scale = ±4.7 Gauss */
-#define  LSM303DLHC_FS_5_6_GA               ((uint8_t) 0xC0)  /*!< Full scale = ±5.6 Gauss */
-#define  LSM303DLHC_FS_8_1_GA               ((uint8_t) 0xE0)  /*!< Full scale = ±8.1 Gauss */
+  */
+#define  LSM303DLHC_FS_1_3_GA               ((uint8_t) 0x20)  /*!< Full scale = Â±1.3 Gauss */
+#define  LSM303DLHC_FS_1_9_GA               ((uint8_t) 0x40)  /*!< Full scale = Â±1.9 Gauss */
+#define  LSM303DLHC_FS_2_5_GA               ((uint8_t) 0x60)  /*!< Full scale = Â±2.5 Gauss */
+#define  LSM303DLHC_FS_4_0_GA               ((uint8_t) 0x80)  /*!< Full scale = Â±4.0 Gauss */
+#define  LSM303DLHC_FS_4_7_GA               ((uint8_t) 0xA0)  /*!< Full scale = Â±4.7 Gauss */
+#define  LSM303DLHC_FS_5_6_GA               ((uint8_t) 0xC0)  /*!< Full scale = Â±5.6 Gauss */
+#define  LSM303DLHC_FS_8_1_GA               ((uint8_t) 0xE0)  /*!< Full scale = Â±8.1 Gauss */
 /**
   * @}
-  */ 
- 
+  */
+
 /**
  * @defgroup Magnetometer_Sensitivity
  * @{
@@ -423,23 +423,23 @@
 
 /** @defgroup Mag_Working_Mode
   * @{
-  */ 
+  */
 #define LSM303DLHC_CONTINUOS_CONVERSION      ((uint8_t) 0x00)   /*!< Continuous-Conversion Mode */
 #define LSM303DLHC_SINGLE_CONVERSION         ((uint8_t) 0x01)   /*!< Single-Conversion Mode */
-#define LSM303DLHC_SLEEP                     ((uint8_t) 0x02)   /*!< Sleep Mode */                       
+#define LSM303DLHC_SLEEP                     ((uint8_t) 0x02)   /*!< Sleep Mode */
 /**
   * @}
   */
 
 /** @defgroup Mag_Temperature_Sensor
   * @{
-  */ 
+  */
 #define LSM303DLHC_TEMPSENSOR_ENABLE         ((uint8_t) 0x80)   /*!< Temp sensor Enable */
 #define LSM303DLHC_TEMPSENSOR_DISABLE        ((uint8_t) 0x00)   /*!< Temp sensor Disable */
 /**
   * @}
   */
-  
+
 /** @defgroup LSM303DLHC_Exported_Functions
   * @{
   */
@@ -487,7 +487,7 @@ extern ACCELERO_DrvTypeDef Lsm303dlhcDrv;
 
 /**
   * @}
-  */ 
+  */
 
 #ifdef __cplusplus
 }
@@ -495,4 +495,4 @@ extern ACCELERO_DrvTypeDef Lsm303dlhcDrv;
 
 #endif /* __LSM303DLHC_H */
 
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/ 
+/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

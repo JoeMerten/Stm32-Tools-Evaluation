@@ -53,22 +53,22 @@
 /** @addtogroup Components
   * @{
   */
-    
+
 /** @addtogroup ACCELERO
   * @{
   */
 
 /** @defgroup ACCELERO_Exported_Types
   * @{
-  */ 
+  */
 
 /** @defgroup ACCELERO_Driver_structure  Accelerometer Driver structure
   * @{
   */
 typedef struct
-{  
+{
   void      (*Init)(uint16_t);
-  void      (*DeInit)(void); 
+  void      (*DeInit)(void);
   uint8_t   (*ReadID)(void);
   void      (*Reset)(void);
   void      (*LowPower)(void);

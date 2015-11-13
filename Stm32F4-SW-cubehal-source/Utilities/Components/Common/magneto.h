@@ -53,14 +53,14 @@
 /** @addtogroup Components
   * @{
   */
-    
+
 /** @addtogroup MAGNETO
   * @{
   */
 
 /** @defgroup MAGNETO_Exported_Types
   * @{
-  */ 
+  */
 
 /** @defgroup MAGNETO_Config_structure  Magnetometer Configuration structure
   * @{
@@ -81,9 +81,9 @@ typedef struct
   * @{
   */
 typedef struct
-{  
+{
   void      (*Init)(MAGNETO_InitTypeDef);
-  void      (*DeInit)(void); 
+  void      (*DeInit)(void);
   uint8_t   (*ReadID)(void);
   void      (*Reset)(void);
   void      (*LowPower)(void);

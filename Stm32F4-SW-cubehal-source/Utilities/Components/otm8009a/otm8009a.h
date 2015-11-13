@@ -68,7 +68,7 @@
 #define __weak __attribute__((weak))
 #endif /* __weak */
 #endif /* __GNUC__ */
-      
+
 /**
  *  @brief LCD_OrientationTypeDef
  *  Possible values of Display Orientation
@@ -182,19 +182,19 @@
 /**
   * @}
   */
-   
+
 /* Exported macro ------------------------------------------------------------*/
-   
+
 /** @defgroup OTM8009A_Exported_Macros OTM8009A Exported Macros
   * @{
-  */ 
+  */
 
 /**
   * @}
-  */ 
+  */
 
 /* Exported functions --------------------------------------------------------*/
-  
+
 /** @addtogroup OTM8009A_Exported_Functions
   * @{
   */

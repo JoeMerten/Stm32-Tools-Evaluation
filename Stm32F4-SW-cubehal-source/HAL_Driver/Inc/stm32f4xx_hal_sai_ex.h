@@ -33,7 +33,7 @@
   * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   *
   ******************************************************************************
-  */ 
+  */
 
 /* Define to prevent recursive inclusion -------------------------------------*/
 #ifndef __STM32F4xx_HAL_SAI_EX_H
@@ -44,7 +44,7 @@
 #endif
 
 /* Includes ------------------------------------------------------------------*/
-#include "stm32f4xx_hal_def.h"  
+#include "stm32f4xx_hal_def.h"
 
 /** @addtogroup STM32F4xx_HAL_Driver
   * @{
@@ -52,13 +52,13 @@
 
 /** @addtogroup SAIEx
   * @{
-  */ 
-  
+  */
+
 #if defined(STM32F427xx) || defined(STM32F437xx) || defined(STM32F429xx) || defined(STM32F439xx) ||\
     defined(STM32F446xx) || defined(STM32F469xx) || defined(STM32F479xx)
 
 /* Exported types ------------------------------------------------------------*/
-/* Exported constants --------------------------------------------------------*/   
+/* Exported constants --------------------------------------------------------*/
 /* Exported functions --------------------------------------------------------*/
 /** @addtogroup SAIEx_Exported_Functions
   * @{
@@ -73,7 +73,7 @@ void SAI_BlockSynchroConfig(SAI_HandleTypeDef *hsai);
 uint32_t SAI_GetInputClock(SAI_HandleTypeDef *hsai);
 /**
   * @}
-  */ 
+  */
 
 /**
   * @}
@@ -87,12 +87,12 @@ uint32_t SAI_GetInputClock(SAI_HandleTypeDef *hsai);
 #endif /* STM32F427xx || STM32F437xx || STM32F429xx || STM32F439xx || STM32F446xx || STM32F469xx || STM32F479xx */
 /**
   * @}
-  */ 
+  */
 
 /**
   * @}
   */
-  
+
 #ifdef __cplusplus
 }
 #endif

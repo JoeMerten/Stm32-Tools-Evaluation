@@ -33,7 +33,7 @@
   * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   *
   ******************************************************************************
-  */ 
+  */
 
 /* Define to prevent recursive inclusion -------------------------------------*/
 #ifndef __STM32F4xx_HAL_I2S_EX_H
@@ -44,7 +44,7 @@
 #endif
 
 /* Includes ------------------------------------------------------------------*/
-#include "stm32f4xx_hal_def.h"  
+#include "stm32f4xx_hal_def.h"
 
 /** @addtogroup STM32F4xx_HAL_Driver
   * @{
@@ -52,12 +52,12 @@
 
 /** @addtogroup I2SEx
   * @{
-  */ 
+  */
 
 /* Exported types ------------------------------------------------------------*/
 /** @defgroup I2SEx_Exported_Types I2S Exported Types
   * @{
-  */ 
+  */
 /**
   * @}
   */
@@ -67,7 +67,7 @@
   * @{
   */
 
-/** @defgroup I2S_Clock_Source I2S Clock Source 
+/** @defgroup I2S_Clock_Source I2S Clock Source
   * @{
   */
 
@@ -76,20 +76,20 @@
     defined(STM32F401xC) || defined(STM32F401xE) || defined(STM32F411xE) || defined(STM32F469xx) || \
     defined(STM32F479xx)
 #define I2S_CLOCK_PLL                     ((uint32_t)0x00000000)
-#define I2S_CLOCK_EXTERNAL                ((uint32_t)0x00000001)      
+#define I2S_CLOCK_EXTERNAL                ((uint32_t)0x00000001)
 #endif /* STM32F405xx || STM32F415xx || STM32F407xx || STM32F417xx || STM32F427xx || STM32F437xx || STM32F429xx || STM32F439xx ||
-          STM32F401xC || STM32F401xE || STM32F411xE || STM32F469xx || STM32F479xx */    
-   
-#if defined(STM32F446xx) 
+          STM32F401xC || STM32F401xE || STM32F411xE || STM32F469xx || STM32F479xx */
+
+#if defined(STM32F446xx)
 #define I2S_CLOCK_PLL                     ((uint32_t)0x00000000)
-#define I2S_CLOCK_EXTERNAL                ((uint32_t)0x00000001) 
+#define I2S_CLOCK_EXTERNAL                ((uint32_t)0x00000001)
 #define I2S_CLOCK_PLLR                    ((uint32_t)0x00000002)
 #define I2S_CLOCK_PLLSRC                  ((uint32_t)0x00000003)
 #endif /* STM32F446xx  */
 
 #if defined(STM32F410Tx) || defined(STM32F410Cx) || defined(STM32F410Rx)
-#define I2S_CLOCK_PLLSRC                  ((uint32_t)0x00000000)      
-#define I2S_CLOCK_EXTERNAL                ((uint32_t)0x00000001) 
+#define I2S_CLOCK_PLLSRC                  ((uint32_t)0x00000000)
+#define I2S_CLOCK_EXTERNAL                ((uint32_t)0x00000001)
 #define I2S_CLOCK_PLLR                    ((uint32_t)0x00000002)
 #endif /* STM32F410Tx || STM32F410Cx || STM32F410Rx */
 /**
@@ -98,7 +98,7 @@
 
 /**
   * @}
-  */ 
+  */
 
 /* Exported macro ------------------------------------------------------------*/
 /** @defgroup I2SEx_Exported_Macros I2S Exported Macros
@@ -107,7 +107,7 @@
 
 /**
   * @}
-  */ 
+  */
 
 /* Exported functions --------------------------------------------------------*/
 /** @addtogroup I2SEx_Exported_Functions
@@ -127,7 +127,7 @@ HAL_StatusTypeDef HAL_I2SEx_TransmitReceive_IT(I2S_HandleTypeDef *hi2s, uint16_t
 HAL_StatusTypeDef HAL_I2SEx_TransmitReceive_DMA(I2S_HandleTypeDef *hi2s, uint16_t *pTxData, uint16_t *pRxData, uint16_t Size);
 /**
   * @}
-  */ 
+  */
 
 /**
   * @}
@@ -155,7 +155,7 @@ HAL_StatusTypeDef HAL_I2SEx_TransmitReceive_DMA(I2S_HandleTypeDef *hi2s, uint16_
 #endif /* STM32F405xx || STM32F415xx || STM32F407xx || STM32F417xx || STM32F427xx || STM32F437xx || STM32F429xx || STM32F439xx ||
           STM32F401xC || STM32F401xE || STM32F411xE || STM32F469xx || STM32F479xx */
 
-#if defined(STM32F446xx)  
+#if defined(STM32F446xx)
 #define IS_I2S_CLOCKSOURCE(CLOCK) (((CLOCK) == I2S_CLOCK_EXTERNAL) ||\
                                    ((CLOCK) == I2S_CLOCK_PLL)      ||\
                                    ((CLOCK) == I2S_CLOCK_PLLSRC)   ||\
@@ -174,7 +174,7 @@ HAL_StatusTypeDef HAL_I2SEx_TransmitReceive_DMA(I2S_HandleTypeDef *hi2s, uint16_
     defined(STM32F411xE) || defined(STM32F446xx) || defined(STM32F469xx) || defined(STM32F479xx)
 #define I2SxEXT(__INSTANCE__) ((__INSTANCE__) == (SPI2)? (SPI_TypeDef *)(I2S2ext_BASE): (SPI_TypeDef *)(I2S3ext_BASE))
 #endif /* STM32F405xx || STM32F415xx || STM32F407xx || STM32F417xx || STM32F427xx || STM32F437xx || STM32F429xx || STM32F439xx ||
-          STM32F401xC || STM32F401xE || STM32F410Cx || STM32F410Rx || STM32F411xE || STM32F446xx || STM32F469xx || STM32F479xx */      
+          STM32F401xC || STM32F401xE || STM32F410Cx || STM32F410Rx || STM32F411xE || STM32F446xx || STM32F469xx || STM32F479xx */
 
 /**
   * @}
@@ -185,14 +185,14 @@ HAL_StatusTypeDef HAL_I2SEx_TransmitReceive_DMA(I2S_HandleTypeDef *hi2s, uint16_
   * @{
   */
 HAL_StatusTypeDef I2SEx_TransmitReceive_IT(I2S_HandleTypeDef *hi2s);
-uint32_t I2S_GetInputClock(I2S_HandleTypeDef *hi2s); 
+uint32_t I2S_GetInputClock(I2S_HandleTypeDef *hi2s);
 /**
   * @}
   */
 
 /**
   * @}
-  */ 
+  */
 
 /**
   * @}

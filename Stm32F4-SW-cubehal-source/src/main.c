@@ -11,10 +11,10 @@
 
 #include "stm32f4xx.h"
 #include "stm32f401_discovery.h"
-			
+
 
 int main(void)
 {
 
-	for(;;);
+    for(;;);
 }

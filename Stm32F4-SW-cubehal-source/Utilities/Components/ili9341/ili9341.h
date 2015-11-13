@@ -34,7 +34,7 @@
   * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   *
   ******************************************************************************
-  */ 
+  */
 
 /* Define to prevent recursive inclusion -------------------------------------*/
 #ifndef __ILI9341_H
@@ -42,19 +42,19 @@
 
 #ifdef __cplusplus
  extern "C" {
-#endif 
+#endif
 
 /* Includes ------------------------------------------------------------------*/
 #include "../Common/lcd.h"
 
 /** @addtogroup BSP
   * @{
-  */ 
+  */
 
 /** @addtogroup Components
   * @{
-  */ 
-  
+  */
+
 /** @addtogroup ILI9341
   * @{
   */
@@ -64,26 +64,26 @@
   */
 /**
   * @}
-  */ 
+  */
 
 /** @defgroup ILI9341_Exported_Constants
   * @{
   */
 
-/** 
-  * @brief ILI9341 chip IDs  
-  */ 
+/**
+  * @brief ILI9341 chip IDs
+  */
 #define ILI9341_ID                  0x9341
 
-/** 
-  * @brief  ILI9341 Size  
-  */  
+/**
+  * @brief  ILI9341 Size
+  */
 #define  ILI9341_LCD_PIXEL_WIDTH    ((uint16_t)240)
 #define  ILI9341_LCD_PIXEL_HEIGHT   ((uint16_t)320)
 
-/** 
-  * @brief  ILI9341 Timing  
-  */     
+/**
+  * @brief  ILI9341 Timing
+  */
 /* Timing configuration  (Typical configuration from ILI9341 datasheet)
   HSYNC=10 (9+1)
   HBP=20 (29-10+1)
@@ -96,14 +96,14 @@
   VFP=4 (327-320-2-2+1)
 */
 #define  ILI9341_HSYNC            ((uint32_t)9)   /* Horizontal synchronization */
-#define  ILI9341_HBP              ((uint32_t)29)    /* Horizontal back porch      */ 
+#define  ILI9341_HBP              ((uint32_t)29)    /* Horizontal back porch      */
 #define  ILI9341_HFP              ((uint32_t)2)    /* Horizontal front porch     */
 #define  ILI9341_VSYNC            ((uint32_t)1)   /* Vertical synchronization   */
 #define  ILI9341_VBP              ((uint32_t)3)    /* Vertical back porch        */
 #define  ILI9341_VFP              ((uint32_t)2)    /* Vertical front porch       */
 
-/** 
-  * @brief  ILI9341 Registers  
+/**
+  * @brief  ILI9341 Registers
   */
 
 /* Level 1 Commands */
@@ -125,32 +125,32 @@
 #define LCD_GAMMA               0x26   /* Gamma register */
 #define LCD_DISPLAY_OFF         0x28   /* Display off register */
 #define LCD_DISPLAY_ON          0x29   /* Display on register */
-#define LCD_COLUMN_ADDR         0x2A   /* Colomn address register */ 
-#define LCD_PAGE_ADDR           0x2B   /* Page address register */ 
-#define LCD_GRAM                0x2C   /* GRAM register */   
-#define LCD_RGBSET              0x2D   /* Color SET */   
-#define LCD_RAMRD               0x2E   /* Memory Read */   
-#define LCD_PLTAR               0x30   /* Partial Area */   
-#define LCD_VSCRDEF             0x33   /* Vertical Scrolling Definition */   
-#define LCD_TEOFF               0x34   /* Tearing Effect Line OFF */   
-#define LCD_TEON                0x35   /* Tearing Effect Line ON */   
+#define LCD_COLUMN_ADDR         0x2A   /* Colomn address register */
+#define LCD_PAGE_ADDR           0x2B   /* Page address register */
+#define LCD_GRAM                0x2C   /* GRAM register */
+#define LCD_RGBSET              0x2D   /* Color SET */
+#define LCD_RAMRD               0x2E   /* Memory Read */
+#define LCD_PLTAR               0x30   /* Partial Area */
+#define LCD_VSCRDEF             0x33   /* Vertical Scrolling Definition */
+#define LCD_TEOFF               0x34   /* Tearing Effect Line OFF */
+#define LCD_TEON                0x35   /* Tearing Effect Line ON */
 #define LCD_MAC                 0x36   /* Memory Access Control register*/
-#define LCD_VSCRSADD            0x37   /* Vertical Scrolling Start Address */   
-#define LCD_IDMOFF              0x38   /* Idle Mode OFF */   
-#define LCD_IDMON               0x39   /* Idle Mode ON */   
+#define LCD_VSCRSADD            0x37   /* Vertical Scrolling Start Address */
+#define LCD_IDMOFF              0x38   /* Idle Mode OFF */
+#define LCD_IDMON               0x39   /* Idle Mode ON */
 #define LCD_PIXEL_FORMAT        0x3A   /* Pixel Format register */
-#define LCD_WRITE_MEM_CONTINUE  0x3C   /* Write Memory Continue */   
-#define LCD_READ_MEM_CONTINUE   0x3E   /* Read Memory Continue */   
-#define LCD_SET_TEAR_SCANLINE   0x44   /* Set Tear Scanline */   
-#define LCD_GET_SCANLINE        0x45   /* Get Scanline */   
+#define LCD_WRITE_MEM_CONTINUE  0x3C   /* Write Memory Continue */
+#define LCD_READ_MEM_CONTINUE   0x3E   /* Read Memory Continue */
+#define LCD_SET_TEAR_SCANLINE   0x44   /* Set Tear Scanline */
+#define LCD_GET_SCANLINE        0x45   /* Get Scanline */
 #define LCD_WDB                 0x51   /* Write Brightness Display register */
-#define LCD_RDDISBV             0x52   /* Read Display Brightness */   
+#define LCD_RDDISBV             0x52   /* Read Display Brightness */
 #define LCD_WCD                 0x53   /* Write Control Display register*/
-#define LCD_RDCTRLD             0x54   /* Read CTRL Display */   
-#define LCD_WRCABC              0x55   /* Write Content Adaptive Brightness Control */   
-#define LCD_RDCABC              0x56   /* Read Content Adaptive Brightness Control */   
-#define LCD_WRITE_CABC          0x5E   /* Write CABC Minimum Brightness */   
-#define LCD_READ_CABC           0x5F   /* Read CABC Minimum Brightness */   
+#define LCD_RDCTRLD             0x54   /* Read CTRL Display */
+#define LCD_WRCABC              0x55   /* Write Content Adaptive Brightness Control */
+#define LCD_RDCABC              0x56   /* Read Content Adaptive Brightness Control */
+#define LCD_WRITE_CABC          0x5E   /* Write CABC Minimum Brightness */
+#define LCD_READ_CABC           0x5F   /* Read CABC Minimum Brightness */
 #define LCD_READ_ID1            0xDA   /* Read ID1 */
 #define LCD_READ_ID2            0xDB   /* Read ID2 */
 #define LCD_READ_ID3            0xDC   /* Read ID3 */
@@ -200,10 +200,10 @@
 /**
   * @}
   */
-  
+
 /** @defgroup ILI9341_Exported_Functions
   * @{
-  */ 
+  */
 void     ili9341_Init(void);
 uint16_t ili9341_ReadID(void);
 void     ili9341_WriteReg(uint8_t LCD_Reg);
@@ -223,7 +223,7 @@ void     LCD_IO_WriteData(uint16_t RegValue);
 void     LCD_IO_WriteReg(uint8_t Reg);
 uint32_t LCD_IO_ReadData(uint16_t RegValue, uint8_t ReadSize);
 void     LCD_Delay (uint32_t delay);
-      
+
 #ifdef __cplusplus
 }
 #endif
@@ -232,18 +232,18 @@ void     LCD_Delay (uint32_t delay);
 
 /**
   * @}
-  */ 
-
-/**
-  * @}
-  */ 
-
-/**
-  * @}
-  */ 
+  */
 
 /**
   * @}
   */
-  
+
+/**
+  * @}
+  */
+
+/**
+  * @}
+  */
+
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

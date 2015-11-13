@@ -33,7 +33,7 @@
   * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   *
   ******************************************************************************
-  */ 
+  */
 
 /* Define to prevent recursive inclusion -------------------------------------*/
 #ifndef __STM32F4xx_HAL_IWDG_H
@@ -52,16 +52,16 @@
 
 /** @addtogroup IWDG
   * @{
-  */ 
+  */
 
 /* Exported types ------------------------------------------------------------*/
 /** @defgroup IWDG_Exported_Types IWDG Exported Types
   * @{
   */
-   
-/** 
-  * @brief  IWDG HAL State Structure definition  
-  */ 
+
+/**
+  * @brief  IWDG HAL State Structure definition
+  */
 typedef enum
 {
   HAL_IWDG_STATE_RESET     = 0x00,  /*!< IWDG not yet initialized or disabled */
@@ -71,29 +71,29 @@ typedef enum
   HAL_IWDG_STATE_ERROR     = 0x04   /*!< IWDG error state                     */
 }HAL_IWDG_StateTypeDef;
 
-/** 
-  * @brief  IWDG Init structure definition  
-  */ 
+/**
+  * @brief  IWDG Init structure definition
+  */
 typedef struct
 {
-  uint32_t Prescaler;  /*!< Select the prescaler of the IWDG.  
+  uint32_t Prescaler;  /*!< Select the prescaler of the IWDG.
                             This parameter can be a value of @ref IWDG_Prescaler */
-  
-  uint32_t Reload;     /*!< Specifies the IWDG down-counter reload value. 
+
+  uint32_t Reload;     /*!< Specifies the IWDG down-counter reload value.
                             This parameter must be a number between Min_Data = 0 and Max_Data = 0x0FFF */
 }IWDG_InitTypeDef;
 
-/** 
-  * @brief  IWDG Handle Structure definition  
-  */ 
+/**
+  * @brief  IWDG Handle Structure definition
+  */
 typedef struct
 {
-  IWDG_TypeDef                 *Instance;  /*!< Register base address    */ 
-  
+  IWDG_TypeDef                 *Instance;  /*!< Register base address    */
+
   IWDG_InitTypeDef             Init;       /*!< IWDG required parameters */
-  
+
   HAL_LockTypeDef              Lock;       /*!< IWDG Locking object      */
-  
+
   __IO HAL_IWDG_StateTypeDef   State;      /*!< IWDG communication state */
 }IWDG_HandleTypeDef;
 
@@ -122,7 +122,7 @@ typedef struct
 
 /** @defgroup IWDG_Flag_definition IWDG Flag definition
   * @{
-  */ 
+  */
 #define IWDG_FLAG_PVU   ((uint32_t)IWDG_SR_PVU)  /*!< Watchdog counter prescaler value update Flag */
 #define IWDG_FLAG_RVU   ((uint32_t)IWDG_SR_RVU)  /*!< Watchdog counter reload value update Flag    */
 /**
@@ -131,7 +131,7 @@ typedef struct
 
 /** @defgroup IWDG_Prescaler IWDG Prescaler
   * @{
-  */ 
+  */
 #define IWDG_PRESCALER_4     ((uint8_t)0x00)  /*!< IWDG prescaler set to 4   */
 #define IWDG_PRESCALER_8     ((uint8_t)(IWDG_PR_PR_0))                  /*!< IWDG prescaler set to 8   */
 #define IWDG_PRESCALER_16    ((uint8_t)(IWDG_PR_PR_1))                  /*!< IWDG prescaler set to 16  */
@@ -141,7 +141,7 @@ typedef struct
 #define IWDG_PRESCALER_256   ((uint8_t)(IWDG_PR_PR_2 | IWDG_PR_PR_1))   /*!< IWDG prescaler set to 256 */
 /**
   * @}
-  */ 
+  */
 
 /**
   * @}
@@ -186,7 +186,7 @@ typedef struct
 
 /**
   * @}
-  */ 
+  */
 
 /* Exported functions --------------------------------------------------------*/
 /** @addtogroup IWDG_Exported_Functions
@@ -225,7 +225,7 @@ HAL_IWDG_StateTypeDef HAL_IWDG_GetState(IWDG_HandleTypeDef *hiwdg);
 
 /**
   * @}
-  */ 
+  */
 
 /* Private macro -------------------------------------------------------------*/
 /** @defgroup IWDG_Private_Macros IWDG Private Macros
@@ -273,12 +273,12 @@ HAL_IWDG_StateTypeDef HAL_IWDG_GetState(IWDG_HandleTypeDef *hiwdg);
 
 /**
   * @}
-  */ 
+  */
 
 /**
   * @}
-  */ 
-  
+  */
+
 #ifdef __cplusplus
 }
 #endif

@@ -33,32 +33,32 @@
   * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   *
   ******************************************************************************
-  */ 
+  */
 
 /* Includes ------------------------------------------------------------------*/
 #include "ov2640.h"
 
 /** @addtogroup BSP
   * @{
-  */ 
+  */
 
 /** @addtogroup Components
   * @{
-  */ 
-  
+  */
+
 /** @addtogroup OV2640
-  * @brief     This file provides a set of functions needed to drive the 
+  * @brief     This file provides a set of functions needed to drive the
   *            OV2640 Camera module.
   * @{
   */
 
 /** @defgroup OV2640_Private_TypesDefinitions
   * @{
-  */ 
+  */
 
 /**
   * @}
-  */ 
+  */
 
 /** @defgroup OV2640_Private_Defines
   * @{
@@ -66,32 +66,32 @@
 
 /**
   * @}
-  */ 
-  
+  */
+
 /** @defgroup OV2640_Private_Macros
   * @{
   */
-     
+
 /**
   * @}
-  */  
-  
+  */
+
 /** @defgroup OV2640_Private_FunctionPrototypes
   * @{
   */
 static uint32_t ov2640_ConvertValue(uint32_t feature, uint32_t value);
 /**
   * @}
-  */ 
-  
+  */
+
 /** @defgroup OV2640_Private_Variables
   * @{
-  */        
+  */
 
-CAMERA_DrvTypeDef   ov2640_drv = 
+CAMERA_DrvTypeDef   ov2640_drv =
 {
   ov2640_Init,
-  ov2640_ReadID,  
+  ov2640_ReadID,
   ov2640_Config,
 };
 
@@ -1015,8 +1015,8 @@ const char OV2640_QQVGA[][2]=
   {0x54, 0x00},
   {0x55, 0x88},
   {0x57, 0x00},
-  {0x5a, 0x28}, 
-  {0x5b, 0x1E}, 
+  {0x5a, 0x28},
+  {0x5b, 0x1E},
   {0x5c, 0x00},
   {0xd3, 0x08},
   {0xe0, 0x00},
@@ -1032,11 +1032,11 @@ const char OV2640_QQVGA[][2]=
 /**
   * @}
   */
-  
+
 /** @defgroup OV2640_Private_Functions
   * @{
-  */ 
-  
+  */
+
 /**
   * @brief  Initializes the OV2640 CAMERA component.
   * @param  DeviceAddr: Device address on communication Bus.
@@ -1046,15 +1046,15 @@ const char OV2640_QQVGA[][2]=
 void ov2640_Init(uint16_t DeviceAddr, uint32_t resolution)
 {
   uint32_t index;
-  
+
   /* Initialize I2C */
-  CAMERA_IO_Init();    
-  
+  CAMERA_IO_Init();
+
   /* Prepare the camera to be configured */
   CAMERA_IO_Write(DeviceAddr, OV2640_DSP_RA_DLMT, 0x01);
   CAMERA_IO_Write(DeviceAddr, OV2640_SENSOR_COM7, 0x80);
   CAMERA_Delay(200);
-  
+
   /* Initialize OV2640 */
   switch (resolution)
   {
@@ -1064,16 +1064,16 @@ void ov2640_Init(uint16_t DeviceAddr, uint32_t resolution)
       {
         CAMERA_IO_Write(DeviceAddr, OV2640_QQVGA[index][0], OV2640_QQVGA[index][1]);
         CAMERA_Delay(1);
-      } 
+      }
       break;
-    }    
+    }
   case CAMERA_R320x240:
     {
       for(index=0; index<(sizeof(OV2640_QVGA)/2); index++)
       {
         CAMERA_IO_Write(DeviceAddr, OV2640_QVGA[index][0], OV2640_QVGA[index][1]);
         CAMERA_Delay(1);
-      } 
+      }
       break;
     }
   case CAMERA_R480x272:
@@ -1093,7 +1093,7 @@ void ov2640_Init(uint16_t DeviceAddr, uint32_t resolution)
         CAMERA_Delay(2);
       }
       break;
-    }    
+    }
   default:
     {
       break;
@@ -1114,15 +1114,15 @@ void ov2640_Config(uint16_t DeviceAddr, uint32_t feature, uint32_t value, uint32
   uint8_t value1, value2;
   uint32_t value_tmp;
   uint32_t br_value;
-  
+
   /* Convert the input value into ov2640 parameters */
-  value_tmp = ov2640_ConvertValue(feature, value); 
-  br_value = ov2640_ConvertValue(CAMERA_CONTRAST_BRIGHTNESS, brightness_value); 
-    
+  value_tmp = ov2640_ConvertValue(feature, value);
+  br_value = ov2640_ConvertValue(CAMERA_CONTRAST_BRIGHTNESS, brightness_value);
+
   switch(feature)
   {
   case CAMERA_BLACK_WHITE:
-    {  
+    {
       CAMERA_IO_Write(DeviceAddr, 0xff, 0x00);
       CAMERA_IO_Write(DeviceAddr, 0x7c, 0x00);
       CAMERA_IO_Write(DeviceAddr, 0x7d, value_tmp);
@@ -1135,7 +1135,7 @@ void ov2640_Config(uint16_t DeviceAddr, uint32_t feature, uint32_t value, uint32
     {
       value1 = (uint8_t)(value_tmp);
       value2 = (uint8_t)(value_tmp >> 8);
-      CAMERA_IO_Write(DeviceAddr, 0xff, 0x00);     
+      CAMERA_IO_Write(DeviceAddr, 0xff, 0x00);
       CAMERA_IO_Write(DeviceAddr, 0x7c, 0x00);
       CAMERA_IO_Write(DeviceAddr, 0x7d, 0x04);
       CAMERA_IO_Write(DeviceAddr, 0x7c, 0x07);
@@ -1146,7 +1146,7 @@ void ov2640_Config(uint16_t DeviceAddr, uint32_t feature, uint32_t value, uint32
       break;
     }
   case CAMERA_COLOR_EFFECT:
-    {     
+    {
       value1 = (uint8_t)(value_tmp);
       value2 = (uint8_t)(value_tmp >> 8);
       CAMERA_IO_Write(DeviceAddr, 0xff, 0x00);
@@ -1156,7 +1156,7 @@ void ov2640_Config(uint16_t DeviceAddr, uint32_t feature, uint32_t value, uint32
       CAMERA_IO_Write(DeviceAddr, 0x7d, value1);
       CAMERA_IO_Write(DeviceAddr, 0x7d, value2);
       break;
-    }     
+    }
   default:
     {
       break;
@@ -1173,10 +1173,10 @@ uint16_t ov2640_ReadID(uint16_t DeviceAddr)
 {
   /* Initialize I2C */
   CAMERA_IO_Init();
-  
+
   /* Prepare the sensor to read the Camera ID */
   CAMERA_IO_Write(DeviceAddr, OV2640_DSP_RA_DLMT, 0x01);
-  
+
   /* Get the camera ID */
   return (CAMERA_IO_Read(DeviceAddr, OV2640_SENSOR_PIDH));
 }
@@ -1193,7 +1193,7 @@ uint16_t ov2640_ReadID(uint16_t DeviceAddr)
 static uint32_t ov2640_ConvertValue(uint32_t feature, uint32_t value)
 {
   uint32_t ret = 0;
-  
+
   switch(feature)
   {
   case CAMERA_BLACK_WHITE:
@@ -1256,7 +1256,7 @@ static uint32_t ov2640_ConvertValue(uint32_t feature, uint32_t value)
         {
           ret =  OV2640_BRIGHTNESS_LEVEL4;
           break;
-        }        
+        }
       case CAMERA_CONTRAST_LEVEL0:
         {
           ret =  OV2640_CONTRAST_LEVEL0;
@@ -1325,27 +1325,27 @@ static uint32_t ov2640_ConvertValue(uint32_t feature, uint32_t value)
       {
         ret = 0;
         break;
-      }    
+      }
     }
   }
-  
+
   return ret;
 }
-         
-/**
-  * @}
-  */ 
-  
-/**
-  * @}
-  */ 
 
 /**
   * @}
-  */ 
-  
+  */
+
 /**
   * @}
-  */  
+  */
+
+/**
+  * @}
+  */
+
+/**
+  * @}
+  */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

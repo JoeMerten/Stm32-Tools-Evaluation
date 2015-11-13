@@ -33,7 +33,7 @@
   * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   *
   ******************************************************************************
-  */ 
+  */
 
 /* Define to prevent recursive inclusion -------------------------------------*/
 #ifndef __STM32F4xx_HAL_FMPI2C_EX_H
@@ -43,10 +43,10 @@
  extern "C" {
 #endif
 
-#if defined(STM32F410Tx) || defined(STM32F410Cx) || defined(STM32F410Rx) || defined(STM32F446xx) 
-   
+#if defined(STM32F410Tx) || defined(STM32F410Cx) || defined(STM32F410Rx) || defined(STM32F446xx)
+
 /* Includes ------------------------------------------------------------------*/
-#include "stm32f4xx_hal_def.h"  
+#include "stm32f4xx_hal_def.h"
 
 /** @addtogroup STM32F4xx_HAL_Driver
   * @{
@@ -54,9 +54,9 @@
 
 /** @addtogroup FMPI2CEx
   * @{
-  */ 
+  */
 
-/* Exported types ------------------------------------------------------------*/ 
+/* Exported types ------------------------------------------------------------*/
 /* Exported constants --------------------------------------------------------*/
 /** @defgroup FMPI2CEx_Exported_Constants FMPI2C Exported Constants
   * @{
@@ -79,11 +79,11 @@
 /**
   * @}
   */
-  
+
 /**
   * @}
-  */ 
-  
+  */
+
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions --------------------------------------------------------*/
 /** @addtogroup FMPI2CEx_Exported_Functions
@@ -106,7 +106,7 @@ void HAL_FMPI2CEx_DisableFastModePlus(uint32_t ConfigFastModePlus);
 
 /**
   * @}
-  */ 
+  */
 /* Private types -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
 /* Private constants ---------------------------------------------------------*/
@@ -135,12 +135,12 @@ void HAL_FMPI2CEx_DisableFastModePlus(uint32_t ConfigFastModePlus);
 
 /**
   * @}
-  */ 
+  */
 
 /**
   * @}
   */
-#endif /* STM32F410xx || STM32F446xx  */  
+#endif /* STM32F410xx || STM32F446xx  */
 #ifdef __cplusplus
 }
 #endif

@@ -33,7 +33,7 @@
   * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   *
   ******************************************************************************
-  */ 
+  */
 
 /* Define to prevent recursive inclusion -------------------------------------*/
 #ifndef __STM32F4xx_HAL_FMPI2C_H
@@ -43,10 +43,10 @@
  extern "C" {
 #endif
 
-#if defined(STM32F410Tx) || defined(STM32F410Cx) || defined(STM32F410Rx) || defined(STM32F446xx) 
-   
+#if defined(STM32F410Tx) || defined(STM32F410Cx) || defined(STM32F410Rx) || defined(STM32F446xx)
+
 /* Includes ------------------------------------------------------------------*/
-#include "stm32f4xx_hal_def.h"  
+#include "stm32f4xx_hal_def.h"
 
 /** @addtogroup STM32F4xx_HAL_Driver
   * @{
@@ -54,20 +54,20 @@
 
 /** @addtogroup FMPI2C
   * @{
-  */ 
+  */
 
-/* Exported types ------------------------------------------------------------*/ 
+/* Exported types ------------------------------------------------------------*/
 /** @defgroup FMPI2C_Exported_Types FMPI2C Exported Types
   * @{
   */
-   
-/** 
-  * @brief  FMPI2C Configuration Structure definition  
+
+/**
+  * @brief  FMPI2C Configuration Structure definition
   */
 typedef struct
 {
   uint32_t Timing;              /*!< Specifies the FMPI2C_TIMINGR_register value.
-                                  This parameter calculated by referring to FMPI2C initialization 
+                                  This parameter calculated by referring to FMPI2C initialization
                                          section in Reference manual */
 
   uint32_t OwnAddress1;         /*!< Specifies the first device own address.
@@ -93,9 +93,9 @@ typedef struct
 
 }FMPI2C_InitTypeDef;
 
-/** 
-  * @brief  HAL State structures definition  
-  */ 
+/**
+  * @brief  HAL State structures definition
+  */
 typedef enum
 {
   HAL_FMPI2C_STATE_RESET           = 0x00,  /*!< FMPI2C not yet initialized or disabled         */
@@ -111,9 +111,9 @@ typedef enum
   HAL_FMPI2C_STATE_ERROR           = 0x04   /*!< Reception process is ongoing                */
 }HAL_FMPI2C_StateTypeDef;
 
-/** 
-  * @brief  HAL FMPI2C Error Code structure definition  
-  */ 
+/**
+  * @brief  HAL FMPI2C Error Code structure definition
+  */
 typedef enum
 {
   HAL_FMPI2C_ERROR_NONE      = 0x00,    /*!< No error              */
@@ -126,8 +126,8 @@ typedef enum
   HAL_FMPI2C_ERROR_SIZE      = 0x40     /*!< Size Management error */
 }HAL_FMPI2C_ErrorTypeDef;
 
-/** 
-  * @brief  FMPI2C handle Structure definition  
+/**
+  * @brief  FMPI2C handle Structure definition
   */
 typedef struct
 {
@@ -195,7 +195,7 @@ typedef struct
 #define FMPI2C_OA2_MASK05                  ((uint8_t)0x05)
 #define FMPI2C_OA2_MASK06                  ((uint8_t)0x06)
 #define FMPI2C_OA2_MASK07                  ((uint8_t)0x07)
- 
+
 /**
   * @}
   */
@@ -228,8 +228,8 @@ typedef struct
 
 /**
   * @}
-  */  
-  
+  */
+
 /** @defgroup FMPI2C_ReloadEndMode_definition FMPI2C ReloadEndMode definition
   * @{
   */
@@ -250,7 +250,7 @@ typedef struct
 #define  FMPI2C_GENERATE_STOP                FMPI2C_CR2_STOP
 #define  FMPI2C_GENERATE_START_READ          (uint32_t)(FMPI2C_CR2_START | FMPI2C_CR2_RD_WRN)
 #define  FMPI2C_GENERATE_START_WRITE         FMPI2C_CR2_START
-                               
+
 /**
   * @}
   */
@@ -276,7 +276,7 @@ typedef struct
 
 /** @defgroup FMPI2C_Flag_definition FMPI2C Flag definition
   * @{
-  */ 
+  */
 
 #define FMPI2C_FLAG_TXE                      FMPI2C_ISR_TXE
 #define FMPI2C_FLAG_TXIS                     FMPI2C_ISR_TXIS
@@ -301,8 +301,8 @@ typedef struct
 
 /**
   * @}
-  */ 
-  
+  */
+
 /* Exported macro ------------------------------------------------------------*/
 /** @defgroup FMPI2C_Exported_Macros FMPI2C Exported Macros
   * @{
@@ -327,13 +327,13 @@ typedef struct
   *            @arg FMPI2C_IT_ADDRI: Address match interrupt enable
   *            @arg FMPI2C_IT_RXI: RX interrupt enable
   *            @arg FMPI2C_IT_TXI: TX interrupt enable
-  *   
+  *
   * @retval None
   */
-  
+
 #define __HAL_FMPI2C_ENABLE_IT(__HANDLE__, __INTERRUPT__)   ((__HANDLE__)->Instance->CR1 |= (__INTERRUPT__))
 #define __HAL_FMPI2C_DISABLE_IT(__HANDLE__, __INTERRUPT__)  ((__HANDLE__)->Instance->CR1 &= (~(__INTERRUPT__)))
- 
+
 /** @brief  Checks if the specified FMPI2C interrupt source is enabled or disabled.
   * @param  __HANDLE__: specifies the FMPI2C Handle.
   *         This parameter can be FMPI2C where x: 1 or 2 to select the FMPI2C peripheral.
@@ -346,7 +346,7 @@ typedef struct
   *            @arg FMPI2C_IT_ADDRI: Address match interrupt enable
   *            @arg FMPI2C_IT_RXI: RX interrupt enable
   *            @arg FMPI2C_IT_TXI: TX interrupt enable
-  *   
+  *
   * @retval The new state of __IT__ (TRUE or FALSE).
   */
 #define __HAL_FMPI2C_GET_IT_SOURCE(__HANDLE__, __INTERRUPT__) ((((__HANDLE__)->Instance->CR1 & (__INTERRUPT__)) == (__INTERRUPT__)) ? SET : RESET)
@@ -368,7 +368,7 @@ typedef struct
   *            @arg FMPI2C_FLAG_ARLO:     Arbitration lost
   *            @arg FMPI2C_FLAG_OVR:      Overrun/Underrun
   *            @arg FMPI2C_FLAG_PECERR:   PEC error in reception
-  *            @arg FMPI2C_FLAG_TIMEOUT:  Timeout or Tlow detection flag 
+  *            @arg FMPI2C_FLAG_TIMEOUT:  Timeout or Tlow detection flag
   *            @arg FMPI2C_FLAG_ALERT:    SMBus alert
   *            @arg FMPI2C_FLAG_BUSY:     Bus busy
   *            @arg FMPI2C_FLAG_DIR:      Transfer direction (slave mode)
@@ -387,20 +387,20 @@ typedef struct
   *            @arg FMPI2C_FLAG_STOPF:   STOP detection flag
   *            @arg FMPI2C_FLAG_BERR:    Bus error
   *            @arg FMPI2C_FLAG_ARLO:    Arbitration lost
-  *            @arg FMPI2C_FLAG_OVR:     Overrun/Underrun            
+  *            @arg FMPI2C_FLAG_OVR:     Overrun/Underrun
   *            @arg FMPI2C_FLAG_PECERR:  PEC error in reception
-  *            @arg FMPI2C_FLAG_TIMEOUT: Timeout or Tlow detection flag 
+  *            @arg FMPI2C_FLAG_TIMEOUT: Timeout or Tlow detection flag
   *            @arg FMPI2C_FLAG_ALERT:   SMBus alert
-  *   
+  *
   * @retval None
   */
 #define __HAL_FMPI2C_CLEAR_FLAG(__HANDLE__, __FLAG__) ((__HANDLE__)->Instance->ICR = ((__FLAG__) & FMPI2C_FLAG_MASK))
- 
+
 
 #define __HAL_FMPI2C_ENABLE(__HANDLE__)                            ((__HANDLE__)->Instance->CR1 |=  FMPI2C_CR1_PE)
 #define __HAL_FMPI2C_DISABLE(__HANDLE__)                           ((__HANDLE__)->Instance->CR1 &=  ~FMPI2C_CR1_PE)
 
-#define __HAL_FMPI2C_RESET_CR2(__HANDLE__)				((__HANDLE__)->Instance->CR2 &= (uint32_t)~((uint32_t)(FMPI2C_CR2_SADD | FMPI2C_CR2_HEAD10R | FMPI2C_CR2_NBYTES | FMPI2C_CR2_RELOAD | FMPI2C_CR2_RD_WRN)))
+#define __HAL_FMPI2C_RESET_CR2(__HANDLE__)              ((__HANDLE__)->Instance->CR2 &= (uint32_t)~((uint32_t)(FMPI2C_CR2_SADD | FMPI2C_CR2_HEAD10R | FMPI2C_CR2_NBYTES | FMPI2C_CR2_RELOAD | FMPI2C_CR2_RD_WRN)))
 
 #define __HAL_FMPI2C_MEM_ADD_MSB(__ADDRESS__)                       ((uint8_t)((uint16_t)(((uint16_t)((__ADDRESS__) & (uint16_t)(0xFF00))) >> 8)))
 #define __HAL_FMPI2C_MEM_ADD_LSB(__ADDRESS__)                       ((uint8_t)((uint16_t)((__ADDRESS__) & (uint16_t)(0x00FF))))
@@ -495,7 +495,7 @@ uint32_t             HAL_FMPI2C_GetError(FMPI2C_HandleTypeDef *hFMPI2C);
 
 /**
   * @}
-  */ 
+  */
 
 /* Private types -------------------------------------------------------------*/
 
@@ -507,7 +507,7 @@ uint32_t             HAL_FMPI2C_GetError(FMPI2C_HandleTypeDef *hFMPI2C);
 #define FMPI2C_FLAG_MASK  ((uint32_t)0x0001FFFF)
 /**
   * @}
-  */ 
+  */
 
 /* Private macros ------------------------------------------------------------*/
 /** @defgroup FMPI2C_Private_Macros FMPI2C Private Macros
@@ -527,7 +527,7 @@ uint32_t             HAL_FMPI2C_GetError(FMPI2C_HandleTypeDef *hFMPI2C);
                                             ((MASK) == FMPI2C_OA2_MASK04) || \
                                             ((MASK) == FMPI2C_OA2_MASK05) || \
                                             ((MASK) == FMPI2C_OA2_MASK06) || \
-                                            ((MASK) == FMPI2C_OA2_MASK07)) 
+                                            ((MASK) == FMPI2C_OA2_MASK07))
 
 #define IS_FMPI2C_GENERAL_CALL(CALL) (((CALL) == FMPI2C_GENERALCALL_DISABLE) || \
                                       ((CALL) == FMPI2C_GENERALCALL_ENABLE))
@@ -549,10 +549,10 @@ uint32_t             HAL_FMPI2C_GetError(FMPI2C_HandleTypeDef *hFMPI2C);
 
 /**
   * @}
-  */ 
+  */
 /* Private functions ---------------------------------------------------------*/
 /** @defgroup FMPI2C_Private_Functions FMPI2C Private Functions
-  * @brief    FMPI2C private  functions 
+  * @brief    FMPI2C private  functions
   * @{
   */
 /**
@@ -561,12 +561,12 @@ uint32_t             HAL_FMPI2C_GetError(FMPI2C_HandleTypeDef *hFMPI2C);
 
 /**
   * @}
-  */ 
+  */
 
 /**
   * @}
-  */ 
-#endif /* STM32F410xx || STM32F446xx  */ 
+  */
+#endif /* STM32F410xx || STM32F446xx  */
 #ifdef __cplusplus
 }
 #endif

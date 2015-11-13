@@ -34,7 +34,7 @@
   * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   *
   ******************************************************************************
-  */ 
+  */
 
 /* Define to prevent recursive inclusion -------------------------------------*/
 #ifndef __S5K5CAG_H
@@ -42,19 +42,19 @@
 
 #ifdef __cplusplus
  extern "C" {
-#endif 
+#endif
 
 /* Includes ------------------------------------------------------------------*/
 #include "../Common/camera.h"
-   
+
 /** @addtogroup BSP
   * @{
-  */ 
+  */
 
 /** @addtogroup Components
   * @{
-  */ 
-  
+  */
+
 /** @addtogroup s5k5cag
   * @{
   */
@@ -62,19 +62,19 @@
 /** @defgroup S5K5CAG_Exported_Types
   * @{
   */
-     
+
 /**
   * @}
-  */ 
+  */
 
 /** @defgroup S5K5CAG_Exported_Constants
   * @{
   */
-/** 
+/**
   * @brief  S5K5CAG ID
-  */  
+  */
 #define  S5K5CAG_ID                      ((uint16_t)0x05CA)
-/** 
+/**
   * @brief  S5K5CAG Registers
   */
 #define S5K5CAG_INFO_CHIPID1             ((uint16_t)0x0040)
@@ -82,7 +82,7 @@
 #define S5K5CAG_INFO_SVNVERSION          ((uint16_t)0x0048)
 #define S5K5CAG_INFO_DATE                ((uint16_t)0x004E)
 
-/** 
+/**
  * @brief  S5K5CAG Features Parameters
  */
 #define S5K5CAG_BRIGHTNESS_LEVEL0        ((uint16_t)0xFF00)  /* Brightness level -2         */
@@ -110,10 +110,10 @@
 /**
   * @}
   */
-  
+
 /** @defgroup S5K5CAG_Exported_Functions
   * @{
-  */ 
+  */
 void     s5k5cag_Init(uint16_t DeviceAddr, uint32_t resolution);
 void     s5k5cag_Config(uint16_t DeviceAddr, uint32_t feature, uint32_t value, uint32_t BR_value);
 uint16_t s5k5cag_ReadID(uint16_t DeviceAddr);
@@ -127,7 +127,7 @@ void     CAMERA_Delay(uint32_t delay);
 extern CAMERA_DrvTypeDef   s5k5cag_drv;
 /**
   * @}
-  */    
+  */
 #ifdef __cplusplus
 }
 #endif
@@ -135,14 +135,14 @@ extern CAMERA_DrvTypeDef   s5k5cag_drv;
 #endif /* __S5K5CAG_H */
 /**
   * @}
-  */ 
+  */
 
 /**
   * @}
-  */ 
+  */
 
 /**
   * @}
-  */ 
+  */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

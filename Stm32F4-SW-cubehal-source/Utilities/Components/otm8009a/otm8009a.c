@@ -5,7 +5,7 @@
   * @version V1.0.0
   * @date    03-August-2015
   * @brief   This file provides the LCD Driver for KoD KM-040TMP-02-0621 (WVGA)
-  *          DSI LCD Display OTM8009A.   
+  *          DSI LCD Display OTM8009A.
   ******************************************************************************
   * @attention
   *
@@ -42,13 +42,13 @@
 /** @addtogroup BSP
   * @{
   */
-  
+
 /** @addtogroup Components
   * @{
-  */ 
+  */
 
 /** @defgroup OTM8009A OTM8009A
-  * @brief     This file provides a set of functions needed to drive the 
+  * @brief     This file provides a set of functions needed to drive the
   *            otm8009a IC display driver.
   * @{
   */
@@ -88,7 +88,7 @@ const uint8_t lcdRegData21[] = {0x25,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x0
 const uint8_t lcdRegData22[] = {0x00,0x25,0x0C,0x0A,0x02,0x26,0x00,0x00,0x00,0x00,0xCC};
 const uint8_t lcdRegData23[] = {0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x25,0x0B,0x09,0x01,0xCC};
 const uint8_t lcdRegData24[] = {0x26,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0xCC};
-const uint8_t lcdRegData25[] = {0xFF,0xFF,0xFF,0xFF};    
+const uint8_t lcdRegData25[] = {0xFF,0xFF,0xFF,0xFF};
 /*
   * CASET value (Column Address Set) : X direction LCD GRAM boundaries
   * depending on LCD orientation mode and PASET value (Page Address Set) : Y direction
@@ -364,18 +364,18 @@ uint8_t OTM8009A_Init(uint32_t ColorCoding, uint32_t orientation)
 
   /* NOP - goes back to DCS std command ? */
   DSI_IO_WriteCmd(0, (uint8_t *)ShortRegData1);
-          
+
   /* Gamma correction 2.2+ table (HSDT possible) */
   DSI_IO_WriteCmd(0, (uint8_t *)ShortRegData1);
   DSI_IO_WriteCmd( 16, (uint8_t *)lcdRegData3);
-  
+
   /* Gamma correction 2.2- table (HSDT possible) */
   DSI_IO_WriteCmd(0, (uint8_t *)ShortRegData1);
   DSI_IO_WriteCmd( 16, (uint8_t *)lcdRegData4);
-          
+
   /* Send Sleep Out command to display : no parameter */
   DSI_IO_WriteCmd(0, (uint8_t *)ShortRegData36);
-  
+
   /* Wait for sleep out exit */
   OTM8009A_IO_Delay(120);
 

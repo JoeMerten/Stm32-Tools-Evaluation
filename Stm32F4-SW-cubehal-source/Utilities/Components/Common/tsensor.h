@@ -5,7 +5,7 @@
   * @version V4.0.1
   * @date    21-July-2015
   * @brief   This header file contains the functions prototypes for the
-  *          Temperature Sensor driver. 
+  *          Temperature Sensor driver.
   ******************************************************************************
   * @attention
   *
@@ -54,14 +54,14 @@
 /** @addtogroup Components
   * @{
   */
-    
+
 /** @addtogroup TSENSOR
   * @{
   */
 
 /** @defgroup TSENSOR_Exported_Types
   * @{
-  */ 
+  */
 
 /** @defgroup TSENSOR_Config_structure  Temperature Sensor Configuration structure
   * @{
@@ -83,11 +83,11 @@ typedef struct
   * @{
   */
 typedef struct
-{  
+{
   void       (*Init)(uint16_t, TSENSOR_InitTypeDef *);
   uint8_t    (*IsReady)(uint16_t, uint32_t);
   uint8_t    (*ReadStatus)(uint16_t);
-  uint16_t   (*ReadTemp)(uint16_t); 
+  uint16_t   (*ReadTemp)(uint16_t);
 }TSENSOR_DrvTypeDef;
 /**
   * @}

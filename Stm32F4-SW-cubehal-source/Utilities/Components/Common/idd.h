@@ -33,7 +33,7 @@
   * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   *
   ******************************************************************************
-  */ 
+  */
 
 /* Define to prevent recursive inclusion -------------------------------------*/
 #ifndef __IDD_H
@@ -53,7 +53,7 @@
 /** @addtogroup Components
   * @{
   */
-    
+
 /** @addtogroup IDD
   * @{
   */
@@ -99,11 +99,11 @@ typedef struct
                                  This parameter can be a value of @ref IDD_Vref_Measurement */
   uint8_t Calibration;      /*!< Specifies if calibration is done before each Idd measurement
                                   */
-  uint8_t PreDelayUnit;     /*!< Specifies Pre delay unit 
+  uint8_t PreDelayUnit;     /*!< Specifies Pre delay unit
                                  This parameter can be a value of @ref IDD_PreDelay */
   uint8_t PreDelayValue;    /*!< Specifies Pre delay value in selected unit
                                   */
-  uint8_t MeasureNb;        /*!< Specifies number of Measure to be performed 
+  uint8_t MeasureNb;        /*!< Specifies number of Measure to be performed
                                  This parameter can be a value between 1 and 256 */
   uint8_t DeltaDelayUnit;   /*!< Specifies Delta delay unit
                                   This parameter can be a value of @ref IDD_DeltaDelay */

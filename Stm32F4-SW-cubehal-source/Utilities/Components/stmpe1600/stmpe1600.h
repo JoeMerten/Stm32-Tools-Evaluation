@@ -34,7 +34,7 @@
   * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   *
   ******************************************************************************
-  */ 
+  */
 
 /* Define to prevent recursive inclusion -------------------------------------*/
 #ifndef __STMPE1600_H
@@ -42,82 +42,82 @@
 
 #ifdef __cplusplus
  extern "C" {
-#endif   
-   
+#endif
+
 /* Includes ------------------------------------------------------------------*/
 #include "../Common/io.h"
 
 /** @addtogroup BSP
   * @{
-  */ 
+  */
 
 /** @addtogroup Component
   * @{
   */
-    
+
 /** @defgroup STMPE1600
   * @{
-  */    
+  */
 
 /* Exported types ------------------------------------------------------------*/
 
 /** @defgroup STMPE1600_Exported_Types
   * @{
-  */ 
+  */
 
 /* Exported constants --------------------------------------------------------*/
-  
+
 /** @defgroup STMPE1600_Exported_Constants
   * @{
-  */ 
+  */
 
-/** 
-  * @brief STMPE1600 chip IDs  
-  */ 
+/**
+  * @brief STMPE1600 chip IDs
+  */
 #define STMPE1600_ID                     0x1600
 
-/** 
-  * @brief  Interrupt enable  
-  */ 
+/**
+  * @brief  Interrupt enable
+  */
 #define STMPE1600_IT_ENABLE              0x04
 
-/** 
-  * @brief  Identification registers & System Control  
-  */ 
+/**
+  * @brief  Identification registers & System Control
+  */
 #define STMPE1600_REG_CHP_ID             0x00
 #define STMPE1600_REG_ID_VERSION         0x02
 #define STMPE1600_REG_SYS_CTRL           0x03
 
-/** 
-  * @brief  IO Registers  
-  */ 
+/**
+  * @brief  IO Registers
+  */
 
 #define STMPE1600_REG_GPMR               0x10
 #define STMPE1600_REG_GPSR               0x12
 #define STMPE1600_REG_GPDR               0x14
 #define STMPE1600_REG_GPPIR              0x16
-   
-/** 
-  * @brief  Interrupt Control registers  
-  */ 
+
+/**
+  * @brief  Interrupt Control registers
+  */
 #define STMPE1600_REG_IEGPIOR            0x08
 #define STMPE1600_REG_ISGPIOR            0x0A
 
-/** 
-  * @brief  IO Pins direction  
+/**
+  * @brief  IO Pins direction
   */
 #define STMPE1600_DIRECTION_IN           0x00
 #define STMPE1600_DIRECTION_OUT          0x01
 
-/** 
-  * @brief  IO IT polarity  
+/**
+  * @brief  IO IT polarity
   */
 #define STMPE1600_POLARITY_LOW           0x00
 #define STMPE1600_POLARITY_HIGH          0x01
 
-/** 
-  * @brief  IO Pins  
-  */     
+/**
+  * @brief  IO Pins
+  */
 #define STMPE1600_PIN_0                  0x0001
 #define STMPE1600_PIN_1                  0x0002
 #define STMPE1600_PIN_2                  0x0004
@@ -134,25 +134,25 @@
 #define STMPE1600_PIN_13                 0x2000
 #define STMPE1600_PIN_14                 0x4000
 #define STMPE1600_PIN_15                 0x8000
-#define STMPE1600_PIN_ALL                0xFFFF    
+#define STMPE1600_PIN_ALL                0xFFFF
 
 /**
   * @}
-  */ 
-  
+  */
+
 /* Exported macro ------------------------------------------------------------*/
-  
+
 /** @defgroup STMPE1600_Exported_Macros
   * @{
-  */ 
+  */
 
 /* Exported functions --------------------------------------------------------*/
-  
+
 /** @defgroup STMPE1600_Exported_Functions
   * @{
   */
-  
-/** 
+
+/**
   * @brief STMPE1600 Control functions
   */
 void     stmpe1600_Init(uint16_t DeviceAddr);
@@ -162,7 +162,7 @@ void     stmpe1600_SetITPolarity(uint16_t DeviceAddr, uint8_t Polarity);
 void     stmpe1600_EnableGlobalIT(uint16_t DeviceAddr);
 void     stmpe1600_DisableGlobalIT(uint16_t DeviceAddr);
 
-/** 
+/**
   * @brief STMPE1600 IO functionalities functions
   */
 void     stmpe1600_IO_InitPin(uint16_t DeviceAddr, uint32_t IO_Pin, uint8_t Direction);
@@ -197,7 +197,7 @@ extern IO_DrvTypeDef stmpe1600_io_drv;
 
 /**
   * @}
-  */ 
+  */
 
 /**
   * @}
@@ -205,9 +205,9 @@ extern IO_DrvTypeDef stmpe1600_io_drv;
 
 /**
   * @}
-  */ 
+  */
 
 /**
   * @}
-  */       
+  */
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

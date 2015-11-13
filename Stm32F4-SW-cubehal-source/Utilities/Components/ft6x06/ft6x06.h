@@ -49,11 +49,11 @@ extern "C" {
   #define TS_MULTI_TOUCH_SUPPORTED 0
 #endif
 
-/* Set Auto-calibration as non supported */  
+/* Set Auto-calibration as non supported */
 #ifndef TS_AUTO_CALIBRATION_SUPPORTED
   #define TS_AUTO_CALIBRATION_SUPPORTED 0
 #endif
-  
+
 /* Includes ------------------------------------------------------------------*/
 #include "../Common/ts.h"
 

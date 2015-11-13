@@ -34,7 +34,7 @@
   * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   *
   ******************************************************************************
-  */ 
+  */
 
 /* Define to prevent recursive inclusion -------------------------------------*/
 #ifndef __EXC7200_H
@@ -42,55 +42,55 @@
 
 #ifdef __cplusplus
  extern "C" {
-#endif   
-   
+#endif
+
 /* Includes ------------------------------------------------------------------*/
 #include "../Common/ts.h"
 
 /** @addtogroup BSP
   * @{
-  */ 
+  */
 
 /** @addtogroup Component
   * @{
   */
-    
+
 /** @defgroup EXC7200
   * @{
-  */    
+  */
 
 /* Exported types ------------------------------------------------------------*/
 
 /** @defgroup EXC7200_Exported_Types
   * @{
-  */ 
+  */
 
 /* Exported constants --------------------------------------------------------*/
-  
+
 /** @defgroup EXC7200_Exported_Constants
   * @{
-  */ 
+  */
 
-/*  */   
-#define EXC7200_READ_CMD                             0x09  
+/*  */
+#define EXC7200_READ_CMD                             0x09
 
 /**
   * @}
-  */ 
-  
+  */
+
 /* Exported macro ------------------------------------------------------------*/
-   
+
 /** @defgroup exc7200_Exported_Macros
   * @{
-  */ 
+  */
 
 /* Exported functions --------------------------------------------------------*/
-  
+
 /** @defgroup exc7200_Exported_Functions
   * @{
   */
 
-/** 
+/**
   * @brief exc7200 Control functions
   */
 void     exc7200_Init(uint16_t DeviceAddr);
@@ -121,7 +121,7 @@ extern TS_DrvTypeDef exc7200_ts_drv;
 
 /**
   * @}
-  */ 
+  */
 
 /**
   * @}
@@ -129,9 +129,9 @@ extern TS_DrvTypeDef exc7200_ts_drv;
 
 /**
   * @}
-  */ 
+  */
 
 /**
   * @}
-  */       
+  */
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

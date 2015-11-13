@@ -41,14 +41,14 @@
 
 /** @addtogroup BSP
   * @{
-  */ 
+  */
 
 /** @addtogroup Components
   * @{
-  */ 
+  */
 
 /** @addtogroup LIS3DSH
-  * @brief  This file includes the motion sensor driver for LIS3DSH motion sensor 
+  * @brief  This file includes the motion sensor driver for LIS3DSH motion sensor
   *         devices.
   * @{
   */
@@ -75,8 +75,8 @@
 
 /**
   * @}
-  */ 
-  
+  */
+
 /** @defgroup LIS3DSH_Private_Variables
   * @{
   */
@@ -104,7 +104,7 @@ ACCELERO_DrvTypeDef Lis3dshDrv =
 /** @defgroup LIS3DSH_Private_FunctionPrototypes
   * @{
   */
-  
+
 /**
   * @}
   */
@@ -121,19 +121,19 @@ ACCELERO_DrvTypeDef Lis3dshDrv =
 void LIS3DSH_Init(uint16_t InitStruct)
 {
   uint8_t ctrl = 0x00;
-  
+
   /* Configure the low level interface */
   ACCELERO_IO_Init();
 
   /* Configure MEMS: power mode(ODR) and axes enable */
   ctrl = (uint8_t) (InitStruct);
-  
+
   /* Write value to MEMS CTRL_REG4 register */
   ACCELERO_IO_Write(&ctrl, LIS3DSH_CTRL_REG4_ADDR, 1);
-  
+
   /* Configure MEMS: full scale and self test */
   ctrl = (uint8_t) (InitStruct >> 8);
-  
+
   /* Write value to MEMS CTRL_REG5 register */
   ACCELERO_IO_Write(&ctrl, LIS3DSH_CTRL_REG5_ADDR, 1);
 }
@@ -145,7 +145,7 @@ void LIS3DSH_Init(uint16_t InitStruct)
   */
 void LIS3DSH_DeInit(void)
 {
-  
+
 }
 
 /**
@@ -162,40 +162,40 @@ uint8_t LIS3DSH_ReadID(void)
 
   /* Read WHO_AM_I register */
   ACCELERO_IO_Read(&tmp, LIS3DSH_WHO_AM_I_ADDR, 1);
-  
+
   /* Return the ID */
   return (uint16_t)tmp;
 }
 
 /**
   * @brief  Set LIS3DSH Interrupt configuration
-  * @param  LIS3DSH_InterruptConfig_TypeDef: pointer to a LIS3DSH_InterruptConfig_TypeDef 
+  * @param  LIS3DSH_InterruptConfig_TypeDef: pointer to a LIS3DSH_InterruptConfig_TypeDef
   *         structure that contains the configuration setting for the LIS3DSH Interrupt.
   * @retval None
   */
 void LIS3DSH_InterruptConfig(LIS3DSH_InterruptConfigTypeDef *LIS3DSH_IntConfigStruct)
 {
   uint8_t ctrl = 0x00;
-  
-  /* Configure Interrupt Selection , Request and Signal */                   
+
+  /* Configure Interrupt Selection , Request and Signal */
   ctrl = (uint8_t)(LIS3DSH_IntConfigStruct->Interrupt_Selection_Enable | \
                    LIS3DSH_IntConfigStruct->Interrupt_Request | \
                    LIS3DSH_IntConfigStruct->Interrupt_Signal);
-  
+
   /* Write value to MEMS CTRL_REG3 register */
   ACCELERO_IO_Write(&ctrl, LIS3DSH_CTRL_REG3_ADDR, 1);
-  
-  /* Configure State Machine 1 */                   
+
+  /* Configure State Machine 1 */
   ctrl = (uint8_t)(LIS3DSH_IntConfigStruct->State_Machine1_Enable | \
                    LIS3DSH_IntConfigStruct->State_Machine1_Interrupt);
-  
+
   /* Write value to MEMS CTRL_REG1 register */
   ACCELERO_IO_Write(&ctrl, LIS3DSH_CTRL_REG1_ADDR, 1);
-  
-  /* Configure State Machine 2 */                   
+
+  /* Configure State Machine 2 */
   ctrl = (uint8_t)(LIS3DSH_IntConfigStruct->State_Machine2_Enable | \
                    LIS3DSH_IntConfigStruct->State_Machine2_Interrupt);
-  
+
   /* Write value to MEMS CTRL_REG2 register */
   ACCELERO_IO_Write(&ctrl, LIS3DSH_CTRL_REG2_ADDR, 1);
 }
@@ -208,7 +208,7 @@ void LIS3DSH_InterruptConfig(LIS3DSH_InterruptConfigTypeDef *LIS3DSH_IntConfigSt
 void LIS3DSH_Click_IntConfig(void)
 {
   uint8_t ctrl = 0x00;
-  LIS3DSH_InterruptConfigTypeDef   LIS3DSH_InterruptStruct; 
+  LIS3DSH_InterruptConfigTypeDef   LIS3DSH_InterruptStruct;
 
   ACCELERO_IO_ITConfig();
 
@@ -220,30 +220,30 @@ void LIS3DSH_Click_IntConfig(void)
   LIS3DSH_InterruptStruct.State_Machine2_Enable = LIS3DSH_SM_ENABLE;
   LIS3DSH_InterruptStruct.State_Machine2_Interrupt = LIS3DSH_SM_INT1;
   LIS3DSH_InterruptConfig(&LIS3DSH_InterruptStruct);
-    
+
   /* Set LIS3DSH State Machines configuration */
-  ctrl=0x03; 
+  ctrl=0x03;
   ACCELERO_IO_Write(&ctrl, LIS3DSH_TIM2_1_L_ADDR,1);
-  ctrl=0xC8; 
+  ctrl=0xC8;
   ACCELERO_IO_Write(&ctrl, LIS3DSH_TIM1_1_L_ADDR,1);
-  ctrl=0x45; 
+  ctrl=0x45;
   ACCELERO_IO_Write(&ctrl, LIS3DSH_THRS2_1_ADDR,1);
-  ctrl=0xFC; 
+  ctrl=0xFC;
   ACCELERO_IO_Write(&ctrl, LIS3DSH_MASK1_A_ADDR,1);
-  ctrl=0xA1; 
+  ctrl=0xA1;
   ACCELERO_IO_Write(&ctrl, LIS3DSH_SETT1_ADDR,1);
-  ctrl=0x01; 
+  ctrl=0x01;
   ACCELERO_IO_Write(&ctrl, LIS3DSH_PR1_ADDR,1);
 
   ACCELERO_IO_Write(&ctrl, LIS3DSH_SETT2_ADDR,1);
-  
+
   /* Configure State Machine 2 to detect single click */
   ACCELERO_IO_Write(&ctrl, LIS3DSH_ST2_1_ADDR,1);
-  ctrl=0x06; 
+  ctrl=0x06;
   ACCELERO_IO_Write(&ctrl, LIS3DSH_ST2_2_ADDR,1);
-  ctrl=0x28; 
+  ctrl=0x28;
   ACCELERO_IO_Write(&ctrl, LIS3DSH_ST2_3_ADDR,1);
-  ctrl=0x11; 
+  ctrl=0x11;
   ACCELERO_IO_Write(&ctrl, LIS3DSH_ST2_4_ADDR,1);
 }
 
@@ -266,29 +266,29 @@ void LIS3DSH_Click_IntConfig(void)
 void LIS3DSH_ODR_LowpowerCmd(uint8_t ODR_LowPowerMode)
 {
   uint8_t tmpreg;
-  
+
   /* Read CTRL_REG4 register */
   ACCELERO_IO_Read(&tmpreg, LIS3DSH_CTRL_REG4_ADDR, 1);
-  
+
   /* Set new low power mode configuration */
   tmpreg &= (uint8_t)~LIS3DSH_DATARATE_100;
   tmpreg |= ODR_LowPowerMode;
-  
+
   /* Write value to MEMS CTRL_REG4 register */
   ACCELERO_IO_Write(&tmpreg, LIS3DSH_CTRL_REG4_ADDR, 1);
 }
 
 /**
-  * @brief  Data Rate command. 
+  * @brief  Data Rate command.
   * @param  DataRateValue: Data rate value.
   *   This parameter can be one of the following values:
-  *     @arg LIS3DSH_DATARATE_3_125: 3.125 Hz output data rate 
+  *     @arg LIS3DSH_DATARATE_3_125: 3.125 Hz output data rate
   *     @arg LIS3DSH_DATARATE_6_25: 6.25 Hz output data rate
   *     @arg LIS3DSH_DATARATE_12_5: 12.5  Hz output data rate
   *     @arg LIS3DSH_DATARATE_25: 25 Hz output data rate
-  *     @arg LIS3DSH_DATARATE_50: 50 Hz output data rate 
+  *     @arg LIS3DSH_DATARATE_50: 50 Hz output data rate
   *     @arg LIS3DSH_DATARATE_100: 100 Hz output data rate
-  *     @arg LIS3DSH_DATARATE_400: 400 Hz output data rate 
+  *     @arg LIS3DSH_DATARATE_400: 400 Hz output data rate
   *     @arg LIS3DSH_DATARATE_800: 800 Hz output data rate
   *     @arg LIS3DSH_DATARATE_1600: 1600 Hz output data rate
   * @retval None
@@ -296,21 +296,21 @@ void LIS3DSH_ODR_LowpowerCmd(uint8_t ODR_LowPowerMode)
 void LIS3DSH_DataRateCmd(uint8_t DataRateValue)
 {
   uint8_t tmpreg;
-  
+
   /* Read CTRL_REG4 register */
   ACCELERO_IO_Read(&tmpreg, LIS3DSH_CTRL_REG4_ADDR, 1);
-  
+
   /* Set new data rate configuration from 100 to 400Hz */
-  tmpreg &= (uint8_t)~LIS3DSH_DATARATE_400; 
+  tmpreg &= (uint8_t)~LIS3DSH_DATARATE_400;
   tmpreg |= DataRateValue;
-  
+
   /* Write value to MEMS CTRL_REG4 register */
   ACCELERO_IO_Write(&tmpreg, LIS3DSH_CTRL_REG4_ADDR, 1);
 }
 
 /**
   * @brief  Change the Full Scale of LIS3DSH.
-  * @param  FS_value: new full scale value. 
+  * @param  FS_value: new full scale value.
   *   This parameter can be one of the following values:
   *     @arg LIS3DSH_FULLSCALE_2: +-2g
   *     @arg LIS3DSH_FULLSCALE_4: +-4g
@@ -322,14 +322,14 @@ void LIS3DSH_DataRateCmd(uint8_t DataRateValue)
 void LIS3DSH_FullScaleCmd(uint8_t FS_value)
 {
   uint8_t tmpreg;
-  
+
   /* Read CTRL_REG5 register */
   ACCELERO_IO_Read(&tmpreg, LIS3DSH_CTRL_REG5_ADDR, 1);
-  
+
   /* Set new full scale configuration */
   tmpreg &= (uint8_t)~LIS3DSH_FULLSCALE_16;
   tmpreg |= FS_value;
-  
+
   /* Write value to MEMS CTRL_REG5 register */
   ACCELERO_IO_Write(&tmpreg, LIS3DSH_CTRL_REG5_ADDR, 1);
 }
@@ -344,16 +344,16 @@ void LIS3DSH_RebootCmd(void)
   uint8_t tmpreg;
   /* Read CTRL_REG6 register */
   ACCELERO_IO_Read(&tmpreg, LIS3DSH_CTRL_REG6_ADDR, 1);
-  
+
   /* Enable or Disable the reboot memory */
   tmpreg |= LIS3DSH_BOOT_FORCED;
-  
+
   /* Write value to MEMS CTRL_REG6 register */
   ACCELERO_IO_Write(&tmpreg, LIS3DSH_CTRL_REG6_ADDR, 1);
 }
 
 /**
-  * @brief  Read LIS3DSH output register, and calculate the acceleration 
+  * @brief  Read LIS3DSH output register, and calculate the acceleration
   *         ACC[mg]=SENSITIVITY* (out_h*256+out_l)/16 (12 bit representation).
   * @param  pointer on floating buffer.
   * @retval None
@@ -364,46 +364,46 @@ void LIS3DSH_ReadACC(int16_t *pData)
   uint8_t crtl, i = 0x00;
   float sensitivity = LIS3DSH_SENSITIVITY_0_06G;
   float valueinfloat = 0;
-  
-  ACCELERO_IO_Read(&crtl, LIS3DSH_CTRL_REG5_ADDR, 1);  
+
+  ACCELERO_IO_Read(&crtl, LIS3DSH_CTRL_REG5_ADDR, 1);
   ACCELERO_IO_Read((uint8_t*)&buffer[0], LIS3DSH_OUT_X_L_ADDR, 1);
   ACCELERO_IO_Read((uint8_t*)&buffer[1], LIS3DSH_OUT_X_H_ADDR, 1);
   ACCELERO_IO_Read((uint8_t*)&buffer[2], LIS3DSH_OUT_Y_L_ADDR, 1);
   ACCELERO_IO_Read((uint8_t*)&buffer[3], LIS3DSH_OUT_Y_H_ADDR, 1);
   ACCELERO_IO_Read((uint8_t*)&buffer[4], LIS3DSH_OUT_Z_L_ADDR, 1);
   ACCELERO_IO_Read((uint8_t*)&buffer[5], LIS3DSH_OUT_Z_H_ADDR, 1);
-  
-  switch(crtl & LIS3DSH__FULLSCALE_SELECTION) 
+
+  switch(crtl & LIS3DSH__FULLSCALE_SELECTION)
   {
-    /* FS bit = 000 ==> Sensitivity typical value = 0.06milligals/digit */ 
+    /* FS bit = 000 ==> Sensitivity typical value = 0.06milligals/digit */
   case LIS3DSH_FULLSCALE_2:
     sensitivity = LIS3DSH_SENSITIVITY_0_06G;
     break;
-    
-    /* FS bit = 001 ==> Sensitivity typical value = 0.12milligals/digit */ 
+
+    /* FS bit = 001 ==> Sensitivity typical value = 0.12milligals/digit */
   case LIS3DSH_FULLSCALE_4:
     sensitivity = LIS3DSH_SENSITIVITY_0_12G;
     break;
-    
-    /* FS bit = 010 ==> Sensitivity typical value = 0.18milligals/digit */ 
+
+    /* FS bit = 010 ==> Sensitivity typical value = 0.18milligals/digit */
   case LIS3DSH_FULLSCALE_6:
     sensitivity = LIS3DSH_SENSITIVITY_0_18G;
     break;
-    
-    /* FS bit = 011 ==> Sensitivity typical value = 0.24milligals/digit */ 
+
+    /* FS bit = 011 ==> Sensitivity typical value = 0.24milligals/digit */
   case LIS3DSH_FULLSCALE_8:
     sensitivity = LIS3DSH_SENSITIVITY_0_24G;
     break;
-    
-    /* FS bit = 100 ==> Sensitivity typical value = 0.73milligals/digit */ 
+
+    /* FS bit = 100 ==> Sensitivity typical value = 0.73milligals/digit */
   case LIS3DSH_FULLSCALE_16:
     sensitivity = LIS3DSH_SENSITIVITY_0_73G;
     break;
-    
+
   default:
     break;
   }
-  
+
   /* Obtain the mg value for the three axis */
   for(i=0; i<3; i++)
   {
@@ -414,18 +414,18 @@ void LIS3DSH_ReadACC(int16_t *pData)
 
 /**
   * @}
-  */ 
+  */
 
 /**
   * @}
-  */ 
-  
-/**
-  * @}
-  */ 
+  */
 
 /**
   * @}
-  */ 
+  */
+
+/**
+  * @}
+  */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

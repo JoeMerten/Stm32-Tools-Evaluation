@@ -34,7 +34,7 @@
   * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   *
   ******************************************************************************
-  */ 
+  */
 
 /* Define to prevent recursive inclusion -------------------------------------*/
 #ifndef __TS3510_H
@@ -42,59 +42,59 @@
 
 #ifdef __cplusplus
  extern "C" {
-#endif   
-   
+#endif
+
 /* Includes ------------------------------------------------------------------*/
 #include "../Common/ts.h"
 
 /** @addtogroup BSP
   * @{
-  */ 
+  */
 
 /** @addtogroup Component
   * @{
   */
-    
+
 /** @defgroup TS3510
   * @{
-  */    
+  */
 
 /* Exported types ------------------------------------------------------------*/
 
 /** @defgroup TS3510_Exported_Types
   * @{
-  */ 
+  */
 
 /* Exported constants --------------------------------------------------------*/
-  
+
 /** @defgroup TS3510_Exported_Constants
   * @{
-  */ 
+  */
 
-/*  */   
+/*  */
 #define TS3510_READ_BLOCK_REG                     0x8A
 #define TS3510_SEND_CMD_REG                       0x00
-#define TS3510_READ_CMD                           0x81  
-#define TS3510_WRITE_CMD                          0x08     
+#define TS3510_READ_CMD                           0x81
+#define TS3510_WRITE_CMD                          0x08
 
 
 /**
   * @}
-  */ 
-  
+  */
+
 /* Exported macro ------------------------------------------------------------*/
-   
+
 /** @defgroup ts3510_Exported_Macros
   * @{
-  */ 
+  */
 
 /* Exported functions --------------------------------------------------------*/
-  
+
 /** @defgroup ts3510_Exported_Functions
   * @{
   */
 
-/** 
+/**
   * @brief ts3510 Control functions
   */
 void     ts3510_Init(uint16_t DeviceAddr);
@@ -125,7 +125,7 @@ extern TS_DrvTypeDef ts3510_ts_drv;
 
 /**
   * @}
-  */ 
+  */
 
 /**
   * @}
@@ -133,9 +133,9 @@ extern TS_DrvTypeDef ts3510_ts_drv;
 
 /**
   * @}
-  */ 
+  */
 
 /**
   * @}
-  */       
+  */
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

@@ -4,8 +4,8 @@
   * @author  MCD Application Team
   * @version V4.0.1
   * @date    21-July-2015
-  * @brief   This file contains all the functions prototypes for the 
-  *          EPD (E Paper Display) driver.   
+  * @brief   This file contains all the functions prototypes for the
+  *          EPD (E Paper Display) driver.
   ******************************************************************************
   * @attention
   *
@@ -34,7 +34,7 @@
   * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   *
   ******************************************************************************
-  */ 
+  */
 
 /* Define to prevent recursive inclusion -------------------------------------*/
 #ifndef __EPD_H
@@ -54,7 +54,7 @@
 /** @addtogroup Components
   * @{
   */
-  
+
 /** @addtogroup Common
   * @{
   */

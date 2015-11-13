@@ -33,7 +33,7 @@
   * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   *
   ******************************************************************************
-  */ 
+  */
 
 /* Define to prevent recursive inclusion -------------------------------------*/
 #ifndef __N25Q128A_H
@@ -41,18 +41,18 @@
 
 #ifdef __cplusplus
  extern "C" {
-#endif 
+#endif
 
 /* Includes ------------------------------------------------------------------*/
 
 /** @addtogroup BSP
   * @{
-  */ 
+  */
 
 /** @addtogroup Components
   * @{
-  */ 
-  
+  */
+
 /** @addtogroup n25q128a
   * @{
   */
@@ -60,18 +60,18 @@
 /** @defgroup N25Q128A_Exported_Types
   * @{
   */
-   
+
 /**
   * @}
-  */ 
+  */
 
 /** @defgroup N25Q128A_Exported_Constants
   * @{
   */
-   
-/** 
-  * @brief  N25Q128A Configuration  
-  */  
+
+/**
+  * @brief  N25Q128A Configuration
+  */
 #define N25Q128A_FLASH_SIZE                  0x1000000 /* 128 MBits => 16MBytes */
 #define N25Q128A_SECTOR_SIZE                 0x10000   /* 256 sectors of 64KBytes */
 #define N25Q128A_SUBSECTOR_SIZE              0x1000    /* 4096 subsectors of 4kBytes */
@@ -84,9 +84,9 @@
 #define N25Q128A_SECTOR_ERASE_MAX_TIME       3000
 #define N25Q128A_SUBSECTOR_ERASE_MAX_TIME    800
 
-/** 
-  * @brief  N25Q128A Commands  
-  */  
+/**
+  * @brief  N25Q128A Commands
+  */
 /* Reset Operations */
 #define RESET_ENABLE_CMD                     0x66
 #define RESET_MEMORY_CMD                     0x99
@@ -147,9 +147,9 @@
 #define READ_OTP_ARRAY_CMD                   0x4B
 #define PROG_OTP_ARRAY_CMD                   0x42
 
-/** 
-  * @brief  N25Q128A Registers  
-  */ 
+/**
+  * @brief  N25Q128A Registers
+  */
 /* Status Register */
 #define N25Q128A_SR_WIP                      ((uint8_t)0x01)    /*!< Write in progress */
 #define N25Q128A_SR_WREN                     ((uint8_t)0x02)    /*!< Write enable latch */
@@ -190,26 +190,26 @@
 /**
   * @}
   */
-  
+
 /** @defgroup N25Q128A_Exported_Functions
   * @{
-  */ 
+  */
 /**
   * @}
-  */ 
-      
-/**
-  * @}
-  */ 
-
-/**
-  * @}
-  */ 
+  */
 
 /**
   * @}
   */
-  
+
+/**
+  * @}
+  */
+
+/**
+  * @}
+  */
+
 #ifdef __cplusplus
 }
 #endif

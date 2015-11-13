@@ -33,7 +33,7 @@
   * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   *
   ******************************************************************************
-  */ 
+  */
 
 /* Define to prevent recursive inclusion -------------------------------------*/
 #ifndef __STM32F4xx_HAL_FLASH_H
@@ -52,41 +52,41 @@
 
 /** @addtogroup FLASH
   * @{
-  */ 
+  */
 
 /* Exported types ------------------------------------------------------------*/
 /** @defgroup FLASH_Exported_Types FLASH Exported Types
   * @{
   */
- 
+
 /**
   * @brief  FLASH Procedure structure definition
   */
-typedef enum 
+typedef enum
 {
-  FLASH_PROC_NONE = 0, 
+  FLASH_PROC_NONE = 0,
   FLASH_PROC_SECTERASE,
   FLASH_PROC_MASSERASE,
   FLASH_PROC_PROGRAM
 } FLASH_ProcedureTypeDef;
 
-/** 
-  * @brief  FLASH handle Structure definition  
+/**
+  * @brief  FLASH handle Structure definition
   */
 typedef struct
 {
   __IO FLASH_ProcedureTypeDef ProcedureOnGoing;   /*Internal variable to indicate which procedure is ongoing or not in IT context*/
-  
+
   __IO uint32_t               NbSectorsToErase;   /*Internal variable to save the remaining sectors to erase in IT context*/
-  
+
   __IO uint8_t                VoltageForErase;    /*Internal variable to provide voltage range selected by user in IT context*/
-  
+
   __IO uint32_t               Sector;             /*Internal variable to define the current sector which is erasing*/
-  
+
   __IO uint32_t               Bank;               /*Internal variable to save current bank selected during mass erase*/
-  
+
   __IO uint32_t               Address;            /*Internal variable to save address selected for program*/
-  
+
   HAL_LockTypeDef             Lock;               /* FLASH locking object                */
 
   __IO uint32_t               ErrorCode;          /* FLASH error code                    */
@@ -100,11 +100,11 @@ typedef struct
 /* Exported constants --------------------------------------------------------*/
 /** @defgroup FLASH_Exported_Constants FLASH Exported Constants
   * @{
-  */  
+  */
 /** @defgroup FLASH_Error_Code FLASH Error Code
-  * @brief    FLASH Error Code 
+  * @brief    FLASH Error Code
   * @{
-  */ 
+  */
 #define HAL_FLASH_ERROR_NONE         ((uint32_t)0x00000000)    /*!< No error                      */
 #define HAL_FLASH_ERROR_RD           ((uint32_t)0x00000001)    /*!< Read Protection error         */
 #define HAL_FLASH_ERROR_PGS          ((uint32_t)0x00000002)    /*!< Programming Sequence error    */
@@ -115,10 +115,10 @@ typedef struct
 /**
   * @}
   */
-  
+
 /** @defgroup FLASH_Type_Program FLASH Type Program
   * @{
-  */ 
+  */
 #define FLASH_TYPEPROGRAM_BYTE        ((uint32_t)0x00)  /*!< Program byte (8-bit) at a specified address           */
 #define FLASH_TYPEPROGRAM_HALFWORD    ((uint32_t)0x01)  /*!< Program a half-word (16-bit) at a specified address   */
 #define FLASH_TYPEPROGRAM_WORD        ((uint32_t)0x02)  /*!< Program a word (32-bit) at a specified address        */
@@ -130,7 +130,7 @@ typedef struct
 /** @defgroup FLASH_Flag_definition FLASH Flag definition
   * @brief Flag definition
   * @{
-  */ 
+  */
 #define FLASH_FLAG_EOP                 FLASH_SR_EOP            /*!< FLASH End of Operation flag               */
 #define FLASH_FLAG_OPERR               FLASH_SR_SOP            /*!< FLASH operation Error flag                */
 #define FLASH_FLAG_WRPERR              FLASH_SR_WRPERR         /*!< FLASH Write protected error flag          */
@@ -138,20 +138,20 @@ typedef struct
 #define FLASH_FLAG_PGPERR              FLASH_SR_PGPERR         /*!< FLASH Programming Parallelism error flag  */
 #define FLASH_FLAG_PGSERR              FLASH_SR_PGSERR         /*!< FLASH Programming Sequence error flag     */
 #define FLASH_FLAG_RDERR               ((uint32_t)0x00000100)  /*!< Read Protection error flag (PCROP)        */
-#define FLASH_FLAG_BSY                 FLASH_SR_BSY            /*!< FLASH Busy flag                           */ 
+#define FLASH_FLAG_BSY                 FLASH_SR_BSY            /*!< FLASH Busy flag                           */
 /**
   * @}
   */
-  
+
 /** @defgroup FLASH_Interrupt_definition FLASH Interrupt definition
   * @brief FLASH Interrupt definition
   * @{
-  */ 
+  */
 #define FLASH_IT_EOP                   FLASH_CR_EOPIE          /*!< End of FLASH Operation Interrupt source */
 #define FLASH_IT_ERR                   ((uint32_t)0x02000000)  /*!< Error Interrupt source                  */
 /**
   * @}
-  */  
+  */
 
 /** @defgroup FLASH_Program_Parallelism FLASH Program Parallelism
   * @{
@@ -163,11 +163,11 @@ typedef struct
 #define CR_PSIZE_MASK              ((uint32_t)0xFFFFFCFF)
 /**
   * @}
-  */ 
+  */
 
 /** @defgroup FLASH_Keys FLASH Keys
   * @{
-  */ 
+  */
 #define RDP_KEY                  ((uint16_t)0x00A5)
 #define FLASH_KEY1               ((uint32_t)0x45670123)
 #define FLASH_KEY2               ((uint32_t)0xCDEF89AB)
@@ -175,12 +175,12 @@ typedef struct
 #define FLASH_OPT_KEY2           ((uint32_t)0x4C5D6E7F)
 /**
   * @}
-  */ 
+  */
 
 /**
   * @}
-  */ 
-  
+  */
+
 /* Exported macro ------------------------------------------------------------*/
 /** @defgroup FLASH_Exported_Macros FLASH Exported Macros
   * @{
@@ -190,55 +190,55 @@ typedef struct
   * @param  __LATENCY__: FLASH Latency
   *         The value of this parameter depend on device used within the same series
   * @retval none
-  */ 
+  */
 #define __HAL_FLASH_SET_LATENCY(__LATENCY__) (*(__IO uint8_t *)ACR_BYTE0_ADDRESS = (uint8_t)(__LATENCY__))
 
 /**
   * @brief  Get the FLASH Latency.
   * @retval FLASH Latency
   *          The value of this parameter depend on device used within the same series
-  */ 
+  */
 #define __HAL_FLASH_GET_LATENCY()     (READ_BIT((FLASH->ACR), FLASH_ACR_LATENCY))
 
 /**
   * @brief  Enable the FLASH prefetch buffer.
   * @retval none
-  */ 
+  */
 #define __HAL_FLASH_PREFETCH_BUFFER_ENABLE()  (FLASH->ACR |= FLASH_ACR_PRFTEN)
 
 /**
   * @brief  Disable the FLASH prefetch buffer.
   * @retval none
-  */ 
+  */
 #define __HAL_FLASH_PREFETCH_BUFFER_DISABLE()   (FLASH->ACR &= (~FLASH_ACR_PRFTEN))
 
 /**
   * @brief  Enable the FLASH instruction cache.
   * @retval none
-  */ 
+  */
 #define __HAL_FLASH_INSTRUCTION_CACHE_ENABLE()  (FLASH->ACR |= FLASH_ACR_ICEN)
 
 /**
   * @brief  Disable the FLASH instruction cache.
   * @retval none
-  */ 
+  */
 #define __HAL_FLASH_INSTRUCTION_CACHE_DISABLE()   (FLASH->ACR &= (~FLASH_ACR_ICEN))
 
 /**
   * @brief  Enable the FLASH data cache.
   * @retval none
-  */ 
+  */
 #define __HAL_FLASH_DATA_CACHE_ENABLE()  (FLASH->ACR |= FLASH_ACR_DCEN)
 
 /**
   * @brief  Disable the FLASH data cache.
   * @retval none
-  */ 
+  */
 #define __HAL_FLASH_DATA_CACHE_DISABLE()   (FLASH->ACR &= (~FLASH_ACR_DCEN))
 
 /**
   * @brief  Resets the FLASH instruction Cache.
-  * @note   This function must be used only when the Instruction Cache is disabled.  
+  * @note   This function must be used only when the Instruction Cache is disabled.
   * @retval None
   */
 #define __HAL_FLASH_INSTRUCTION_CACHE_RESET() do {FLASH->ACR |= FLASH_ACR_ICRST;  \
@@ -247,7 +247,7 @@ typedef struct
 
 /**
   * @brief  Resets the FLASH data Cache.
-  * @note   This function must be used only when the data Cache is disabled.  
+  * @note   This function must be used only when the data Cache is disabled.
   * @retval None
   */
 #define __HAL_FLASH_DATA_CACHE_RESET() do {FLASH->ACR |= FLASH_ACR_DCRST;  \
@@ -255,35 +255,35 @@ typedef struct
                                           }while(0)
 /**
   * @brief  Enable the specified FLASH interrupt.
-  * @param  __INTERRUPT__ : FLASH interrupt 
+  * @param  __INTERRUPT__ : FLASH interrupt
   *         This parameter can be any combination of the following values:
   *     @arg FLASH_IT_EOP: End of FLASH Operation Interrupt
-  *     @arg FLASH_IT_ERR: Error Interrupt    
+  *     @arg FLASH_IT_ERR: Error Interrupt
   * @retval none
-  */  
+  */
 #define __HAL_FLASH_ENABLE_IT(__INTERRUPT__)  (FLASH->CR |= (__INTERRUPT__))
 
 /**
   * @brief  Disable the specified FLASH interrupt.
-  * @param  __INTERRUPT__ : FLASH interrupt 
+  * @param  __INTERRUPT__ : FLASH interrupt
   *         This parameter can be any combination of the following values:
   *     @arg FLASH_IT_EOP: End of FLASH Operation Interrupt
-  *     @arg FLASH_IT_ERR: Error Interrupt    
+  *     @arg FLASH_IT_ERR: Error Interrupt
   * @retval none
-  */  
+  */
 #define __HAL_FLASH_DISABLE_IT(__INTERRUPT__)  (FLASH->CR &= ~(uint32_t)(__INTERRUPT__))
 
 /**
-  * @brief  Get the specified FLASH flag status. 
+  * @brief  Get the specified FLASH flag status.
   * @param  __FLAG__: specifies the FLASH flag to check.
   *          This parameter can be one of the following values:
-  *            @arg FLASH_FLAG_EOP   : FLASH End of Operation flag 
-  *            @arg FLASH_FLAG_OPERR : FLASH operation Error flag 
-  *            @arg FLASH_FLAG_WRPERR: FLASH Write protected error flag 
+  *            @arg FLASH_FLAG_EOP   : FLASH End of Operation flag
+  *            @arg FLASH_FLAG_OPERR : FLASH operation Error flag
+  *            @arg FLASH_FLAG_WRPERR: FLASH Write protected error flag
   *            @arg FLASH_FLAG_PGAERR: FLASH Programming Alignment error flag
   *            @arg FLASH_FLAG_PGPERR: FLASH Programming Parallelism error flag
   *            @arg FLASH_FLAG_PGSERR: FLASH Programming Sequence error flag
-  *            @arg FLASH_FLAG_RDERR : FLASH Read Protection error flag (PCROP) 
+  *            @arg FLASH_FLAG_RDERR : FLASH Read Protection error flag (PCROP)
   *            @arg FLASH_FLAG_BSY   : FLASH Busy flag
   * @retval The new state of __FLAG__ (SET or RESET).
   */
@@ -293,13 +293,13 @@ typedef struct
   * @brief  Clear the specified FLASH flag.
   * @param  __FLAG__: specifies the FLASH flags to clear.
   *          This parameter can be any combination of the following values:
-  *            @arg FLASH_FLAG_EOP   : FLASH End of Operation flag 
-  *            @arg FLASH_FLAG_OPERR : FLASH operation Error flag 
-  *            @arg FLASH_FLAG_WRPERR: FLASH Write protected error flag 
-  *            @arg FLASH_FLAG_PGAERR: FLASH Programming Alignment error flag 
+  *            @arg FLASH_FLAG_EOP   : FLASH End of Operation flag
+  *            @arg FLASH_FLAG_OPERR : FLASH operation Error flag
+  *            @arg FLASH_FLAG_WRPERR: FLASH Write protected error flag
+  *            @arg FLASH_FLAG_PGAERR: FLASH Programming Alignment error flag
   *            @arg FLASH_FLAG_PGPERR: FLASH Programming Parallelism error flag
   *            @arg FLASH_FLAG_PGSERR: FLASH Programming Sequence error flag
-  *            @arg FLASH_FLAG_RDERR : FLASH Read Protection error flag (PCROP)   
+  *            @arg FLASH_FLAG_RDERR : FLASH Read Protection error flag (PCROP)
   * @retval none
   */
 #define __HAL_FLASH_CLEAR_FLAG(__FLAG__)   (FLASH->SR = (__FLAG__))
@@ -323,7 +323,7 @@ HAL_StatusTypeDef HAL_FLASH_Program(uint32_t TypeProgram, uint32_t Address, uint
 HAL_StatusTypeDef HAL_FLASH_Program_IT(uint32_t TypeProgram, uint32_t Address, uint64_t Data);
 /* FLASH IRQ handler method */
 void HAL_FLASH_IRQHandler(void);
-/* Callbacks in non blocking modes */ 
+/* Callbacks in non blocking modes */
 void HAL_FLASH_EndOfOperationCallback(uint32_t ReturnValue);
 void HAL_FLASH_OperationErrorCallback(uint32_t ReturnValue);
 /**
@@ -356,7 +356,7 @@ HAL_StatusTypeDef FLASH_WaitForLastOperation(uint32_t Timeout);
 
 /**
   * @}
-  */ 
+  */
 /* Private types -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
 /** @defgroup FLASH_Private_Variables FLASH Private Variables
@@ -371,25 +371,25 @@ HAL_StatusTypeDef FLASH_WaitForLastOperation(uint32_t Timeout);
   * @{
   */
 
-/** 
-  * @brief   ACR register byte 0 (Bits[7:0]) base address  
-  */ 
-#define ACR_BYTE0_ADDRESS           ((uint32_t)0x40023C00) 
-/** 
-  * @brief   OPTCR register byte 0 (Bits[7:0]) base address  
-  */ 
+/**
+  * @brief   ACR register byte 0 (Bits[7:0]) base address
+  */
+#define ACR_BYTE0_ADDRESS           ((uint32_t)0x40023C00)
+/**
+  * @brief   OPTCR register byte 0 (Bits[7:0]) base address
+  */
 #define OPTCR_BYTE0_ADDRESS         ((uint32_t)0x40023C14)
-/** 
-  * @brief   OPTCR register byte 1 (Bits[15:8]) base address  
-  */ 
+/**
+  * @brief   OPTCR register byte 1 (Bits[15:8]) base address
+  */
 #define OPTCR_BYTE1_ADDRESS         ((uint32_t)0x40023C15)
-/** 
-  * @brief   OPTCR register byte 2 (Bits[23:16]) base address  
-  */ 
+/**
+  * @brief   OPTCR register byte 2 (Bits[23:16]) base address
+  */
 #define OPTCR_BYTE2_ADDRESS         ((uint32_t)0x40023C16)
-/** 
-  * @brief   OPTCR register byte 3 (Bits[31:24]) base address  
-  */ 
+/**
+  * @brief   OPTCR register byte 3 (Bits[31:24]) base address
+  */
 #define OPTCR_BYTE3_ADDRESS         ((uint32_t)0x40023C17)
 
 /**
@@ -407,7 +407,7 @@ HAL_StatusTypeDef FLASH_WaitForLastOperation(uint32_t Timeout);
 #define IS_FLASH_TYPEPROGRAM(VALUE)(((VALUE) == FLASH_TYPEPROGRAM_BYTE) || \
                                     ((VALUE) == FLASH_TYPEPROGRAM_HALFWORD) || \
                                     ((VALUE) == FLASH_TYPEPROGRAM_WORD) || \
-                                    ((VALUE) == FLASH_TYPEPROGRAM_DOUBLEWORD))  
+                                    ((VALUE) == FLASH_TYPEPROGRAM_DOUBLEWORD))
 /**
   * @}
   */
@@ -427,7 +427,7 @@ HAL_StatusTypeDef FLASH_WaitForLastOperation(uint32_t Timeout);
 
 /**
   * @}
-  */ 
+  */
 
 /**
   * @}

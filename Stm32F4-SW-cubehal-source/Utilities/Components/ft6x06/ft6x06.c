@@ -131,28 +131,28 @@ static uint32_t ft6x06_TS_Configure(uint16_t DeviceAddr);
   * @retval None
   */
 void ft6x06_Init(uint16_t DeviceAddr)
-{  
+{
   uint8_t instance;
   uint8_t empty;
-  
+
   /* Check if device instance already exists */
   instance = ft6x06_GetInstance(DeviceAddr);
-  
+
   /* To prevent double initialization */
   if(instance == 0xFF)
   {
     /* Look for empty instance */
     empty = ft6x06_GetInstance(0);
-    
+
     if(empty < FT6x06_MAX_INSTANCE)
     {
       /* Register the current device instance */
       ft6x06[empty] = DeviceAddr;
-      
+
       /* Initialize IO BUS layer */
-      TS_IO_Init(); 
+      TS_IO_Init();
     }
-  }        
+  }
 }
 
 /**
@@ -177,7 +177,7 @@ uint16_t ft6x06_ReadID(uint16_t DeviceAddr)
 {
   /* Initialize I2C link if needed */
   TS_IO_Init();
-  
+
   /* Return the device ID value */
   return (TS_IO_Read(DeviceAddr, FT6206_CHIP_ID_REG));
 }
@@ -247,31 +247,31 @@ void ft6x06_TS_GetXY(uint16_t DeviceAddr, uint16_t *X, uint16_t *Y)
 {
   uint8_t regAddress = 0;
   uint8_t  dataxy[4];
-  
+
   if(ft6x06_handle.currActiveTouchIdx < ft6x06_handle.currActiveTouchNb)
   {
     switch(ft6x06_handle.currActiveTouchIdx)
     {
-    case 0 :    
-      regAddress = FT6206_P1_XH_REG; 
+    case 0 :
+      regAddress = FT6206_P1_XH_REG;
       break;
     case 1 :
-      regAddress = FT6206_P2_XH_REG; 
+      regAddress = FT6206_P2_XH_REG;
       break;
 
     default :
       break;
     }
-    
+
     /* Read X and Y positions */
-    TS_IO_ReadMultiple(DeviceAddr, regAddress, dataxy, sizeof(dataxy)); 
+    TS_IO_ReadMultiple(DeviceAddr, regAddress, dataxy, sizeof(dataxy));
 
     /* Send back ready X position to caller */
     *X = ((dataxy[0] & FT6206_MSB_MASK) << 8) | (dataxy[1] & FT6206_LSB_MASK);
-    
+
     /* Send back ready Y position to caller */
     *Y = ((dataxy[2] & FT6206_MSB_MASK) << 8) | (dataxy[3] & FT6206_LSB_MASK);
-    
+
     ft6x06_handle.currActiveTouchIdx++;
   }
 }
@@ -286,7 +286,7 @@ void ft6x06_TS_EnableIT(uint16_t DeviceAddr)
 {
   uint8_t regValue = 0;
   regValue = (FT6206_G_MODE_INTERRUPT_TRIGGER & (FT6206_G_MODE_INTERRUPT_MASK >> FT6206_G_MODE_INTERRUPT_SHIFT)) << FT6206_G_MODE_INTERRUPT_SHIFT;
-  
+
   /* Set interrupt trigger mode in FT6206_GMODE_REG */
   TS_IO_Write(DeviceAddr, FT6206_GMODE_REG, regValue);
 }
@@ -374,34 +374,34 @@ void ft6x06_TS_GetTouchInfo(uint16_t   DeviceAddr,
 {
   uint8_t regAddress = 0;
   uint8_t dataxy[3];
-  
+
   if(touchIdx < ft6x06_handle.currActiveTouchNb)
   {
     switch(touchIdx)
     {
-    case 0 : 
+    case 0 :
       regAddress = FT6206_P1_WEIGHT_REG;
       break;
-      
+
     case 1 :
       regAddress = FT6206_P2_WEIGHT_REG;
       break;
-      
+
     default :
       break;
-      
+
     } /* end switch(touchIdx) */
-    
+
     /* Read weight, area and Event Id of touch index */
-    TS_IO_ReadMultiple(DeviceAddr, regAddress, dataxy, sizeof(dataxy)); 
-    
+    TS_IO_ReadMultiple(DeviceAddr, regAddress, dataxy, sizeof(dataxy));
+
     /* Return weight of touch index */
     * pWeight = (dataxy[0] & FT6206_TOUCH_WEIGHT_MASK) >> FT6206_TOUCH_WEIGHT_SHIFT;
     /* Return area of touch index */
     * pArea = (dataxy[1] & FT6206_TOUCH_AREA_MASK) >> FT6206_TOUCH_AREA_SHIFT;
     /* Return Event Id  of touch index */
     * pEvent = (dataxy[2] & FT6206_TOUCH_EVT_FLAG_MASK) >> FT6206_TOUCH_EVT_FLAG_SHIFT;
-    
+
   } /* of if(touchIdx < ft6x06_handle.currActiveTouchNb) */
 }
 
@@ -451,7 +451,7 @@ static uint32_t ft6x06_TS_Calibration(uint16_t DeviceAddr)
       /* Auto Switch to FT6206_DEV_MODE_WORKING : means calibration have ended */
       bEndCalibration = 1; /* exit for loop */
     }
-    
+
     TS_IO_Delay(200); /* Wait 200 ms */
   }
 
@@ -477,23 +477,23 @@ static uint32_t ft6x06_TS_Configure(uint16_t DeviceAddr)
 
 /**
   * @brief  Check if the device instance of the selected address is already registered
-  *         and return its index  
+  *         and return its index
   * @param  DeviceAddr: Device address on communication Bus.
   * @retval Index of the device instance if registered, 0xFF if not.
   */
 static uint8_t ft6x06_GetInstance(uint16_t DeviceAddr)
 {
   uint8_t idx = 0;
-  
+
   /* Check all the registered instances */
   for(idx = 0; idx < FT6x06_MAX_INSTANCE ; idx ++)
   {
     if(ft6x06[idx] == DeviceAddr)
     {
-      return idx; 
+      return idx;
     }
   }
-  
+
   return 0xFF;
 }
 

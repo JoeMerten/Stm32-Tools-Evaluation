@@ -49,10 +49,10 @@
 /** @addtogroup Utilities
   * @{
   */
-  
+
 /** @addtogroup STM32_EVAL
   * @{
-  */ 
+  */
 
 /** @addtogroup Common
   * @{
@@ -60,17 +60,17 @@
 
 /** @addtogroup FONTS
   * @{
-  */ 
+  */
 
 /** @defgroup FONTS_Exported_Types
   * @{
-  */ 
+  */
 typedef struct _tFont
-{    
+{
   const uint8_t *table;
   uint16_t Width;
   uint16_t Height;
-  
+
 } sFONT;
 
 extern sFONT Font24;
@@ -80,27 +80,27 @@ extern sFONT Font12;
 extern sFONT Font8;
 /**
   * @}
-  */ 
+  */
 
 /** @defgroup FONTS_Exported_Constants
   * @{
-  */ 
+  */
 #define LINE(x) ((x) * (((sFONT *)BSP_LCD_GetFont())->Height))
 
 /**
   * @}
-  */ 
+  */
 
 /** @defgroup FONTS_Exported_Macros
   * @{
-  */ 
+  */
 /**
   * @}
-  */ 
+  */
 
 /** @defgroup FONTS_Exported_Functions
   * @{
-  */ 
+  */
 /**
   * @}
   */
@@ -108,16 +108,8 @@ extern sFONT Font8;
 #ifdef __cplusplus
 }
 #endif
-  
+
 #endif /* __FONTS_H */
- 
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */ 
 
 /**
   * @}
@@ -129,6 +121,14 @@ extern sFONT Font8;
 
 /**
   * @}
-  */      
+  */
+
+/**
+  * @}
+  */
+
+/**
+  * @}
+  */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

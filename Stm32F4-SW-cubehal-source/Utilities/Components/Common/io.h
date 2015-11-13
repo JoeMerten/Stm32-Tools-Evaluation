@@ -33,7 +33,7 @@
   * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   *
   ******************************************************************************
-  */ 
+  */
 
 /* Define to prevent recursive inclusion -------------------------------------*/
 #ifndef __IO_H
@@ -53,7 +53,7 @@
 /** @addtogroup Components
   * @{
   */
-    
+
 /** @addtogroup IO
   * @{
   */
@@ -105,21 +105,21 @@ typedef enum
   * @{
   */
 typedef struct
-{  
+{
   void       (*Init)(uint16_t);
   uint16_t   (*ReadID)(uint16_t);
   void       (*Reset)(uint16_t);
-  
+
   void       (*Start)(uint16_t, uint32_t);
   uint8_t    (*Config)(uint16_t, uint32_t, IO_ModeTypedef);
   void       (*WritePin)(uint16_t, uint32_t, uint8_t);
   uint32_t   (*ReadPin)(uint16_t, uint32_t);
-  
+
   void       (*EnableIT)(uint16_t);
   void       (*DisableIT)(uint16_t);
   uint32_t    (*ITStatus)(uint16_t, uint32_t);
   void       (*ClearIT)(uint16_t, uint32_t);
-    
+
 }IO_DrvTypeDef;
 /**
   * @}

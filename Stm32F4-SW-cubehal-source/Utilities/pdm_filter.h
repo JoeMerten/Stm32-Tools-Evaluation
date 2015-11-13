@@ -4,11 +4,11 @@
   * @author  MCD Application Team
   * @version V2.1.0
   * @date    31-March-2015
-  * @brief   Header file for PDM audio software decoding Library.   
+  * @brief   Header file for PDM audio software decoding Library.
   *          This Library is used to decode and reconstruct the audio signal
   *          produced by ST MEMS microphone (MP45Dxxx, MP34Dxxx).
   *          For more details about this Library, please refer to document
-  *          "PDM audio software decoding on STM32 microcontrollers (AN3998)".  
+  *          "PDM audio software decoding on STM32 microcontrollers (AN3998)".
  ******************************************************************************
   * @attention
   *
@@ -20,8 +20,8 @@
   *
   *        http://www.st.com/software_license_agreement_image_v2
   *
-  * Unless required by applicable law or agreed to in writing, software 
-  * distributed under the License is distributed on an "AS IS" BASIS, 
+  * Unless required by applicable law or agreed to in writing, software
+  * distributed under the License is distributed on an "AS IS" BASIS,
   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
   * See the License for the specific language governing permissions and
   * limitations under the License.

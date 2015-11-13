@@ -41,11 +41,11 @@
 
 /** @addtogroup BSP
   * @{
-  */ 
+  */
 
 /** @addtogroup Components
   * @{
-  */ 
+  */
 
 /** @addtogroup ST7735
   * @brief      This file provides a set of functions needed to drive the
@@ -55,11 +55,11 @@
 
 /** @defgroup ST7735_Private_TypesDefinitions
   * @{
-  */ 
+  */
 
 /**
   * @}
-  */ 
+  */
 
 /** @defgroup ST7735_Private_Defines
   * @{
@@ -67,7 +67,7 @@
 
 /**
   * @}
-  */ 
+  */
 
 /** @defgroup ST7735_Private_Macros
   * @{
@@ -75,14 +75,14 @@
 
 /**
   * @}
-  */  
+  */
 
 /** @defgroup ST7735_Private_Variables
   * @{
-  */ 
+  */
 
 
-LCD_DrvTypeDef   st7735_drv = 
+LCD_DrvTypeDef   st7735_drv =
 {
   st7735_Init,
   0,
@@ -103,7 +103,7 @@ static uint16_t ArrayRGB[320] = {0};
 
 /**
 * @}
-*/ 
+*/
 
 /** @defgroup ST7735_Private_FunctionPrototypes
   * @{
@@ -111,7 +111,7 @@ static uint16_t ArrayRGB[320] = {0};
 
 /**
 * @}
-*/ 
+*/
 
 /** @defgroup ST7735_Private_Functions
   * @{
@@ -123,13 +123,13 @@ static uint16_t ArrayRGB[320] = {0};
   * @retval None
   */
 void st7735_Init(void)
-{    
+{
   uint8_t data = 0;
-  
+
   /* Initialize ST7735 low level bus layer -----------------------------------*/
   LCD_IO_Init();
   /* Out of sleep mode, 0 args, no delay */
-  st7735_WriteReg(LCD_REG_17, 0x00); 
+  st7735_WriteReg(LCD_REG_17, 0x00);
   /* Frame rate ctrl - normal mode, 3 args:Rate = fosc/(1x2+40) * (LINE+2C+2D)*/
   LCD_IO_WriteReg(LCD_REG_177);
   data = 0x01;
@@ -138,11 +138,11 @@ void st7735_Init(void)
   LCD_IO_WriteMultipleData(&data, 1);
   data = 0x2D;
   LCD_IO_WriteMultipleData(&data, 1);
-  /* Frame rate control - idle mode, 3 args:Rate = fosc/(1x2+40) * (LINE+2C+2D) */    
+  /* Frame rate control - idle mode, 3 args:Rate = fosc/(1x2+40) * (LINE+2C+2D) */
   st7735_WriteReg(LCD_REG_178, 0x01);
   st7735_WriteReg(LCD_REG_178, 0x2C);
   st7735_WriteReg(LCD_REG_178, 0x2D);
-  /* Frame rate ctrl - partial mode, 6 args: Dot inversion mode, Line inversion mode */ 
+  /* Frame rate ctrl - partial mode, 6 args: Dot inversion mode, Line inversion mode */
   st7735_WriteReg(LCD_REG_179, 0x01);
   st7735_WriteReg(LCD_REG_179, 0x2C);
   st7735_WriteReg(LCD_REG_179, 0x2D);
@@ -157,10 +157,10 @@ void st7735_Init(void)
   st7735_WriteReg(LCD_REG_192, 0x84);
   /* Power control, 1 arg, no delay: VGH25 = 2.4C VGSEL = -10 VGH = 3 * AVDD */
   st7735_WriteReg(LCD_REG_193, 0xC5);
-  /* Power control, 2 args, no delay: Opamp current small, Boost frequency */ 
+  /* Power control, 2 args, no delay: Opamp current small, Boost frequency */
   st7735_WriteReg(LCD_REG_194, 0x0A);
   st7735_WriteReg(LCD_REG_194, 0x00);
-  /* Power control, 2 args, no delay: BCLK/2, Opamp current small & Medium low */  
+  /* Power control, 2 args, no delay: BCLK/2, Opamp current small & Medium low */
   st7735_WriteReg(LCD_REG_195, 0x8A);
   st7735_WriteReg(LCD_REG_195, 0x2A);
   /* Power control, 2 args, no delay */
@@ -189,38 +189,38 @@ void st7735_Init(void)
   data = 0x9F;
   LCD_IO_WriteMultipleData(&data, 1);
   /* Magical unicorn dust, 16 args, no delay */
-  st7735_WriteReg(LCD_REG_224, 0x02); 
-  st7735_WriteReg(LCD_REG_224, 0x1c);  
-  st7735_WriteReg(LCD_REG_224, 0x07); 
+  st7735_WriteReg(LCD_REG_224, 0x02);
+  st7735_WriteReg(LCD_REG_224, 0x1c);
+  st7735_WriteReg(LCD_REG_224, 0x07);
   st7735_WriteReg(LCD_REG_224, 0x12);
-  st7735_WriteReg(LCD_REG_224, 0x37);  
-  st7735_WriteReg(LCD_REG_224, 0x32);  
-  st7735_WriteReg(LCD_REG_224, 0x29);  
+  st7735_WriteReg(LCD_REG_224, 0x37);
+  st7735_WriteReg(LCD_REG_224, 0x32);
+  st7735_WriteReg(LCD_REG_224, 0x29);
   st7735_WriteReg(LCD_REG_224, 0x2d);
-  st7735_WriteReg(LCD_REG_224, 0x29);  
-  st7735_WriteReg(LCD_REG_224, 0x25);  
-  st7735_WriteReg(LCD_REG_224, 0x2B);  
-  st7735_WriteReg(LCD_REG_224, 0x39);  
-  st7735_WriteReg(LCD_REG_224, 0x00);  
-  st7735_WriteReg(LCD_REG_224, 0x01);  
-  st7735_WriteReg(LCD_REG_224, 0x03);  
+  st7735_WriteReg(LCD_REG_224, 0x29);
+  st7735_WriteReg(LCD_REG_224, 0x25);
+  st7735_WriteReg(LCD_REG_224, 0x2B);
+  st7735_WriteReg(LCD_REG_224, 0x39);
+  st7735_WriteReg(LCD_REG_224, 0x00);
+  st7735_WriteReg(LCD_REG_224, 0x01);
+  st7735_WriteReg(LCD_REG_224, 0x03);
   st7735_WriteReg(LCD_REG_224, 0x10);
   /* Sparkles and rainbows, 16 args, no delay */
   st7735_WriteReg(LCD_REG_225, 0x03);
-  st7735_WriteReg(LCD_REG_225, 0x1d);  
-  st7735_WriteReg(LCD_REG_225, 0x07);  
+  st7735_WriteReg(LCD_REG_225, 0x1d);
+  st7735_WriteReg(LCD_REG_225, 0x07);
   st7735_WriteReg(LCD_REG_225, 0x06);
-  st7735_WriteReg(LCD_REG_225, 0x2E);  
-  st7735_WriteReg(LCD_REG_225, 0x2C);  
-  st7735_WriteReg(LCD_REG_225, 0x29);  
+  st7735_WriteReg(LCD_REG_225, 0x2E);
+  st7735_WriteReg(LCD_REG_225, 0x2C);
+  st7735_WriteReg(LCD_REG_225, 0x29);
   st7735_WriteReg(LCD_REG_225, 0x2D);
-  st7735_WriteReg(LCD_REG_225, 0x2E);  
-  st7735_WriteReg(LCD_REG_225, 0x2E);  
-  st7735_WriteReg(LCD_REG_225, 0x37);  
-  st7735_WriteReg(LCD_REG_225, 0x3F);  
-  st7735_WriteReg(LCD_REG_225, 0x00);  
-  st7735_WriteReg(LCD_REG_225, 0x00);  
-  st7735_WriteReg(LCD_REG_225, 0x02);  
+  st7735_WriteReg(LCD_REG_225, 0x2E);
+  st7735_WriteReg(LCD_REG_225, 0x2E);
+  st7735_WriteReg(LCD_REG_225, 0x37);
+  st7735_WriteReg(LCD_REG_225, 0x3F);
+  st7735_WriteReg(LCD_REG_225, 0x00);
+  st7735_WriteReg(LCD_REG_225, 0x00);
+  st7735_WriteReg(LCD_REG_225, 0x02);
   st7735_WriteReg(LCD_REG_225, 0x10);
   /* Normal display on, no args, no delay */
   st7735_WriteReg(LCD_REG_19, 0x00);
@@ -278,7 +278,7 @@ void st7735_SetCursor(uint16_t Xpos, uint16_t Ypos)
   LCD_IO_WriteMultipleData(&data, 1);
   data = (Xpos) & 0xFF;
   LCD_IO_WriteMultipleData(&data, 1);
-  LCD_IO_WriteReg(LCD_REG_43); 
+  LCD_IO_WriteReg(LCD_REG_43);
   data = (Ypos) >> 8;
   LCD_IO_WriteMultipleData(&data, 1);
   data = (Ypos) & 0xFF;
@@ -287,7 +287,7 @@ void st7735_SetCursor(uint16_t Xpos, uint16_t Ypos)
 }
 
 /**
-  * @brief  Writes pixel.   
+  * @brief  Writes pixel.
   * @param  Xpos: specifies the X position.
   * @param  Ypos: specifies the Y position.
   * @param  RGBCode: the RGB pixel color
@@ -296,19 +296,19 @@ void st7735_SetCursor(uint16_t Xpos, uint16_t Ypos)
 void st7735_WritePixel(uint16_t Xpos, uint16_t Ypos, uint16_t RGBCode)
 {
   uint8_t data = 0;
-  if((Xpos >= ST7735_LCD_PIXEL_WIDTH) || (Ypos >= ST7735_LCD_PIXEL_HEIGHT)) 
+  if((Xpos >= ST7735_LCD_PIXEL_WIDTH) || (Ypos >= ST7735_LCD_PIXEL_HEIGHT))
   {
     return;
   }
-  
+
   /* Set Cursor */
   st7735_SetCursor(Xpos, Ypos);
-  
+
   data = RGBCode >> 8;
   LCD_IO_WriteMultipleData(&data, 1);
   data = RGBCode;
   LCD_IO_WriteMultipleData(&data, 1);
-}  
+}
 
 
 /**
@@ -358,21 +358,21 @@ void st7735_SetDisplayWindow(uint16_t Xpos, uint16_t Ypos, uint16_t Width, uint1
 
 /**
   * @brief  Draws horizontal line.
-  * @param  RGBCode: Specifies the RGB color   
+  * @param  RGBCode: Specifies the RGB color
   * @param  Xpos: specifies the X position.
   * @param  Ypos: specifies the Y position.
-  * @param  Length: specifies the line length.  
+  * @param  Length: specifies the line length.
   * @retval None
   */
 void st7735_DrawHLine(uint16_t RGBCode, uint16_t Xpos, uint16_t Ypos, uint16_t Length)
 {
   uint8_t counter = 0;
-  
+
   if(Xpos + Length > ST7735_LCD_PIXEL_WIDTH) return;
-  
+
   /* Set Cursor */
   st7735_SetCursor(Xpos, Ypos);
-  
+
   for(counter = 0; counter < Length; counter++)
   {
     ArrayRGB[counter] = RGBCode;
@@ -382,21 +382,21 @@ void st7735_DrawHLine(uint16_t RGBCode, uint16_t Xpos, uint16_t Ypos, uint16_t L
 
 /**
   * @brief  Draws vertical line.
-  * @param  RGBCode: Specifies the RGB color   
+  * @param  RGBCode: Specifies the RGB color
   * @param  Xpos: specifies the X position.
   * @param  Ypos: specifies the Y position.
-  * @param  Length: specifies the line length.  
+  * @param  Length: specifies the line length.
   * @retval None
   */
 void st7735_DrawVLine(uint16_t RGBCode, uint16_t Xpos, uint16_t Ypos, uint16_t Length)
 {
   uint8_t counter = 0;
-  
+
   if(Ypos + Length > ST7735_LCD_PIXEL_HEIGHT) return;
   for(counter = 0; counter < Length; counter++)
   {
     st7735_WritePixel(Xpos, Ypos + counter, RGBCode);
-  }   
+  }
 }
 
 /**
@@ -415,7 +415,7 @@ uint16_t st7735_GetLcdPixelWidth(void)
   * @retval The Lcd Pixel Height
   */
 uint16_t st7735_GetLcdPixelHeight(void)
-{                          
+{
   return ST7735_LCD_PIXEL_HEIGHT;
 }
 
@@ -427,7 +427,7 @@ uint16_t st7735_GetLcdPixelHeight(void)
 void st7735_DrawBitmap(uint16_t Xpos, uint16_t Ypos, uint8_t *pbmp)
 {
   uint32_t index = 0, size = 0;
-  
+
   /* Read bitmap size */
   size = *(volatile uint16_t *) (pbmp + 2);
   size |= (*(volatile uint16_t *) (pbmp + 4)) << 16;
@@ -436,16 +436,16 @@ void st7735_DrawBitmap(uint16_t Xpos, uint16_t Ypos, uint8_t *pbmp)
   index |= (*(volatile uint16_t *) (pbmp + 12)) << 16;
   size = (size - index)/2;
   pbmp += index;
-  
+
   /* Set GRAM write direction and BGR = 0 */
   /* Memory access control: MY = 0, MX = 1, MV = 0, ML = 0 */
   st7735_WriteReg(LCD_REG_54, 0x40);
 
   /* Set Cursor */
-  st7735_SetCursor(Xpos, Ypos);  
- 
+  st7735_SetCursor(Xpos, Ypos);
+
   LCD_IO_WriteMultipleData((uint8_t*)pbmp, size*2);
- 
+
   /* Set GRAM write direction and BGR = 0 */
   /* Memory access control: MY = 1, MX = 1, MV = 0, ML = 0 */
   st7735_WriteReg(LCD_REG_54, 0xC0);
@@ -453,15 +453,15 @@ void st7735_DrawBitmap(uint16_t Xpos, uint16_t Ypos, uint8_t *pbmp)
 
 /**
 * @}
-*/ 
+*/
 
 /**
 * @}
-*/ 
+*/
 
 /**
 * @}
-*/ 
+*/
 
 /**
 * @}

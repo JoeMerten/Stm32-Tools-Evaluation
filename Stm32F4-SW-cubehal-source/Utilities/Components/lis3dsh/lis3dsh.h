@@ -49,11 +49,11 @@
 
 /** @addtogroup BSP
   * @{
-  */ 
+  */
 
 /** @addtogroup Components
   * @{
-  */ 
+  */
 
 /** @addtogroup LIS302DL
   * @{
@@ -68,7 +68,7 @@ typedef struct
   uint8_t Output_DataRate;              /* Output Data Rate into CTRL_REG4 register */
   uint8_t Axes_Enable;                  /* Axes enable into CTRL_REG4 register */
   uint8_t SPI_Wire;                     /* SPI Wire into CTRL_REG5 register */
-  uint8_t Self_Test;                    /* Self test into CTRL_REG5 register */  
+  uint8_t Self_Test;                    /* Self test into CTRL_REG5 register */
   uint8_t Full_Scale;                   /* Full scale into CTRL_REG5 register */
   uint8_t Filter_BW;                    /* Filter BW into CTRL_REG5 register */
 }LIS3DSH_InitTypeDef;
@@ -78,16 +78,16 @@ typedef struct
 {
   uint8_t Interrupt_Request;            /* Latch/Pulse Interrupt request into CTRL_REG3 register */
   uint8_t Interrupt_Selection_Enable;   /* Interrupt1/2 selection enable into CTRL_REG3 register */
-  uint8_t Interrupt_Signal;             /* Interrupt signal active Low/High into CTRL_REG3 register */  
-  uint8_t State_Machine1_Enable;        /* State Machine 1 enable/disable into CTRL_REG1 register */ 
+  uint8_t Interrupt_Signal;             /* Interrupt signal active Low/High into CTRL_REG3 register */
+  uint8_t State_Machine1_Enable;        /* State Machine 1 enable/disable into CTRL_REG1 register */
   uint8_t State_Machine1_Interrupt;     /* State Machine 1 routed Interrupt into CTRL_REG1 register */
-  uint8_t State_Machine2_Enable;        /* State Machine 2 enable/disable into CTRL_REG2 register */  
+  uint8_t State_Machine2_Enable;        /* State Machine 2 enable/disable into CTRL_REG2 register */
   uint8_t State_Machine2_Interrupt;     /* State Machine 2 routed Interrupt into CTRL_REG1 register */
-}LIS3DSH_InterruptConfigTypeDef;  
+}LIS3DSH_InterruptConfigTypeDef;
 /**
   * @}
   */
-  
+
 /** @defgroup LIS3DSH_Exported_Constants
   * @{
   */
@@ -199,20 +199,20 @@ typedef struct
 *  6 SYNCW: Common information for OUTW host action waiting
 *           0 - no action waiting from Host
 *           1 - Host action is waiting after OUTW command
-*  5 SYNC1: 
+*  5 SYNC1:
 *           0 - State Machine 1 running normally
 *           1 - SM1 stopped and waiting for restart request from SM2
-*  4 SYNC2: 
+*  4 SYNC2:
 *           0 - State Machine 2 running normally
 *           1 - SM2 stopped and waiting for restart request from SM1
-*  3 INT_SM1: Interrupt signal on SM1 is reset when OUTS1 register is read  
-*             0 - no interrupt on State Machine 1 
-*             1 - State Machine 1 interrupt happened       
-*  2 INT_SM2: Interrupt signal on SM2 is reset when OUTS2 register is read  
-*             0 - no interrupt on State Machine 2 
+*  3 INT_SM1: Interrupt signal on SM1 is reset when OUTS1 register is read
+*             0 - no interrupt on State Machine 1
+*             1 - State Machine 1 interrupt happened
+*  2 INT_SM2: Interrupt signal on SM2 is reset when OUTS2 register is read
+*             0 - no interrupt on State Machine 2
 *             1 - State Machine 2 interrupt happened
-*  1 DOR: Data OverRun bit 
-*         0 - no overrun 
+*  1 DOR: Data OverRun bit
+*         0 - no overrun
 *         1 - data overrun
 *  0 DRDY: New data are ready in output registers
 *         0 - data not ready
@@ -297,13 +297,13 @@ typedef struct
 *  3 BDU: Block data update
 *         0: Output register not updated until High and Low reading (Default)
 *         1: Continuous update
-*  2 ZEN: 
+*  2 ZEN:
 *         0: Z-axis disable (Default)
 *         1: Z-axis enable
-*  1 YEN:  
+*  1 YEN:
 *         0: Y-axis disable (Default)
 *         1: Y-axis enable
-*  0 XEN:  
+*  0 XEN:
 *         0: Y-axis disable (Default)
 *         1: Y-axis enable
 *******************************************************************************/
@@ -313,20 +313,20 @@ typedef struct
 *  CTRL_REG1 Register: Control Register 1 (SM1 interrupt configuration register)
 *  Read Write register
 *  Default value: 0x00
-*  7:5 HYST1_2-HYST1_0: Hysteresis which is added or subtracted from the  
+*  7:5 HYST1_2-HYST1_0: Hysteresis which is added or subtracted from the
 *                       threshold values (THRS1_1 and THRS2_1) of SM1.
 *                       000 = 0 (Default)
 *                       111 = 7 (maximum Hysteresis)
 *  4 Reserved
-*  3 SM1_INT: 
+*  3 SM1_INT:
 *            0: State Machine 1 interrupt routed to INT1 (Default)
 *            1: State Machine 1 interrupt routed to INT2
 *  2 Reserved
 *  1 Reserved
-*  0 SM1_EN: 
-*           0: State Machine 1 disabled. Temporary memories and registers 
+*  0 SM1_EN:
+*           0: State Machine 1 disabled. Temporary memories and registers
 *              related to this State Machine are left intact. (Default)
-*           1: State Machine 1 enabled. 
+*           1: State Machine 1 enabled.
 *******************************************************************************/
 #define LIS3DSH_CTRL_REG1_ADDR               0x21
 
@@ -334,20 +334,20 @@ typedef struct
 *  CTRL_REG2 Register: Control Register 2 (SM2 interrupt configuration register)
 *  Read Write register
 *  Default value: 0x00
-*  7:5 HYST2_2-HYST2_0: Hysteresis which is added or subtracted from the  
+*  7:5 HYST2_2-HYST2_0: Hysteresis which is added or subtracted from the
 *                       threshold values (THRS1_2 and THRS2_2) of SM1.
 *                       000 = 0 (Default)
 *                       111 = 7 (maximum Hysteresis)
 *  4 Reserved
-*  3 SM2_INT: 
+*  3 SM2_INT:
 *            0: State Machine 2 interrupt routed to INT1 (Default)
 *            1: State Machine 2 interrupt routed to INT2
 *  2 Reserved
 *  1 Reserved
-*  0 SM2_EN: 
-*           0: State Machine 2 disabled. Temporary memories and registers 
+*  0 SM2_EN:
+*           0: State Machine 2 disabled. Temporary memories and registers
 *              related to this State Machine are left intact. (Default)
-*           1: State Machine 2 enabled. 
+*           1: State Machine 2 enabled.
 *******************************************************************************/
 #define LIS3DSH_CTRL_REG2_ADDR               0x22
 
@@ -358,27 +358,27 @@ typedef struct
 *  7 DR_EN: Data-ready interrupt
 *          0 - Data-ready interrupt disabled (Default)
 *          1 - Data-ready interrupt enabled and routed to INT1
-*  6 IEA:  
+*  6 IEA:
 *         0 - Interrupt signal active LOW (Default)
 *         1 - Interrupt signal active HIGH
-*  5 IEL: 
+*  5 IEL:
 *         0 - Interrupt latched (Default)
 *         1 - Interrupt pulsed
-*  4 INT2_EN: 
+*  4 INT2_EN:
 *             0 - INT2 signal disabled (High-Z state) (Default)
 *             1 - INT2 signal enabled (signal pin fully functional)
-*  3 INT1_EN:  
+*  3 INT1_EN:
 *             0 - INT1 (DRDY) signal disabled (High-Z state) (Default)
 *             1 - INT1 (DRDY) signal enabled (signal pin fully functional) DR_EN bit in CTRL_REG3 register should be taken into account too
-*  2 VLIFT:  
+*  2 VLIFT:
 *           0 - Vector filter disabled (Default)
 *           1 - Vector filter enabled
-*  1 Reserved  
-*  0 STRT: Soft Reset  
+*  1 Reserved
+*  0 STRT: Soft Reset
 *          0 - (Default)
 *          1 - it resets the whole internal logic circuitry. It automatically returns to 0.
 *******************************************************************************/
-#define LIS3DSH_CTRL_REG3_ADDR               0x23              
+#define LIS3DSH_CTRL_REG3_ADDR               0x23
 
 /*******************************************************************************
 *  CTRL_REG5 Register: Control Register 5
@@ -409,7 +409,7 @@ typedef struct
 *             1  |  0  | Negative sign-test
 *             1  |  1  | Not Allowed
 *
-*  0 SIM: SPI serial internal interface mode selection  
+*  0 SIM: SPI serial internal interface mode selection
 *         0: 4-wire interface (Default)
 *         1: 3-wire interface
 *******************************************************************************/
@@ -419,11 +419,11 @@ typedef struct
 *  CTRL_REG6 Register: Control Register 6
 *  Read Write register
 *  Default value: 0x00
-*  7 BOOT: Force reboot, cleared as soon as the reboot is finished. Active High. 
-*  6 FIFO_EN: FIFO Enable 
+*  7 BOOT: Force reboot, cleared as soon as the reboot is finished. Active High.
+*  6 FIFO_EN: FIFO Enable
 *             0: disable (Default)
 *             1: enable
-*  5 STP_WTM: Stop on Watermark - FIFO depth can be limited at the Watermark value, by setting to ì1î the STP_WTM bit. 
+*  5 STP_WTM: Stop on Watermark - FIFO depth can be limited at the Watermark value, by setting to ‚Äú1‚Äù the STP_WTM bit.
 *             0: disable (Default)
 *             1: enable
 *  4 IF_ADD_INC: Register address automatically increased during a multiple byte access with a serial interface (I2C or SPI)
@@ -438,7 +438,7 @@ typedef struct
 *  1 I1_OVERRUN: FIFO Overrun interrupt on INT1 pin.
 *                0: disable (Default)
 *                1: enable
-*  0 I2_BOOT: BOOT interrupt on INT2 pin. 
+*  0 I2_BOOT: BOOT interrupt on INT2 pin.
 *                0: disable (Default)
 *                1: enable
 *******************************************************************************/
@@ -448,28 +448,28 @@ typedef struct
 *  STATUS Register: Status Data Register
 *  Read only register
 *  Default value: 0x00
-*  7 ZYXOR: X, Y and Z-axis Data Overrun.  
+*  7 ZYXOR: X, Y and Z-axis Data Overrun.
 *           0: no Overrun has occurred (Default)
 *           1: a new set of data has overwritten the previous ones
-*  6 ZOR: Z-axis Data Overrun.  
+*  6 ZOR: Z-axis Data Overrun.
 *         0: no Overrun has occurred (Default)
 *         1: a new data for the Z-axis has overwritten the previous ones
-*  5 YOR: Y-axis Data Overrun.  
+*  5 YOR: Y-axis Data Overrun.
 *         0: no Overrun has occurred (Default)
 *         1: a new data for the Y-axis has overwritten the previous ones
-*  4 XOR: X-axis Data Overrun.  
+*  4 XOR: X-axis Data Overrun.
 *         0: no Overrun has occurred (Default)
 *         1: a new data for the X-axis has overwritten the previous ones
-*  3 ZYXDA: X, Y and Z-axis new Data Available.  
+*  3 ZYXDA: X, Y and Z-axis new Data Available.
 *           0: a new set of data is not yet available (Default)
 *           1: a new set of data is available
-*  2 ZDA: Z-axis new data available.  
+*  2 ZDA: Z-axis new data available.
 *         0: a new data for the Z-axis is not yet available (Default)
 *         1: a new data for Z-axis is available
-*  1 YDA: Y-axis new data available.  
+*  1 YDA: Y-axis new data available.
 *         0: a new data for the Y-axis is not yet available (Default)
 *         1: a new data for Y-axis is available
-*  0 XDA: X-axis new data available.  
+*  0 XDA: X-axis new data available.
 *         0: a new data for the X-axis is not yet available (Default)
 *         1: a new data for X-axis is available
 *******************************************************************************/
@@ -532,11 +532,11 @@ typedef struct
 *        --------------------------------------------------
 *          0    |    0   |    0   | Bypass mode. FIFO turned off. (Default)
 *          0    |    0   |    1   | FIFO mode. Stop collecting data when FIFO is full.
-*          0    |    1   |    0   | Stream mode. If the FIFO is full, the new sample overwrites the older one (circular buffer). 
+*          0    |    1   |    0   | Stream mode. If the FIFO is full, the new sample overwrites the older one (circular buffer).
 *          0    |    1   |    1   | Stream mode until trigger is de-asserted, then FIFO mode.
 *          1    |    0   |    0   | Bypass mode until trigger is de-asserted, then Stream mode.
 *          1    |    0   |    1   | Not to use.
-*          1    |    1   |    0   | Not to use. 
+*          1    |    1   |    0   | Not to use.
 *          1    |    1   |    1   | Bypass mode until trigger is de-asserted, then FIFO mode.
 *
 *  4:0 WTMP4-WTMP0: FIFO Watermark pointer. It is the FIFO depth when the Watermark is enabled
@@ -547,13 +547,13 @@ typedef struct
 *  FIFO_SRC Register: FIFO Source Register
 *  Read only register
 *  Default value: 0x00
-*  7 WTM: Watermark status.  
+*  7 WTM: Watermark status.
 *         0: FIFO filling is lower than WTM level (Default)
-*         1: FIFO filling is equal or higher than WTM level 
-*  6 OVRN_FIFO: Overrun bit status.  
+*         1: FIFO filling is equal or higher than WTM level
+*  6 OVRN_FIFO: Overrun bit status.
 *               0: FIFO is not completely filled (Default)
 *               1: FIFO is completely filled
-*  5 EMPTY: Overrun bit status.  
+*  5 EMPTY: Overrun bit status.
 *           0: FIFO not empty (Default)
 *           1: FIFO empty
 *  4:0 FSS: Number of samples stored in the FIFO - 1
@@ -597,7 +597,7 @@ typedef struct
 *  Default value: 0x00
 *  7:0 TM_7-TM_0: SM1 Timer 3 Counter 1 Value
 *******************************************************************************/
-#define LIS3DSH_TIM3_1_ADDR                  0x51 
+#define LIS3DSH_TIM3_1_ADDR                  0x51
 
 /*******************************************************************************
 *  TIM2_1_L Register: SM1 General Timer 2 Low Register
@@ -605,7 +605,7 @@ typedef struct
 *  Default value: 0x00
 *  7:0 TM_7-TM_0: SM1 Timer 2 Counter 1 Low Value
 *******************************************************************************/
-#define LIS3DSH_TIM2_1_L_ADDR                0x52 
+#define LIS3DSH_TIM2_1_L_ADDR                0x52
 
 /*******************************************************************************
 *  TIM2_1_H Register: SM1 General Timer 2 High Register
@@ -613,7 +613,7 @@ typedef struct
 *  Default value: 0x00
 *  15:8 TM_15-TM_8: SM1 Timer 2 Counter 1 High Value
 *******************************************************************************/
-#define LIS3DSH_TIM2_1_H_ADDR                0x53 
+#define LIS3DSH_TIM2_1_H_ADDR                0x53
 
 /*******************************************************************************
 *  TIM1_1_L Register: SM1 General Timer 1 Low Register
@@ -651,29 +651,29 @@ typedef struct
 *  MASK1_B Register: SM1 Swap Axis and Sign Mask Register
 *  Write only register
 *  Default value: 0x00
-*  7 P_X: X-Axis Positive Motion Detection 
-*         0: X+ disabled 
+*  7 P_X: X-Axis Positive Motion Detection
+*         0: X+ disabled
 *         1: X+ enabled
-*  6 N_X: X-Axis Negative Motion Detection 
-*         0: X- disabled 
+*  6 N_X: X-Axis Negative Motion Detection
+*         0: X- disabled
 *         1: X- enabled
-*  5 P_Y: Y-Axis Positive Motion Detection 
-*         0: Y+ disabled 
+*  5 P_Y: Y-Axis Positive Motion Detection
+*         0: Y+ disabled
 *         1: Y+ enabled
-*  4 N_Y: Y-Axis Negative Motion Detection 
-*         0: Y- disabled 
+*  4 N_Y: Y-Axis Negative Motion Detection
+*         0: Y- disabled
 *         1: Y- enabled
-*  3 P_Z: X-Axis Positive Motion Detection 
-*         0: Z+ disabled 
+*  3 P_Z: X-Axis Positive Motion Detection
+*         0: Z+ disabled
 *         1: Z+ enabled
-*  2 N_Z: X-Axis Negative Motion Detection 
-*         0: Z- disabled 
+*  2 N_Z: X-Axis Negative Motion Detection
+*         0: Z- disabled
 *         1: Z- enabled
-*  1 P_V: 
-*         0: V+ disabled 
+*  1 P_V:
+*         0: V+ disabled
 *         1: V+ enabled
-*  0 N_V:  
-*         0: V- disabled 
+*  0 N_V:
+*         0: V- disabled
 *         1: V- enabled
 *******************************************************************************/
 #define LIS3DSH_MASK1_B_ADDR                 0x59
@@ -682,29 +682,29 @@ typedef struct
 *  MASK1_A Register: SM1 Default Axis and Sign Mask Register
 *  Write only register
 *  Default value: 0x00
-*  7 P_X: X-Axis Positive Motion Detection 
-*         0: X+ disabled 
+*  7 P_X: X-Axis Positive Motion Detection
+*         0: X+ disabled
 *         1: X+ enabled
-*  6 N_X: X-Axis Negative Motion Detection 
-*         0: X- disabled 
+*  6 N_X: X-Axis Negative Motion Detection
+*         0: X- disabled
 *         1: X- enabled
-*  5 P_Y: Y-Axis Positive Motion Detection 
-*         0: Y+ disabled 
+*  5 P_Y: Y-Axis Positive Motion Detection
+*         0: Y+ disabled
 *         1: Y+ enabled
-*  4 N_Y: Y-Axis Negative Motion Detection 
-*         0: Y- disabled 
+*  4 N_Y: Y-Axis Negative Motion Detection
+*         0: Y- disabled
 *         1: Y- enabled
-*  3 P_Z: X-Axis Positive Motion Detection 
-*         0: Z+ disabled 
+*  3 P_Z: X-Axis Positive Motion Detection
+*         0: Z+ disabled
 *         1: Z+ enabled
-*  2 N_Z: X-Axis Negative Motion Detection 
-*         0: Z- disabled 
+*  2 N_Z: X-Axis Negative Motion Detection
+*         0: Z- disabled
 *         1: Z- enabled
-*  1 P_V: 
-*         0: V+ disabled 
+*  1 P_V:
+*         0: V+ disabled
 *         1: V+ enabled
-*  0 N_V:  
-*         0: V- disabled 
+*  0 N_V:
+*         0: V- disabled
 *         1: V- enabled
 *******************************************************************************/
 #define LIS3DSH_MASK1_A_ADDR                 0x5A
@@ -713,26 +713,26 @@ typedef struct
 *  SETT1 Register: SM1 Detection Settings Register
 *  Write only register
 *  Default value: 0x00
-*  7 P_DET: SM1 peak detection bit 
-*           0: peak detection disabled (Default) 
+*  7 P_DET: SM1 peak detection bit
+*           0: peak detection disabled (Default)
 *           1: peak detection enabled
-*  6 THR3_SA:  
+*  6 THR3_SA:
 *             0: no action (Default)
 *             1: threshold 3 enabled for axis and sign mask reset (MASK1_B)
-*  5 ABS:  
+*  5 ABS:
 *         0: unsigned thresholds THRSx (Default)
 *         1: signed thresholds THRSx
 *  4 Reserved
 *  3 Reserved
-*  2 THR3_MA:  
+*  2 THR3_MA:
 *             0: no action (Default)
 *             1: threshold 3 enabled for axis and sign mask reset (MASK1_A)
 *  1 R_TAM: Next condition validation flag
 *           0: mask frozen on the axis that triggers the condition (Default)
 *           1: standard mask always evaluated
-*  0 SITR:  
-*          0: no actions (Default) 
-*          1: STOP and CONT commands generate an interrupt and perform output 
+*  0 SITR:
+*          0: no actions (Default)
+*          1: STOP and CONT commands generate an interrupt and perform output
 *             actions as OUTC command.
 *******************************************************************************/
 #define LIS3DSH_SETT1_ADDR                   0x5B
@@ -766,28 +766,28 @@ typedef struct
 *  OUTS1 Register: SM1 Output Set Flag Register
 *  Read only register
 *  Default value: 0x00
-*  7 P_X: 
-*         0: X+ noshow 
+*  7 P_X:
+*         0: X+ noshow
 *         1: X+ show
-*  6 N_X: 
+*  6 N_X:
 *         0: X- noshow
 *         1: X- show
-*  5 P_Y:  
-*         0: Y+ noshow 
+*  5 P_Y:
+*         0: Y+ noshow
 *         1: Y+ show
-*  4 N_Y:  
+*  4 N_Y:
 *         0: Y- noshow
 *         1: Y- show
-*  3 P_Z:  
-*         0: Z+ noshow 
+*  3 P_Z:
+*         0: Z+ noshow
 *         1: Z+ show
-*  2 N_Z:  
+*  2 N_Z:
 *         0: Z- noshow
 *         1: Z- show
-*  1 P_V: 
+*  1 P_V:
 *         0: V+ noshow
 *         1: V+ show
-*  0 N_V:  
+*  0 N_V:
 *         0: V- noshow
 *         1: V- show
 *******************************************************************************/
@@ -822,7 +822,7 @@ typedef struct
 *  Default value: 0x00
 *  7:0 TM_7-TM_0: SM2 Timer 4 Counter 1 Value
 *******************************************************************************/
-#define LIS3DSH_TIM4_2_ADDR                  0x70 
+#define LIS3DSH_TIM4_2_ADDR                  0x70
 
 /*******************************************************************************
 *  TIM3_2 Register: SM2 General Timer 3 Register
@@ -892,29 +892,29 @@ typedef struct
 *  MASK2_B Register: SM2 Axis and Sign Mask Register
 *  Write only register
 *  Default value: 0x00
-*  7 P_X: X-Axis Positive Motion Detection 
-*         0: X+ disabled 
+*  7 P_X: X-Axis Positive Motion Detection
+*         0: X+ disabled
 *         1: X+ enabled
-*  6 N_X: X-Axis Negative Motion Detection 
-*         0: X- disabled 
+*  6 N_X: X-Axis Negative Motion Detection
+*         0: X- disabled
 *         1: X- enabled
-*  5 P_Y: Y-Axis Positive Motion Detection 
-*         0: Y+ disabled 
+*  5 P_Y: Y-Axis Positive Motion Detection
+*         0: Y+ disabled
 *         1: Y+ enabled
-*  4 N_Y: Y-Axis Negative Motion Detection 
-*         0: Y- disabled 
+*  4 N_Y: Y-Axis Negative Motion Detection
+*         0: Y- disabled
 *         1: Y- enabled
-*  3 P_Z: X-Axis Positive Motion Detection 
-*         0: Z+ disabled 
+*  3 P_Z: X-Axis Positive Motion Detection
+*         0: Z+ disabled
 *         1: Z+ enabled
-*  2 N_Z: X-Axis Negative Motion Detection 
-*         0: Z- disabled 
+*  2 N_Z: X-Axis Negative Motion Detection
+*         0: Z- disabled
 *         1: Z- enabled
-*  1 P_V: 
-*         0: V+ disabled 
+*  1 P_V:
+*         0: V+ disabled
 *         1: V+ enabled
-*  0 N_V:  
-*         0: V- disabled 
+*  0 N_V:
+*         0: V- disabled
 *         1: V- enabled
 *******************************************************************************/
 #define LIS3DSH_MASK2_B_ADDR                 0x79
@@ -923,29 +923,29 @@ typedef struct
 *  MASK2_A Register: SM2 Axis and Sign Mask Register
 *  Write only register
 *  Default value: 0x00
-*  7 P_X: X-Axis Positive Motion Detection 
-*         0: X+ disabled 
+*  7 P_X: X-Axis Positive Motion Detection
+*         0: X+ disabled
 *         1: X+ enabled
-*  6 N_X: X-Axis Negative Motion Detection 
-*         0: X- disabled 
+*  6 N_X: X-Axis Negative Motion Detection
+*         0: X- disabled
 *         1: X- enabled
-*  5 P_Y: Y-Axis Positive Motion Detection 
-*         0: Y+ disabled 
+*  5 P_Y: Y-Axis Positive Motion Detection
+*         0: Y+ disabled
 *         1: Y+ enabled
-*  4 N_Y: Y-Axis Negative Motion Detection 
-*         0: Y- disabled 
+*  4 N_Y: Y-Axis Negative Motion Detection
+*         0: Y- disabled
 *         1: Y- enabled
-*  3 P_Z: X-Axis Positive Motion Detection 
-*         0: Z+ disabled 
+*  3 P_Z: X-Axis Positive Motion Detection
+*         0: Z+ disabled
 *         1: Z+ enabled
-*  2 N_Z: X-Axis Negative Motion Detection 
-*         0: Z- disabled 
+*  2 N_Z: X-Axis Negative Motion Detection
+*         0: Z- disabled
 *         1: Z- enabled
-*  1 P_V: 
-*         0: V+ disabled 
+*  1 P_V:
+*         0: V+ disabled
 *         1: V+ enabled
-*  0 N_V:  
-*         0: V- disabled 
+*  0 N_V:
+*         0: V- disabled
 *         1: V- enabled
 *******************************************************************************/
 #define LIS3DSH_MASK2_A_ADDR                 0x7A
@@ -954,30 +954,30 @@ typedef struct
 *  SETT2 Register: SM2 Detection Settings Register
 *  Write only register
 *  Default value: 0x00
-*  7 P_DET: SM2 peak detection 
-*           0: peak detection disabled (Default) 
+*  7 P_DET: SM2 peak detection
+*           0: peak detection disabled (Default)
 *           1: peak detection enabled
-*  6 THR3_SA:  
+*  6 THR3_SA:
 *             0: no action (Default)
 *             1: threshold 3 limit value for axis and sign mask reset (MASK2_B)
-*  5 ABS:  
+*  5 ABS:
 *         0: unsigned thresholds (Default)
 *         1: signed thresholds
-*  4 RADI:  
-*          0: raw data 
-*          1: diff data for State Machine 2 
-*  3 D_CS:  
+*  4 RADI:
+*          0: raw data
+*          1: diff data for State Machine 2
+*  3 D_CS:
 *          0: DIFF2 enabled (difference between current data and previous data)
-*          1: constant shift enabled (difference between current data and constant values)     
-*  2 THR3_MA:  
+*          1: constant shift enabled (difference between current data and constant values)
+*  2 THR3_MA:
 *             0: no action (Default)
 *             1: threshold 3 enabled for axis and sign mask reset (MASK2_A)
 *  1 R_TAM: Next condition validation flag
 *           0: mask frozen on the axis that triggers the condition (Default)
 *           1: standard mask always evaluated
-*  0 SITR:  
-*          0: no actions (Default) 
-*          1: STOP and CONT commands generate an interrupt and perform output 
+*  0 SITR:
+*          0: no actions (Default)
+*          1: STOP and CONT commands generate an interrupt and perform output
 *             actions as OUTC command.
 *******************************************************************************/
 #define LIS3DSH_SETT2_ADDR                   0x7B
@@ -1011,28 +1011,28 @@ typedef struct
 *  OUTS2 Register: SM2 Output Set Flag Register
 *  Read only register
 *  Default value: 0x00
-*  7 P_X: 
-*         0: X+ noshow 
+*  7 P_X:
+*         0: X+ noshow
 *         1: X+ show
-*  6 N_X: 
+*  6 N_X:
 *         0: X- noshow
 *         1: X- show
-*  5 P_Y:  
-*         0: Y+ noshow 
+*  5 P_Y:
+*         0: Y+ noshow
 *         1: Y+ show
-*  4 N_Y:  
+*  4 N_Y:
 *         0: Y- noshow
 *         1: Y- show
-*  3 P_Z:  
-*         0: Z+ noshow 
+*  3 P_Z:
+*         0: Z+ noshow
 *         1: Z+ show
-*  2 N_Z:  
+*  2 N_Z:
 *         0: Z- noshow
 *         1: Z- show
-*  1 P_V: 
+*  1 P_V:
 *         0: V+ noshow
 *         1: V+ show
-*  0 N_V:  
+*  0 N_V:
 *         0: V- noshow
 *         1: V- show
 *******************************************************************************/
@@ -1043,7 +1043,7 @@ typedef struct
 /******************************************************************************/
 #define I_AM_LIS3DSH                         0x3F
 
-/** @defgroup Sensitivity_selection               
+/** @defgroup Sensitivity_selection
   * @{
   */
 #define LIS3DSH_SENSITIVITY_0_06G            0.06  /* 0.06 mg/digit*/
@@ -1055,7 +1055,7 @@ typedef struct
   * @}
   */
 
-/** @defgroup Data_Rate_Power_Mode_selection                
+/** @defgroup Data_Rate_Power_Mode_selection
   * @{
   */
 #define LIS3DSH_DATARATE_POWERDOWN           ((uint8_t)0x00)  /* Power Down Mode*/
@@ -1071,8 +1071,8 @@ typedef struct
 /**
   * @}
   */
-  
-/** @defgroup Full_Scale_selection 
+
+/** @defgroup Full_Scale_selection
   * @{
   */
 #define LIS3DSH_FULLSCALE_2                  ((uint8_t)0x00)  /* 2 g  */
@@ -1084,8 +1084,8 @@ typedef struct
 /**
   * @}
   */
-    
-/** @defgroup Anti-Aliasing_Filter_Bandwidth 
+
+/** @defgroup Anti-Aliasing_Filter_Bandwidth
   * @{
   */
 #define LIS3DSH_FILTER_BW_800                ((uint8_t)0x00)  /* 800 Hz */
@@ -1095,7 +1095,7 @@ typedef struct
 /**
   * @}
   */
-  
+
 /** @defgroup Self_Test_selection
   * @{
   */
@@ -1104,9 +1104,9 @@ typedef struct
 #define LIS3DSH_SELFTEST_M                   ((uint8_t)0x04)
 /**
   * @}
-  */  
+  */
 
-/** @defgroup Direction_XYZ_selection  
+/** @defgroup Direction_XYZ_selection
   * @{
   */
 #define LIS3DSH_X_ENABLE                     ((uint8_t)0x01)
@@ -1116,15 +1116,15 @@ typedef struct
 /**
   * @}
   */
- 
-/** @defgroup SPI_Serial_Interface_Mode_selection  
+
+/** @defgroup SPI_Serial_Interface_Mode_selection
   * @{
   */
 #define LIS3DSH_SERIALINTERFACE_4WIRE        ((uint8_t)0x00)
 #define LIS3DSH_SERIALINTERFACE_3WIRE        ((uint8_t)0x01)
 /**
   * @}
-  */ 
+  */
 
 /** @defgroup Interrupt_Request_selection    Interrupt_Selection_Enable
   * @{
@@ -1133,7 +1133,7 @@ typedef struct
 #define LIS3DSH_INTERRUPT_REQUEST_PULSED     ((uint8_t)0x20)
 /**
   * @}
-  */ 
+  */
 
 /** @defgroup Interrupt_Selection_Enable
   * @{
@@ -1143,7 +1143,7 @@ typedef struct
 #define LIS3DSH_INTERRUPT_1_2_ENABLE         ((uint8_t)0x88)
 /**
   * @}
-  */ 
+  */
 
 /** @defgroup Interrupt_Signal_Active_Selection
   * @{
@@ -1152,7 +1152,7 @@ typedef struct
 #define LIS3DSH_INTERRUPT_SIGNAL_HIGH        ((uint8_t)0x40)
 /**
   * @}
-  */ 
+  */
 
 /** @defgroup State_Machine_Enable
   * @{
@@ -1161,8 +1161,8 @@ typedef struct
 #define LIS3DSH_SM_DISABLE                  ((uint8_t)0x00)
 /**
   * @}
-  */ 
-     
+  */
+
 /** @defgroup State_Machine_Routed_Interrupt
   * @{
   */
@@ -1170,7 +1170,7 @@ typedef struct
 #define LIS3DSH_SM_INT2                     ((uint8_t)0x08)
 /**
   * @}
-  */ 
+  */
 
 /** @defgroup Boot_Mode_selection
   * @{
@@ -1179,10 +1179,10 @@ typedef struct
 #define LIS3DSH_BOOT_FORCED                  ((uint8_t)0x80)
 /**
   * @}
-  */   
+  */
 
 
-/** @defgroup FIFO_Mode_selection 
+/** @defgroup FIFO_Mode_selection
   * @{
   */
 #define LIS3DSH_FIFO_BYPASS_MODE             ((uint8_t)0x00)
@@ -1197,19 +1197,19 @@ typedef struct
 
 /**
   * @}
-  */ 
-  
+  */
+
 /** @defgroup LIS3DSH_Exported_Macros
   * @{
   */
 
 /**
   * @}
-  */ 
+  */
 
 /** @defgroup LIS3DSH_Exported_Functions
   * @{
-  */ 
+  */
 void    LIS3DSH_Init(uint16_t InitStruct);
 void    LIS3DSH_DeInit(void);
 uint8_t LIS3DSH_ReadID(void);
@@ -1224,7 +1224,7 @@ void    LIS3DSH_ReadACC(int16_t *pData);
 /* Accelerometer driver structure */
 extern ACCELERO_DrvTypeDef Lis3dshDrv;
 
-/* Accelerometer IO functions */  
+/* Accelerometer IO functions */
 void    ACCELERO_IO_Init(void);
 void    ACCELERO_IO_ITConfig(void);
 void    ACCELERO_IO_Write(uint8_t* pBuffer, uint8_t WriteAddr, uint16_t NumByteToWrite);
@@ -1250,6 +1250,6 @@ void    ACCELERO_IO_Read(uint8_t* pBuffer, uint8_t ReadAddr, uint16_t NumByteToR
 
 /**
   * @}
-  */ 
+  */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

@@ -34,7 +34,7 @@
   * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   *
   ******************************************************************************
-  */ 
+  */
 
 /* Define to prevent recursive inclusion -------------------------------------*/
 #ifndef __ILI9325_H
@@ -42,19 +42,19 @@
 
 #ifdef __cplusplus
  extern "C" {
-#endif 
+#endif
 
 /* Includes ------------------------------------------------------------------*/
 #include "../Common/lcd.h"
 
 /** @addtogroup BSP
   * @{
-  */ 
+  */
 
 /** @addtogroup Components
   * @{
-  */ 
-  
+  */
+
 /** @addtogroup ili9325
   * @{
   */
@@ -62,28 +62,28 @@
 /** @defgroup ILI9325_Exported_Types
   * @{
   */
-   
+
 /**
   * @}
-  */ 
+  */
 
 /** @defgroup ILI9325_Exported_Constants
   * @{
   */
-/** 
-  * @brief  ILI9325 ID  
-  */  
+/**
+  * @brief  ILI9325 ID
+  */
 #define  ILI9325_ID    0x9325
-   
-/** 
-  * @brief  ILI9325 Size  
-  */  
+
+/**
+  * @brief  ILI9325 Size
+  */
 #define  ILI9325_LCD_PIXEL_WIDTH    ((uint16_t)320)
 #define  ILI9325_LCD_PIXEL_HEIGHT   ((uint16_t)240)
-   
-/** 
-  * @brief  ILI9325 Registers  
-  */ 
+
+/**
+  * @brief  ILI9325 Registers
+  */
 #define LCD_REG_0             0x00
 #define LCD_REG_1             0x01
 #define LCD_REG_2             0x02
@@ -196,10 +196,10 @@
 /**
   * @}
   */
-  
+
 /** @defgroup ILI9325_Exported_Functions
   * @{
-  */ 
+  */
 void     ili9325_Init(void);
 uint16_t ili9325_ReadID(void);
 void     ili9325_WriteReg(uint8_t LCD_Reg, uint16_t LCD_RegValue);
@@ -233,8 +233,8 @@ uint16_t LCD_IO_ReadData(void);
 
 /**
   * @}
-  */ 
-      
+  */
+
 #ifdef __cplusplus
 }
 #endif
@@ -243,14 +243,14 @@ uint16_t LCD_IO_ReadData(void);
 
 /**
   * @}
-  */ 
-
-/**
-  * @}
-  */ 
+  */
 
 /**
   * @}
   */
-  
+
+/**
+  * @}
+  */
+
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

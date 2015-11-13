@@ -33,32 +33,32 @@
   * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   *
   ******************************************************************************
-  */ 
+  */
 
 /* Includes ------------------------------------------------------------------*/
 #include "s5k5cag.h"
 
 /** @addtogroup BSP
   * @{
-  */ 
+  */
 
 /** @addtogroup Components
   * @{
-  */ 
-  
+  */
+
 /** @addtogroup S5K5CAG
-  * @brief     This file provides a set of functions needed to drive the 
+  * @brief     This file provides a set of functions needed to drive the
   *            S5K5CAG Camera module.
   * @{
   */
 
 /** @defgroup S5K5CAG_Private_TypesDefinitions
   * @{
-  */ 
+  */
 
 /**
   * @}
-  */ 
+  */
 
 /** @defgroup S5K5CAG_Private_Defines
   * @{
@@ -66,27 +66,27 @@
 
 /**
   * @}
-  */ 
-  
+  */
+
 /** @defgroup S5K5CAG_Private_Macros
   * @{
   */
-     
+
 /**
   * @}
-  */  
-  
+  */
+
 /** @defgroup S5K5CAG_Private_FunctionPrototypes
   * @{
   */
 static uint32_t s5k5cag_ConvertValue(uint32_t feature, uint32_t value);
 /**
   * @}
-  */ 
-  
+  */
+
 /** @defgroup S5K5CAG_Private_Variables
   * @{
-  */        
+  */
 
 CAMERA_DrvTypeDef   s5k5cag_drv =
 {
@@ -3046,11 +3046,11 @@ const uint16_t S5K5CAG_QQVGA[][2]=
 /**
   * @}
   */
-  
+
 /** @defgroup S5K5CAG_Private_Functions
   * @{
-  */ 
-  
+  */
+
 /**
   * @brief  Initializes the S5K5CAG CAMERA component.
   * @param  DeviceAddr: Device address on communication Bus.
@@ -3060,7 +3060,7 @@ const uint16_t S5K5CAG_QQVGA[][2]=
 void s5k5cag_Init(uint16_t DeviceAddr, uint32_t resolution)
 {
   uint32_t index;
-  
+
   /* Initialize I2C */
   CAMERA_IO_Init();
 
@@ -3145,11 +3145,11 @@ void s5k5cag_Config(uint16_t DeviceAddr, uint32_t feature, uint32_t value, uint3
   uint32_t r_gain = 0xA0;
   uint32_t g_gain = 0xA0;
   uint32_t b_gain = 0xA0;
-  
+
   /* Convert the input value into s5k5cag parameters */
   value_tmp = s5k5cag_ConvertValue(feature, value);
   br_value = s5k5cag_ConvertValue(CAMERA_CONTRAST_BRIGHTNESS, brightness_value);
-    
+
   switch(feature)
   {
   case CAMERA_BLACK_WHITE:
@@ -3178,7 +3178,7 @@ void s5k5cag_Config(uint16_t DeviceAddr, uint32_t feature, uint32_t value, uint3
       break;
     }
   case CAMERA_COLOR_EFFECT:
-    {     
+    {
       /* Reset previous color effect settings */
       CAMERA_IO_Write(DeviceAddr, 0x0028, 0x7000);  /* REG_TC_DBG_ReInitCmd register (0x700004D6) */
       CAMERA_IO_Write(DeviceAddr, 0x002A, 0x04D6);  /* REG_TC_DBG_ReInitCmd register */
@@ -3254,7 +3254,7 @@ void s5k5cag_Config(uint16_t DeviceAddr, uint32_t feature, uint32_t value, uint3
         }
       }
       break;
-    }     
+    }
   default:
     {
       break;
@@ -3271,7 +3271,7 @@ uint16_t s5k5cag_ReadID(uint16_t DeviceAddr)
 {
   /* Initialize I2C */
   CAMERA_IO_Init();
-  
+
   /* Prepare the sensor to read the Camera ID */
   CAMERA_IO_Write(DeviceAddr, 0xFCFC, 0x0000);  /* page 0x0000 */
 
@@ -3292,7 +3292,7 @@ uint16_t s5k5cag_ReadID(uint16_t DeviceAddr)
 static uint32_t s5k5cag_ConvertValue(uint32_t feature, uint32_t value)
 {
   uint32_t ret = 0;
-  
+
   switch(feature)
   {
   case CAMERA_BLACK_WHITE:
@@ -3355,7 +3355,7 @@ static uint32_t s5k5cag_ConvertValue(uint32_t feature, uint32_t value)
         {
           ret =  S5K5CAG_BRIGHTNESS_LEVEL4;
           break;
-        }        
+        }
       case CAMERA_CONTRAST_LEVEL0:
         {
           ret =  S5K5CAG_CONTRAST_LEVEL0;
@@ -3424,27 +3424,27 @@ static uint32_t s5k5cag_ConvertValue(uint32_t feature, uint32_t value)
       {
         ret = 0;
         break;
-      }    
+      }
     }
   }
-  
+
   return ret;
 }
-         
-/**
-  * @}
-  */ 
-  
-/**
-  * @}
-  */ 
 
 /**
   * @}
-  */ 
-  
+  */
+
 /**
   * @}
-  */  
+  */
+
+/**
+  * @}
+  */
+
+/**
+  * @}
+  */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

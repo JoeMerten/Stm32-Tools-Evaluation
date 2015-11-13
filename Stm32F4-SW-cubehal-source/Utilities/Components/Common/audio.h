@@ -5,7 +5,7 @@
   * @version V4.0.1
   * @date    21-July-2015
   * @brief   This header file contains the common defines and functions prototypes
-  *          for the Audio driver.  
+  *          for the Audio driver.
   ******************************************************************************
   * @attention
   *
@@ -54,7 +54,7 @@
 /** @addtogroup Components
   * @{
   */
-    
+
 /** @addtogroup AUDIO
   * @{
   */

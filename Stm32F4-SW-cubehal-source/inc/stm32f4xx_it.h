@@ -1,6 +1,6 @@
 /**
   ******************************************************************************
-  * @file    Templates/Inc/stm32f4xx_it.h 
+  * @file    Templates/Inc/stm32f4xx_it.h
   * @author  MCD Application Team
   * @version V1.2.2
   * @date    09-October-2015
@@ -41,7 +41,7 @@
 
 #ifdef __cplusplus
  extern "C" {
-#endif 
+#endif
 
 /* Includes ------------------------------------------------------------------*/
 /* Exported types ------------------------------------------------------------*/

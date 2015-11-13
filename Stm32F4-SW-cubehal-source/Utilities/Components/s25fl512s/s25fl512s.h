@@ -33,7 +33,7 @@
   * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   *
   ******************************************************************************
-  */ 
+  */
 
 /* Define to prevent recursive inclusion -------------------------------------*/
 #ifndef __S25FL512S_H
@@ -41,18 +41,18 @@
 
 #ifdef __cplusplus
  extern "C" {
-#endif 
+#endif
 
 /* Includes ------------------------------------------------------------------*/
 
 /** @addtogroup BSP
   * @{
-  */ 
+  */
 
 /** @addtogroup Components
   * @{
-  */ 
-  
+  */
+
 /** @addtogroup s25fl512s
   * @brief     This file provides a set of definitions for the Spansion
   *            S25FL512S memory (configuration, commands, registers).
@@ -62,15 +62,15 @@
 /** @defgroup S25FL512S_Exported_Types
   * @{
   */
-   
+
 /**
   * @}
-  */ 
+  */
 
 /** @defgroup S25FL512S_Exported_Constants
   * @{
   */
-   
+
 /* S25FL512SAGMFI01 Spansion Memory */
 /**
   * @brief  S25FL512S Configuration
@@ -232,14 +232,14 @@
 /**
   * @}
   */
-  
+
 /** @defgroup S25FL512S_Exported_Functions
   * @{
-  */ 
+  */
 /**
   * @}
-  */ 
-      
+  */
+
 #ifdef __cplusplus
 }
 #endif
@@ -248,14 +248,14 @@
 
 /**
   * @}
-  */ 
-
-/**
-  * @}
-  */ 
+  */
 
 /**
   * @}
   */
-  
+
+/**
+  * @}
+  */
+
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

@@ -58,7 +58,7 @@
 /** @defgroup I2C_Exported_Types I2C Exported Types
   * @{
   */
-   
+
 /**
   * @brief  I2C Configuration Structure definition
   */
@@ -143,9 +143,9 @@ typedef struct
   */
 
 /** @defgroup I2C_Error_Code I2C Error Code
-  * @brief    I2C Error Code 
+  * @brief    I2C Error Code
   * @{
-  */ 
+  */
 #define HAL_I2C_ERROR_NONE       ((uint32_t)0x00000000)    /*!< No error           */
 #define HAL_I2C_ERROR_BERR       ((uint32_t)0x00000001)    /*!< BERR error         */
 #define HAL_I2C_ERROR_ARLO       ((uint32_t)0x00000002)    /*!< ARLO error         */
@@ -363,7 +363,7 @@ typedef struct
     (__HANDLE__)->Instance->CR1 |= I2C_CR1_PE;  \
     UNUSED(tmpreg);                             \
   } while(0)
-    
+
 #define __HAL_I2C_ENABLE(__HANDLE__)                             ((__HANDLE__)->Instance->CR1 |=  I2C_CR1_PE)
 #define __HAL_I2C_DISABLE(__HANDLE__)                            ((__HANDLE__)->Instance->CR1 &=  ~I2C_CR1_PE)
 
@@ -463,7 +463,7 @@ uint32_t HAL_I2C_GetError(I2C_HandleTypeDef *hi2c);
 /** @defgroup I2C_Private_Macros I2C Private Macros
   * @{
   */
-    
+
 #define I2C_FREQRANGE(__PCLK__)                            ((__PCLK__)/1000000)
 #define I2C_RISE_TIME(__FREQRANGE__, __SPEED__)            (((__SPEED__) <= 100000) ? ((__FREQRANGE__) + 1) : ((((__FREQRANGE__) * 300) / 1000) + 1))
 #define I2C_SPEED_STANDARD(__PCLK__, __SPEED__)            (((((__PCLK__)/((__SPEED__) << 1)) & I2C_CCR_CCR) < 4)? 4:((__PCLK__) / ((__SPEED__) << 1)))
