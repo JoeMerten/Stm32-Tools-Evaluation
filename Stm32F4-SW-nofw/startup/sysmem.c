@@ -3,17 +3,17 @@
 **
 **  File        : sysmem.c
 **
-**  Author	    : Ac6
+**  Author      : Ac6
 **
 **  Abstract    : System Workbench Minimal System Memory calls file
 **
-** 		          For more information about which c-functions
+**                For more information about which c-functions
 **                need which of these lowlevel functions
 **                please consult the Newlib libc-manual
 **
 **  Environment : System Workbench for MCU
 **
-**  Distribution: The file is distributed “as is,” without any warranty
+**  Distribution: The file is distributed â€œas is,â€ without any warranty
 **                of any kind.
 **
 *****************************************************************************
@@ -61,22 +61,22 @@ register char * stack_ptr asm("sp");
 **/
 caddr_t _sbrk(int incr)
 {
-	extern char end asm("end");
-	static char *heap_end;
-	char *prev_heap_end;
+    extern char end asm("end");
+    static char *heap_end;
+    char *prev_heap_end;
 
-	if (heap_end == 0)
-		heap_end = &end;
+    if (heap_end == 0)
+        heap_end = &end;
 
-	prev_heap_end = heap_end;
-	if (heap_end + incr > stack_ptr)
-	{
-		errno = ENOMEM;
-		return (caddr_t) -1;
-	}
+    prev_heap_end = heap_end;
+    if (heap_end + incr > stack_ptr)
+    {
+        errno = ENOMEM;
+        return (caddr_t) -1;
+    }
 
-	heap_end += incr;
+    heap_end += incr;
 
-	return (caddr_t) prev_heap_end;
+    return (caddr_t) prev_heap_end;
 }
 
