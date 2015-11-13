@@ -8,6 +8,7 @@ Setup start with Eclipse
 ========================
 
 The "SW" in the project names below stands for "Ac6 System Workbench"
+All projects are located in /D/git/Joe/Stm32-Tools-Evaluation/
 
 - File → new → C++ Project → Ac6 Stm32 Mcu Project
 
