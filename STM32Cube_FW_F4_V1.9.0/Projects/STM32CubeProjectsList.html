@@ -1,0 +1,3949 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Projects Overview</title>
+    <style>
+      .descriptionColumn { min-width:550px;}
+      em{color:red;font-weight: bold;}
+      importantLink {font-size:10pt; font-family: "Verdana","sans-serif" color:black;}
+      article{border: 1px solid #828282;margin: 20px 0px 20px 9px;}
+      body{font-family: Verdana;font-size: 10pt; color: black;margin-left: 40px;}
+      .picture{text-align: center}
+      .copyright{text-align: center}
+      h1{text-align: center;font-size: 20pt; font-family: Verdana; color: rgb(51, 102, 255);}
+    </style>
+  </head>
+  <body>
+
+    <h1>STM32CubeF4 Firmware Examples for STM32F4xx Series</h1>
+
+    <p class="copyright">Copyright 2015 STMicroelectronics</p>
+
+    <div class="picture">
+      <img alt="" id="_x0000_i1025" src="../_htmresc/st_logo.png" style="border: 0px solid ; width: 104px; height: 77px;"/>
+    </div>
+
+    <p>The STM32CubeF4 Firmware package comes with a rich set of examples running on STMicroelectronics boards, organized by board and provided with preconfigured projects for the main supported toolchains.</p>
+
+    <div class="picture">
+      <img alt="" src="../_htmresc/STM32Cube.bmp" style="width: 727px; height: 382px;"/>
+    </div>
+
+    <p>The examples are classified depending on the STM32Cube level they apply to, and are named as follows:</p>
+
+    <ul>
+      <li id="Examples"><b>Examples</b> uses only the HAL and BSP drivers (Middleware not used), having as objective to demonstrate the product/peripherals features and usage. The examples are organized per peripheral (a folder for each peripheral, ex. TIM) and offers different complexity level from basic usage of a given peripheral (ex. PWM generation using timer) till integration of several peripherals(use DAC for signals generation with synchronization from TIM6 and DMA). Board resources usage is reduced to the strict minimum.</li>
+      <li id="Applications"><b>Applications</b> intends to demonstrate the product performance and how to use the different Middleware stacks available. The Applications are organized per Middleware (a folder for each Middleware, ex. USB Host) or product feature that need high level firmware bricks (ex. Audio). Integration Applications that use several Middleware stacks are provided as well.</li>
+      <li id="Demonstrations"><b>Demonstrations</b> aims to integrate and run the maximum of peripherals and Middleware stacks to showcase the product features and performance.</li>
+      <li>A Template project is provided to allow user to quickly build any firmware application on a given board.</li>
+    </ul>
+
+    <p>The examples are located under STM32Cube_FW_STM32CubeF4_VX.Y.Z\Projects\, and all of them have the same structure:</p>
+
+    <ul>
+      <li>\Inc folder that contains all header files.</li>
+      <li>\Src folder for the sources code.</li>
+      <li>\EWARM, \MDK-ARM, \SW4STM32 and \TrueSTUDIO folders contain the preconfigured project for each toolchain.</li>
+      <li>readme.txt describing the example behavior and the environment required to run the example.</li>
+    </ul>
+
+    <p>To run the example, you have to do the following:</p>
+
+    <ul>
+      <li>Open the example using your preferred toolchain.</li>
+      <li>Rebuild all files and load the image into target memory.</li>
+      <li>Run the example by following the readme.txt instructions.</li>
+      <li>
+        <i><u>Note</u>: refer to section "Development Toolchains and Compilers" and "Supported Devices and EVAL boards" of the Firmware package release notes to know about the SW/HW environment used for the Firmware development and validation. The correct operation of the provided examples is not guaranteed on some environments, for example when using different compiler or board versions.</i>
+      </li>
+    </ul>
+
+    <p>The provided examples can be tailored to run on any compatible hardware; user simply need to update the BSP drivers for his board, if it has the same hardware functions (LED, LCD display, pushbuttons...etc.). The BSP is based on a modular architecture that allows it to be ported easily to any hardware by just implementing the low level routines.</p>
+
+    <p>The table below contains the list of examples provided within STM32CubeF4 Firmware package.</p>
+
+    <p id="STM32F4xxImportantLink">
+      <div>Reference materials available on <a href="http://www.st.com/stm32cube" target="_blank">www.st.com/stm32cube</a></div>
+      <ul>
+        <li><a href="http://www.st.com/web/en/catalog/tools/PF259243" target="_blank">Latest release</a> of STM32CubeF4 Firmware package.</li>
+        <li><a href="http://www.st.com/st-web-ui/static/active/en/resource/technical/document/user_manual/DM00107720.pdf" target="_blank">UM1730</a>: Getting started with STM32CubeF4 for STM32F4xx Series.</li>
+        <li><a href="http://www.st.com/st-web-ui/static/active/en/resource/technical/document/user_manual/DM00112348.pdf" target="_blank">UM1743</a>: STM32CubeF4 demonstration platform.</li>
+        <li><a href="http://www.st.com/st-web-ui/static/active/en/resource/technical/document/user_manual/DM00105879.pdf" target="_blank">UM1725</a>: Description of STM32F4xx HAL drivers.</li>
+        <li><a href="http://www.st.com/st-web-ui/static/active/en/resource/technical/document/user_manual/DM00108129.pdf" target="_blank">UM1734</a>: STM32Cube USB Device library.</li>
+        <li><a href="http://www.st.com/st-web-ui/static/active/en/resource/technical/document/user_manual/DM00105256.pdf" target="_blank">UM1720</a>: STM32Cube USB host library.</li>
+        <li><a href="http://www.st.com/st-web-ui/static/active/en/resource/technical/document/user_manual/DM00105259.pdf" target="_blank">UM1721</a>: Developing Applications on STM32Cube with FatFs.</li>
+        <li><a href="http://www.st.com/st-web-ui/static/active/en/resource/technical/document/user_manual/DM00105262.pdf" target="_blank">UM1722</a>: Developing Applications on STM32Cube with RTOS.</li>
+        <li><a href="http://www.st.com/st-web-ui/static/active/en/resource/technical/document/user_manual/DM00103685.pdf" target="_blank">UM1713</a>: Developing applications on STM32Cube with LwIP TCP/IP stack.</li>
+        <li><a href="http://www.st.com/st-web-ui/static/active/en/resource/technical/document/user_manual/DM00103145.pdf" target="_blank">UM1709</a>: STM32Cube Ethernet IAP example.</li>
+      </ul>
+    </p>
+		<table border='1' bgcolor='#f0f0fF' >
+			<tr align=center style="background-repeat: no-repeat;background-position: right center;background-color: #39A9DC;color: #FFF;">
+				<td><b>Level</b></td>
+				<td><b>Module Name</b></td>
+				<td><b>Project Name</b></td>
+				<td class="descriptionColumn"><b>Description</b></td>
+				<td>STM32F429I-Discovery</td>
+				<td>STM32F401-Discovery</td>
+				<td>STM32446E_EVAL</td>
+				<td>STM32446E-Nucleo</td>
+				<td>STM32F410xx-Nucleo</td>
+				<td>STM324xG_EVAL</td>
+				<td>STM32F411RE-Nucleo</td>
+				<td>STM32469I-Discovery</td>
+				<td>STM32F4-Discovery</td>
+				<td>STM32F401RE-Nucleo</td>
+				<td>STM32469I_EVAL</td>
+				<td>STM324x9I_EVAL</td>
+			</tr>
+      <tr align=center>
+        <td style="background-repeat: no-repeat;background-position: right center;background-color: #39A9DC;color: #FFF;" rowspan=2><p id="Templates">Templates</p></td>
+        <td align=left rowspan=1><p id="-">-</p></td>
+        <td align=left><p id="Starter project">Starter project</p></td>
+        <td align=left>
+This projects provides a reference template that can be used to build any firmware application.
+</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr style="background-repeat: no-repeat;background-position: right center;background-color: #39A9DC;color: #FFF;" align=center>
+        <td colspan="3"><b>Total number of templates: 12</b></td>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+      </tr>
+      <tr align=center>
+        <td style="background-repeat: no-repeat;background-position: right center;background-color: #39A9DC;color: #FFF;" rowspan=126><p id="Examples">Examples</p></td>
+        <td align=left rowspan=1><p id="-">-</p></td>
+        <td align=left><p id="BSP">BSP</p></td>
+        <td align=left>
+This example provides a description of how to use the different BSP drivers. 
+</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left rowspan=7><p id="ADC">ADC</p></td>
+        <td align=left><p id="ADC_DualModeInterleaved">ADC_DualModeInterleaved</p></td>
+        <td align=left>
+
+This example provides a short description of how to use two ADC peripherals to
+perform conversions in interleaved dual-mode.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="ADC_InjectedConversion_Interrupt">ADC_InjectedConversion_Interrupt</p></td>
+        <td align=left>
+This example describes how to use the ADC in interrupt mode to convert data through the HAL API.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="ADC_RegularConversion_DMA">ADC_RegularConversion_DMA</p></td>
+        <td align=left>
+
+This example describes how to use the ADC and DMA to transfer continuously 
+converted data from ADC to memory.
+</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="ADC_RegularConversion_Interrupt">ADC_RegularConversion_Interrupt</p></td>
+        <td align=left>
+This example describes how to use the ADC in interrupt mode to convert data through the HAL API.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="ADC_RegularConversion_Polling">ADC_RegularConversion_Polling</p></td>
+        <td align=left>
+This example describes how to use the ADC in Polling mode to convert data through the HAL API.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="ADC_TriggerMode">ADC_TriggerMode</p></td>
+        <td align=left>
+This example describes how to use the ADC and TIM2 to convert continuously data 
+from ADC channel. Each time an external trigger is generated by TIM2 a new 
+conversion is started by ADC.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="ADC_TripleModeInterleaved">ADC_TripleModeInterleaved</p></td>
+        <td align=left>
+This example provides a short description of how to use the ADC peripheral to
+convert a regular channel in Triple interleaved mode.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left rowspan=3><p id="CAN">CAN</p></td>
+        <td align=left><p id="CAN_LoopBack">CAN_LoopBack</p></td>
+        <td align=left>
+This example provides a description of how to set a communication with the CAN
+in loopback mode.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="CAN_Loopback">CAN_Loopback</p></td>
+        <td align=left>
+This example provides a description of how to set a communication with the CAN
+in loopback mode.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="CAN_Networking">CAN_Networking</p></td>
+        <td align=left>
+This example shows how to configure the CAN peripheral to send and receive 
+CAN frames in normal mode. The sent frames are used to control LEDs by pressing  
+key push button.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left rowspan=3><p id="CEC">CEC</p></td>
+        <td align=left><p id="CEC_DataExchange">CEC_DataExchange</p></td>
+        <td align=left>
+This example shows how to configure and use the CEC peripheral to receive and 
+transmit messages.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="CEC_ListenMode">CEC_ListenMode</p></td>
+        <td align=left>
+This example shows how to configure and use the CEC peripheral to receive and 
+transmit messages between two boards while a third one (the spy device) listens 
+but doesn't acknowledge the received messages.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="CEC_MultiAddress">CEC_MultiAddress</p></td>
+        <td align=left>
+This example shows how to configure and use the CEC peripheral to receive and 
+transmit messages in the case where one device supports two distinct logical
+addresses at the same time.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+      </tr>
+      <tr align=center>
+        <td align=left rowspan=1><p id="CRC">CRC</p></td>
+        <td align=left><p id="CRC_Example">CRC_Example</p></td>
+        <td align=left>
+This example guides you through the different configuration steps by mean of HAL API 
+to ensure the use of the CRC (Cyclic Redundancy Check) calculation unit to get a
+CRC code of a given buffer of data word(32-bit), based on a fixed generator
+polynomial(0x4C11DB7).
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left rowspan=6><p id="CRYP">CRYP</p></td>
+        <td align=left><p id="CRYP_AESModes">CRYP_AESModes</p></td>
+        <td align=left>
+This example provides a short description of how to use the CRYPTO peripheral to
+encrypt and decrypt data using AES in chaining modes (ECB, CBC, CTR) and all key
+sizes (128, 192, 256) Algorithm.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="CRYP_AES_CCM">CRYP_AES_CCM</p></td>
+        <td align=left>
+This example provides a short description of how to use the CRYPTO peripheral to
+encrypt data using AES with Combined Cipher Machine (CCM).
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="CRYP_AES_DMA">CRYP_AES_DMA</p></td>
+        <td align=left>
+This example provides a short description of how to use the CRYPTO peripheral to 
+encrypt and decrypt data using AES-128 Algorithm with ECB chaining mode.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="CRYP_AES_GCM">CRYP_AES_GCM</p></td>
+        <td align=left>
+This example provides a description of how to use the CRYPTO peripheral to
+encrypt and decrypt data using AES with Galois/Counter Mode (GCM).
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="CRYP_DESTDESmodes">CRYP_DESTDESmodes</p></td>
+        <td align=left>
+This example provides a short description of how to use the CRYPTO peripheral to 
+encrypt and decrypt data using DES and TDES in all modes (ECB, CBC) Algorithm.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="CRYP_TDES_DMA">CRYP_TDES_DMA</p></td>
+        <td align=left>
+This example provides a short description of how to use the CRYPTO peripheral to 
+encrypt data using TDES Algorithm.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left rowspan=3><p id="Cortex">Cortex</p></td>
+        <td align=left><p id="CORTEXM_MPU">CORTEXM_MPU</p></td>
+        <td align=left>
+This example presents the MPU features on STM32F4xx devices and it can be easily
+ported to any other STM32 device supporting MPU.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="CORTEXM_ModePrivilege">CORTEXM_ModePrivilege</p></td>
+        <td align=left>
+This example shows how to modify CortexM4 Thread mode privilege access and stack.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="CORTEXM_SysTick">CORTEXM_SysTick</p></td>
+        <td align=left>
+  This example shows how to use the default configuration of SysTick with a time 
+  base equal to 1 ms in order to insert a delay between LEDs toggling. 
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left rowspan=2><p id="DAC">DAC</p></td>
+        <td align=left><p id="DAC_SignalsGeneration">DAC_SignalsGeneration</p></td>
+        <td align=left>
+This example provides a short description of how to use the DAC peripheral to 
+generate several signals using DMA controller.
+</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="DAC_SimpleConversion">DAC_SimpleConversion</p></td>
+        <td align=left>
+This example provides a short description of how to use the DAC peripheral to 
+do a simple conversion.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left rowspan=2><p id="DCMI">DCMI</p></td>
+        <td align=left><p id="DCMI_CaptureMode">DCMI_CaptureMode</p></td>
+        <td align=left>
+This example provides a short description of how to use the DCMI to interface with
+camera module and display in continuous mode the picture on LCD.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="DCMI_SnapshotMode">DCMI_SnapshotMode</p></td>
+        <td align=left>
+This example provides a short description of how to use the DCMI to interface with
+camera module and display in snapshot mode the picture on LCD.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left rowspan=2><p id="DMA">DMA</p></td>
+        <td align=left><p id="DMA_FIFOMode">DMA_FIFOMode</p></td>
+        <td align=left>
+This example provides a description of how to use a DMA channel to transfer 
+a word data buffer from FLASH memory to embedded SRAM memory with FIFO mode
+enabled through the STM32F4xx HAL API.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="DMA_FLASHToRAM">DMA_FLASHToRAM</p></td>
+        <td align=left>
+This example provides a description of how to use a DMA channel to transfer 
+a word data buffer from FLASH memory to embedded SRAM memory through 
+the STM32F4xx HAL API.
+</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left rowspan=5><p id="DMA2D">DMA2D</p></td>
+        <td align=left><p id="DMA2D_MemToMemWithBlending">DMA2D_MemToMemWithBlending</p></td>
+        <td align=left>
+  This example provides a description of how to configure DMA2D peripheral in 
+  Memory_to_Memory with blending transfer mode.
+</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="DMA2D_MemToMemWithLCD">DMA2D_MemToMemWithLCD</p></td>
+        <td align=left>
+  This example provides a description of how to configure DMA2D peripheral in 
+  Memory_to_Memory transfer mode and display the result on LCD.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="DMA2D_MemToMemWithPFC">DMA2D_MemToMemWithPFC</p></td>
+        <td align=left>
+  This example provides a description of how to configure DMA2D peripheral in 
+  Memory_to_Memory with pixel format conversion transfer mode.
+</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="DMA2D_MemoryToMemory">DMA2D_MemoryToMemory</p></td>
+        <td align=left>
+  This example provides a description of how to configure DMA2D peripheral in 
+  Memory_to_Memory transfer mode.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="DMA2D_RegToMemWithLCD">DMA2D_RegToMemWithLCD</p></td>
+        <td align=left>
+  This example provides a description of how to configure DMA2D peripheral in 
+  Register_to_Memory transfer mode and display the result on LCD.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left rowspan=3><p id="FLASH">FLASH</p></td>
+        <td align=left><p id="FLASH_DualBoot">FLASH_DualBoot</p></td>
+        <td align=left>
+This example guides you through the different configuration steps by mean of HAL API
+how to program bank1 and bank2 of the FLASH memory integrated within STM32F4xx devices 
+and swap between both of them.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="FLASH_EraseProgram">FLASH_EraseProgram</p></td>
+        <td align=left>
+This example describes how to configure and use the FLASH HAL API to erase and program 
+the internal FLASH memory.
+</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="FLASH_WriteProtection">FLASH_WriteProtection</p></td>
+        <td align=left>
+This example describes how to configure and use the FLASH HAL API to enable and 
+disable the write protection of the internal FLASH memory.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left rowspan=6><p id="FMC">FMC</p></td>
+        <td align=left><p id="FMC_NOR">FMC_NOR</p></td>
+        <td align=left>
+This example describes how to configure the FMC controller to access the NOR memory.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="FMC_SDRAM">FMC_SDRAM</p></td>
+        <td align=left>
+
+This example describes how to configure the FMC controller to access the SDRAM 
+memory.
+</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="FMC_SDRAM_DataMemory">FMC_SDRAM_DataMemory</p></td>
+        <td align=left>
+This example describes how to configure the FMC controller to access the SDRAM 
+memory including heap and stack.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="FMC_SDRAM_LowPower">FMC_SDRAM_LowPower</p></td>
+        <td align=left>
+This example guides you through the different configuration steps by mean of HAL API
+to drive the IS42S16400J SDRAM memory mounted on STM32F429I-Discovery RevB board, in
+low power mode (SDRAM Self Refresh mode).
+</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="FMC_SRAM">FMC_SRAM</p></td>
+        <td align=left>
+This example describes how to configure the FMC controller to access the SRAM 
+memory.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="FMC_SRAM_DataMemory">FMC_SRAM_DataMemory</p></td>
+        <td align=left>
+This example guides you through the different configuration steps by mean of HAL API
+to configure the FMC controller to access the  SRAM memory mounted 
+on evaluation board (including heap and stack).
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left rowspan=2><p id="FSMC">FSMC</p></td>
+        <td align=left><p id="FSMC_SRAM">FSMC_SRAM</p></td>
+        <td align=left>
+This example describes how to configure the FSMC controller to access the SRAM 
+memory.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="FSMC_SRAM_DataMemory">FSMC_SRAM_DataMemory</p></td>
+        <td align=left>
+
+This example describes how to configure the FSMC controller to access the SRAM 
+memory including heap and stack.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+      </tr>
+      <tr align=center>
+        <td align=left rowspan=2><p id="GPIO">GPIO</p></td>
+        <td align=left><p id="GPIO_EXTI">GPIO_EXTI</p></td>
+        <td align=left>
+This example shows how to configure external interrupt lines.
+</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="GPIO_IOToggle">GPIO_IOToggle</p></td>
+        <td align=left>
+This example describes how to configure and use GPIOs through the HAL API. 
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left rowspan=1><p id="HAL">HAL</p></td>
+        <td align=left><p id="HAL_TimeBase">HAL_TimeBase</p></td>
+        <td align=left>
+This example describes how to customize the HAL time base using a general 
+purpose timer(TIM6) instead of Systick as main source of time base.
+</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left rowspan=4><p id="HASH">HASH</p></td>
+        <td align=left><p id="HASH_HMAC_SHA1MD5">HASH_HMAC_SHA1MD5</p></td>
+        <td align=left>
+This example provides a short description of how to use the HASH peripheral to 
+hash data using HMAC SHA-1 and HMAC MD5 Algorithms.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="HASH_SHA1MD5">HASH_SHA1MD5</p></td>
+        <td align=left>
+This example provides a short description of how to use the HASH peripheral to 
+hash data using SHA-1 and MD5 Algorithms.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="HASH_SHA1MD5_DMA">HASH_SHA1MD5_DMA</p></td>
+        <td align=left>
+This example provides a short description of how to use the HASH peripheral to 
+hash data using SHA-1 and MD5 Algorithms.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="HASH_SHA224SHA256_DMA">HASH_SHA224SHA256_DMA</p></td>
+        <td align=left>
+This example provides a short description of how to use the HASH peripheral to 
+hash data using SHA224 and SHA256 Algorithms.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left rowspan=6><p id="I2C">I2C</p></td>
+        <td align=left><p id="FMPI2C_EEPROM">FMPI2C_EEPROM</p></td>
+        <td align=left>
+This example describes how to perform I2C data buffer transmission/reception via 
+DMA. The communication uses an I2C EEPROM memory.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="I2C_EEPROM">I2C_EEPROM</p></td>
+        <td align=left>
+This example describes how to ensure I2C Data buffer transmission and reception 
+with DMA. The communication is done with an I2C EEPROM memory.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="I2C_TwoBoards_AdvComIT">I2C_TwoBoards_AdvComIT</p></td>
+        <td align=left>
+
+This example describes how to perform I2C data buffer transmission/reception 
+between two boards, using an interrupt.
+</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="I2C_TwoBoards_ComDMA">I2C_TwoBoards_ComDMA</p></td>
+        <td align=left>
+This example describes how to perform I2C data buffer transmission/reception 
+between two boards, via DMA.
+</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="I2C_TwoBoards_ComIT">I2C_TwoBoards_ComIT</p></td>
+        <td align=left>
+This example describes how to perform I2C data buffer transmission/reception between 
+two boards using an interrupt.
+</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="I2C_TwoBoards_ComPolling">I2C_TwoBoards_ComPolling</p></td>
+        <td align=left>
+This example describes how to perform I2C data buffer transmission/reception between 
+two boards in Polling mode.
+</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+      </tr>
+      <tr align=center>
+        <td align=left rowspan=1><p id="I2S">I2S</p></td>
+        <td align=left><p id="I2S_Audio">I2S_Audio</p></td>
+        <td align=left>
+This example provides basic implementation of audio features.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+      </tr>
+      <tr align=center>
+        <td align=left rowspan=1><p id="IWDG">IWDG</p></td>
+        <td align=left><p id="IWDG_Example">IWDG_Example</p></td>
+        <td align=left>
+This example guides you through the different configuration steps by mean of HAL API 
+to ensure IWDG reload counter and simulate a software fault generating an MCU IWDG
+reset on expiry of a programmed time period.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left rowspan=9><p id="LCD_DSI">LCD_DSI</p></td>
+        <td align=left><p id="LCD_DSI_CmdMode_DoubleBuffering">LCD_DSI_CmdMode_DoubleBuffering</p></td>
+        <td align=left>
+This example provides a description of how to use the embedded LCD DSI controller 
+(using IPs LTDC and DSI Host) to drive the KoD LCD mounted on board.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="LCD_DSI_CmdMode_PartialRefresh">LCD_DSI_CmdMode_PartialRefresh</p></td>
+        <td align=left>
+This example provides a description of how to use the embedded LCD DSI controller 
+(using IPs LTDC and DSI Host) to drive the KoD LCD mounted on board.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="LCD_DSI_CmdMode_SingleBuffer">LCD_DSI_CmdMode_SingleBuffer</p></td>
+        <td align=left>
+This example provides a description of how to use the embedded LCD DSI controller 
+(using IPs LTDC and DSI Host) to drive the KoD LCD mounted on board.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="LCD_DSI_CmdMode_TearingEffect">LCD_DSI_CmdMode_TearingEffect</p></td>
+        <td align=left>
+This example provides a description of how to use the embedded LCD DSI controller 
+(using IPs LTDC and DSI Host) to drive the KoD LCD mounted on board.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="LCD_DSI_CmdMode_TearingEffect_ExtPin">LCD_DSI_CmdMode_TearingEffect_ExtPin</p></td>
+        <td align=left>
+This example provides a description of how to use the embedded LCD DSI controller 
+(using IPs LTDC and DSI Host) to drive the KoD LCD mounted on board.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="LCD_DSI_ULPM_Data">LCD_DSI_ULPM_Data</p></td>
+        <td align=left>
+This example provides a description of how to use the embedded LCD DSI controller 
+(using IPs LTDC and DSI Host) to drive the KoD LCD mounted on board and manage entry and exit in 
+DSI ULPM mode on data lane only. In this mode, the DSI PHY state machine is entering a low power state
+on data lane and allows to save some power when the LCD does not need to display. 
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="LCD_DSI_ULPM_DataClock">LCD_DSI_ULPM_DataClock</p></td>
+        <td align=left>
+This example provides a description of how to use the embedded LCD DSI controller 
+(using IPs LTDC and DSI Host) to drive the KoD LCD mounted on board and manage entry and exit in 
+DSI ULPM mode on data lane and clock lane. 
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="LCD_DSI_VideoMode_DoubleBuffering">LCD_DSI_VideoMode_DoubleBuffering</p></td>
+        <td align=left>
+This example provides a description of how to use the embedded LCD DSI controller 
+(using IPs LTDC and DSI Host) to drive the KoD LCD mounted on board.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="LCD_DSI_VideoMode_SingleBuffer">LCD_DSI_VideoMode_SingleBuffer</p></td>
+        <td align=left>
+This example provides a description of how to use the embedded LCD DSI controller 
+(using IPs LTDC and DSI Host) to drive the KoD LCD mounted on board.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+      </tr>
+      <tr align=center>
+        <td align=left rowspan=3><p id="LTDC">LTDC</p></td>
+        <td align=left><p id="LTDC_ColorKeying">LTDC_ColorKeying</p></td>
+        <td align=left>
+ This example describe how to enable and use the color keying functionality.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="LTDC_Display_1Layer">LTDC_Display_1Layer</p></td>
+        <td align=left>
+  This example provides a description of how to configure LTDC peripheral to 
+  display BMP image on LCD using only one layer.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="LTDC_Display_2Layers">LTDC_Display_2Layers</p></td>
+        <td align=left>
+  This example describes how to configure the LTDC peripheral to display two Layers  
+  at the same time.
+</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left rowspan=5><p id="PWR">PWR</p></td>
+        <td align=left><p id="PWR_BOR">PWR_BOR</p></td>
+        <td align=left>
+This example shows how to configure the programmable BOR thresholds using the 
+FLASH option bytes.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="PWR_CurrentConsumption">PWR_CurrentConsumption</p></td>
+        <td align=left>
+This example shows how to configure the STM32F4xx system to measure different
+Low Power modes current consumption. 
+</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="PWR_PVD">PWR_PVD</p></td>
+        <td align=left>
+This example shows how to configure the programmable voltage detector using
+an external interrupt line. In this example, EXTI line 16 is configured to generate 
+an interrupt on each rising or falling edge of the PVD output signal (which 
+indicates that the Vdd voltage is below the PVD threshold).
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="PWR_STANDBY">PWR_STANDBY</p></td>
+        <td align=left>
+
+This example shows how to enters the system to STANDBY mode and wake-up from this mode
+using: external RESET, RTC Alarm A or WKUP pin.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="PWR_STOP">PWR_STOP</p></td>
+        <td align=left>
+
+This example shows how to enter Stop mode and wake up from this mode by using the 
+RTC Wakeup timer event or an interrupt.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left rowspan=4><p id="QSPI">QSPI</p></td>
+        <td align=left><p id="QSPI_ExecuteInPlace">QSPI_ExecuteInPlace</p></td>
+        <td align=left>
+This example describes how to execute a part of the code from the QSPI memory. To do this, 
+a section is created where the function is stored.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="QSPI_MemoryMapped">QSPI_MemoryMapped</p></td>
+        <td align=left>
+This example describes how to erase part of the QSPI memory, write data in DMA mode and access to QSPI memory 
+in memory-mapped mode to check the data in a forever loop.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="QSPI_ReadWrite_DMA">QSPI_ReadWrite_DMA</p></td>
+        <td align=left>
+This example describes how to erase part of the QSPI memory, write data in DMA mode, read data in DMA mode 
+and compare the result in a forever loop.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="QSPI_ReadWrite_IT">QSPI_ReadWrite_IT</p></td>
+        <td align=left>
+This example describes how to erase part of the QSPI memory, write data in IT mode, read data in IT mode 
+and compare the result in a forever loop.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+      </tr>
+      <tr align=center>
+        <td align=left rowspan=1><p id="RCC">RCC</p></td>
+        <td align=left><p id="RCC_ClockConfig">RCC_ClockConfig</p></td>
+        <td align=left>
+This example describes how to use the RCC HAL API to configure the system clock (SYSCLK)  
+and modify the clock settings on run time. 
+</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left rowspan=1><p id="RNG">RNG</p></td>
+        <td align=left><p id="RNG_MultiRNG">RNG_MultiRNG</p></td>
+        <td align=left>
+This example guides you through the different configuration steps by mean of HAL API 
+to ensure RNG random 32bit numbers generation.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left rowspan=4><p id="RTC">RTC</p></td>
+        <td align=left><p id="RTC_Alarm">RTC_Alarm</p></td>
+        <td align=left>
+This example guides you through the different configuration steps by mean of HAL API 
+to ensure Alarm configuration and generation using the RTC peripheral.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="RTC_Calendar">RTC_Calendar</p></td>
+        <td align=left>
+This example guides you through the different configuration steps by mean of HAL API 
+to ensure Calendar configuration using the RTC peripheral.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="RTC_Tamper">RTC_Tamper</p></td>
+        <td align=left>
+This example guides you through the different configuration steps by mean of HAL API 
+to write/read data to/from RTC Backup data registers and demonstrate the Tamper 
+detection feature using the RTC peripheral.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="RTC_TimeStamp">RTC_TimeStamp</p></td>
+        <td align=left>
+This example guides you through the different configuration steps by mean of HAL API 
+to ensure Time Stamp configuration using the RTC peripheral.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left rowspan=2><p id="SAI">SAI</p></td>
+        <td align=left><p id="SAI_Audio">SAI_Audio</p></td>
+        <td align=left>
+This example provides basic implementation of audio features.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="SAI_AudioPlay">SAI_AudioPlay</p></td>
+        <td align=left>
+This example show how to play an audio file using the DMA circular mode and 
+how to handle the buffer update.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+      </tr>
+      <tr align=center>
+        <td align=left rowspan=1><p id="SMARTCARD">SMARTCARD</p></td>
+        <td align=left><p id="SMARTCARD_T0">SMARTCARD_T0</p></td>
+        <td align=left>
+
+This example describes a firmware Smartcard Interface based on the USART
+peripheral. The main purpose of this firmware example is to provide resources 
+facilitating the development of an application using the USART peripheral in 
+smartcard mode.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+      </tr>
+      <tr align=center>
+        <td align=left rowspan=5><p id="SPI">SPI</p></td>
+        <td align=left><p id="SPI_FullDuplex_AdvComIT">SPI_FullDuplex_AdvComIT</p></td>
+        <td align=left> 
+This example guides you through the different configuration steps by mean of HAL API 
+to ensure SPI Data buffer transmission and reception using Interrupt, in an advance 
+communication mode: Master board is always sending command to slave before any
+transmission and Slave board is sending acknowledge before going further.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="SPI_FullDuplex_AdvComPolling">SPI_FullDuplex_AdvComPolling</p></td>
+        <td align=left> 
+This example guides you through the different configuration steps by mean of HAL API 
+to ensure SPI Data buffer transmission and reception using Polling, in an advance 
+communication mode: Master board is always sending command to slave before any
+transmission and Slave board is sending acknowledge before going further.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="SPI_FullDuplex_ComDMA">SPI_FullDuplex_ComDMA</p></td>
+        <td align=left>
+This example shows how to perform SPI data buffer transmission/reception between 
+two boards via DMA.
+</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="SPI_FullDuplex_ComIT">SPI_FullDuplex_ComIT</p></td>
+        <td align=left>
+This example shows how to ensure SPI data buffer transmission/reception between 
+two boards by using an interrupt.
+</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="SPI_FullDuplex_ComPolling">SPI_FullDuplex_ComPolling</p></td>
+        <td align=left>
+
+This example shows how to ensure SPI data buffer transmission/reception in Polling 
+mode between two boards.
+</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+      </tr>
+      <tr align=center>
+        <td align=left rowspan=20><p id="TIM">TIM</p></td>
+        <td align=left><p id="TIM_6Steps">TIM_6Steps</p></td>
+        <td align=left>
+This example shows how to configure the TIM1 peripheral to generate 6 Steps.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="TIM_7PWMOutput">TIM_7PWMOutput</p></td>
+        <td align=left>
+This example shows how to configure the TIM1 peripheral to generate 7 PWM signals 
+with 4 different duty cycles (50%, 37.5%, 25% and 12.5%).
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="TIM_CascadeSynchro">TIM_CascadeSynchro</p></td>
+        <td align=left>
+This example shows how to synchronize TIM peripherals in cascade mode.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="TIM_ComplementarySignals">TIM_ComplementarySignals</p></td>
+        <td align=left>
+This example shows how to configure the TIM1 peripheral to generate three 
+complementary TIM1 signals, to insert a defined dead time value, to use the break 
+feature and to lock the desired parameters.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="TIM_DMA">TIM_DMA</p></td>
+        <td align=left>
+  This example provides a description of how to use DMA with TIM1 Update request
+  to transfer Data from memory to TIM1 Capture Compare Register 3 (CCR3).
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="TIM_DMABurst">TIM_DMABurst</p></td>
+        <td align=left>
+This example shows how to update the TIM1 channel1 period and the duty cycle 
+using the TIM1 DMA burst feature.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="TIM_Encoder">TIM_Encoder</p></td>
+        <td align=left>
+This example shows how to configure the TIM1 peripheral in encoder mode to
+determinate the rotation direction.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="TIM_ExtTriggerSynchro">TIM_ExtTriggerSynchro</p></td>
+        <td align=left>
+  This example shows how to synchronize TIM peripherals in cascade mode with an
+  external trigger.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="TIM_InputCapture">TIM_InputCapture</p></td>
+        <td align=left>
+  This example shows how to use the TIM peripheral to measure the frequency of
+  an external signal.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="TIM_OCActive">TIM_OCActive</p></td>
+        <td align=left>
+  This example shows how to configure the TIM peripheral to generate four different 
+  signals with four different delays.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="TIM_OCInactive">TIM_OCInactive</p></td>
+        <td align=left>
+  This example shows how to configure the TIM peripheral in Output Compare Inactive 
+  mode with the corresponding Interrupt requests for each channel.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="TIM_OCToggle">TIM_OCToggle</p></td>
+        <td align=left>
+This example shows how to configure the TIM3 peripheral to generate four different 
+signals with four different frequencies.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="TIM_OnePulse">TIM_OnePulse</p></td>
+        <td align=left>
+This example shows how to use the TIM peripheral to generate a One pulse Mode 
+  after a Rising edge of an external signal is received in Timer Input pin.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="TIM_PWMInput">TIM_PWMInput</p></td>
+        <td align=left>
+This example shows how to use the TIM peripheral to measure the frequency and 
+duty cycle of an external signal.
+</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="TIM_PWMOutput">TIM_PWMOutput</p></td>
+        <td align=left>
+This example shows how to configure the TIM peripheral in PWM (Pulse Width Modulation) 
+mode.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="TIM_ParallelSynchro">TIM_ParallelSynchro</p></td>
+        <td align=left>
+This example shows how to synchronize TIM2 and Timers (TIM3 and TIM4) in parallel mode.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="TIM_PrescalerSelection">TIM_PrescalerSelection</p></td>
+        <td align=left>
+This example shows how to configure the TIM peripheral in PWM (Pulse Width Modulation) 
+mode with clock prescaler selection feature activated using __HAL_RCC_TIMCLKPRESCALER()
+which allows to double the output frequency.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="TIM_Prescaler_Selection">TIM_Prescaler_Selection</p></td>
+        <td align=left>
+This example shows how to configure the TIM peripheral in PWM (Pulse Width Modulation) 
+mode with clock prescaler selection feature activated using __HAL_RCC_TIMCLKPRESCALER()
+which allow to double the output frequency.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="TIM_Synchronization">TIM_Synchronization</p></td>
+        <td align=left>
+This example shows how to synchronize TIM1 and Timers (TIM3 and TIM4) in parallel mode.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="TIM_TimeBase">TIM_TimeBase</p></td>
+        <td align=left>
+This example shows how to configure the TIM peripheral to generate a time base of 
+one seconde with the corresponding Interrupt request.
+</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left rowspan=8><p id="UART">UART</p></td>
+        <td align=left><p id="UART_HyperTerminal_DMA">UART_HyperTerminal_DMA</p></td>
+        <td align=left>
+This example shows how to ensure UART Data buffer transmission and reception with 
+DMA. The communication is done with the Hyperterminal PC application.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="UART_HyperTerminal_IT">UART_HyperTerminal_IT</p></td>
+        <td align=left>
+This example shows how to ensure UART Data buffer transmission and reception with 
+Interrupt. The communication is done with the Hyperterminal PC application.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="UART_Hyperterminal_DMA">UART_Hyperterminal_DMA</p></td>
+        <td align=left>
+This example describes an UART transmission (transmit/receive) in DMA mode
+between a board and an Hyperterminal PC application.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="UART_Hyperterminal_IT">UART_Hyperterminal_IT</p></td>
+        <td align=left>
+
+This example describes an UART transmission (transmit/receive) between a board and 
+an Hyperterminal PC application by using an interrupt.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="UART_Printf">UART_Printf</p></td>
+        <td align=left>
+This example shows how to use the STM32 Nucleo boards Virtual Com port feature.           
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="UART_TwoBoards_ComDMA">UART_TwoBoards_ComDMA</p></td>
+        <td align=left>
+This example describes an UART transmission (transmit/receive) in DMA mode
+between two boards.
+</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="UART_TwoBoards_ComIT">UART_TwoBoards_ComIT</p></td>
+        <td align=left>
+This example describes a UART transmission (transmit/receive) in interrupt mode
+between two boards.
+</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="UART_TwoBoards_ComPolling">UART_TwoBoards_ComPolling</p></td>
+        <td align=left>
+
+This example describes a UART transmission (transmit/receive) in polling mode
+between two boards.
+</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+      </tr>
+      <tr align=center>
+        <td align=left rowspan=1><p id="WWDG">WWDG</p></td>
+        <td align=left><p id="WWDG_Example">WWDG_Example</p></td>
+        <td align=left>
+This example guides you through the different configuration steps by mean of HAL API 
+to ensure WWDG counter update at regular period and simulate a software fault 
+generating an MCU WWDG reset on expiry of a programmed time period.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr style="background-repeat: no-repeat;background-position: right center;background-color: #39A9DC;color: #FFF;" align=center>
+        <td colspan="3"><b>Total number of examples: 462</b></td>
+        <td>26</td>
+        <td>20</td>
+        <td>68</td>
+        <td>11</td>
+        <td>14</td>
+        <td>70</td>
+        <td>7</td>
+        <td>41</td>
+        <td>23</td>
+        <td>5</td>
+        <td>92</td>
+        <td>85</td>
+      </tr>
+      <tr align=center>
+        <td style="background-repeat: no-repeat;background-position: right center;background-color: #39A9DC;color: #FFF;" rowspan=4><p id="Demonstrations">Demonstrations</p></td>
+        <td align=left rowspan=3><p id="-">-</p></td>
+        <td align=left><p id="Demo">Demo</p></td>
+        <td align=left>
+The STM32Cube Demonstration platform comes on top of the STM32CubeTM as a firmware
+package that offers a full set of software components based on a modules architecture
+allowing re-using them separately in standalone applications. All these modules are
+managed by the STM32Cube Demonstration kernel allowing to dynamically adding new
+modules and access to common resources (storage, graphical components and widgets,
+memory management, Real-Time operating system)
+
+The STM32Cube Demonstration platform is built around the powerful graphical library
+STemWin and the FreeRTOS real time operating system and uses almost the whole STM32
+capability to offer a large scope of usage based on the STM32Cube HAL BSP and several
+middleware components.
+</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="MB1046">MB1046</p></td>
+        <td align=left>
+The STM32Cube Demonstration platform comes on top of the STM32CubeTM as a firmware
+package that offers a full set of software components based on a modules architecture
+allowing re-using them separately in standalone applications. All these modules are
+managed by the STM32Cube Demonstration kernel allowing to dynamically adding new
+modules and access to common resources (storage, graphical components and widgets,
+memory management, Real-Time operating system)
+
+The STM32Cube Demonstration platform is built around the powerful graphical library
+STemWin and the FreeRTOS real time operating system and uses almost the whole STM32
+capability to offer a large scope of usage based on the STM32Cube HAL BSP and several
+middleware components.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="MB1063">MB1063</p></td>
+        <td align=left>
+The STM32Cube Demonstration platform comes on top of the STM32CubeTM as a firmware
+package that offers a full set of software components based on a modules architecture
+allowing re-using them separately in standalone applications. All these modules are
+managed by the STM32Cube Demonstration kernel allowing to dynamically adding new
+modules and access to common resources (storage, graphical components and widgets,
+memory management, Real-Time operating system)
+
+The STM32Cube Demonstration platform is built around the powerful graphical library
+STemWin and the FreeRTOS real time operating system and uses almost the whole STM32
+capability to offer a large scope of usage based on the STM32Cube HAL BSP and several
+middleware components.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr style="background-repeat: no-repeat;background-position: right center;background-color: #39A9DC;color: #FFF;" align=center>
+        <td colspan="3"><b>Total number of demonstrations: 10</b></td>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+        <td>0</td>
+        <td>0</td>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+        <td>0</td>
+        <td>1</td>
+        <td>2</td>
+      </tr>
+      <tr align=center>
+        <td style="background-repeat: no-repeat;background-position: right center;background-color: #39A9DC;color: #FFF;" rowspan=61><p id="Applications">Applications</p></td>
+        <td align=left rowspan=1><p id="Audio">Audio</p></td>
+        <td align=left><p id="Audio_playback_and_record">Audio_playback_and_record</p></td>
+        <td align=left>
+
+This application provides a description of an audio play and record with different
+MEMS used on STM32F401-Discovery.
+</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left rowspan=1><p id="Camera">Camera</p></td>
+        <td align=left><p id="Camera_To_USBDisk">Camera_To_USBDisk</p></td>
+        <td align=left>
+This application provides a short description of how to use the DCMI to interface with
+camera module and display in continuous mode the picture on LCD and to save a picture 
+in USB device.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left rowspan=8><p id="Display">Display</p></td>
+        <td align=left><p id="LCD_AnimatedPictureFromSDCard">LCD_AnimatedPictureFromSDCard</p></td>
+        <td align=left>
+  This application describes how to display an animated picture on LCD saved under
+  microSD.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="LCD_DSI_ImagesSlider">LCD_DSI_ImagesSlider</p></td>
+        <td align=left>
+This application aims to show the outstanding capability of Display Serial Interface (DSI)
+ periphiral to display images with high resolution (800x480). With a simple movement of finger,
+the content of GRAM is directly updated and displayed on DSI LCD. 
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="LCD_Paint">LCD_Paint</p></td>
+        <td align=left>
+ This application describes how to configure LCD touch screen and attribute 
+ an action related to configured touch zone and how to save BMP picture in SDCard.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="LCD_PicturesFromSDCard">LCD_PicturesFromSDCard</p></td>
+        <td align=left>
+This application describes how to display pictures, saved on SD card, on LCD DSI, .
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="LTDC_AnimatedPictureFromSDCard">LTDC_AnimatedPictureFromSDCard</p></td>
+        <td align=left>
+  This application describes how to display on LCD an animated picture saved under
+  microSD.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="LTDC_AnimatedPictureFromUSB">LTDC_AnimatedPictureFromUSB</p></td>
+        <td align=left>
+  This application describes how to display on LCD pictures saved under USB mass storage.
+</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="LTDC_Paint">LTDC_Paint</p></td>
+        <td align=left>
+ This application describes how to configure LCD touch screen and attribute 
+ an action related to configured touch zone.
+</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="LTDC_PicturesFromSDCard">LTDC_PicturesFromSDCard</p></td>
+        <td align=left>
+This application describes how to display on LCD pictures saved under SD card.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left rowspan=9><p id="FatFs">FatFs</p></td>
+        <td align=left><p id="FatFs_MultiDrivers">FatFs_MultiDrivers</p></td>
+        <td align=left>
+This application provides a description on how to use STM32Cube firmware with FatFs 
+middleware component as a generic FAT file system module, in order to develop an
+application exploiting FatFs offered features with multidrives (RAMDisk, uSD) 
+configuration. 
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="FatFs_MultiDrives">FatFs_MultiDrives</p></td>
+        <td align=left>
+This application provides a description on how to use STM32Cube firmware with FatFs 
+middleware component as a generic FAT file system module, in order to develop an
+application exploiting FatFs offered features with multidrives (RAMDisk, uSD) 
+configuration. 
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="FatFs_RAMDisk">FatFs_RAMDisk</p></td>
+        <td align=left>
+This application provides a description on how to use STM32Cube firmware with FatFs 
+middleware component as a generic FAT file system module, in order to develop an
+application exploiting FatFs offered features with RAM disk (SDRAM) drive 
+configuration. 
+</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="FatFs_RAMDisk_RTOS">FatFs_RAMDisk_RTOS</p></td>
+        <td align=left>
+This application provides a description on how to use STM32Cube firmware with FatFs 
+middleware component as a generic FAT file system module, in order to develop an
+application exploiting FatFs offered features with RAM disk (SRAM) drive in RTOS 
+mode configuration. 
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="FatFs_USBDisk">FatFs_USBDisk</p></td>
+        <td align=left>
+This application provides a description on how to use STM32Cube firmware with FatFs 
+middleware component as a generic FAT file system module and STM32 USB On-The-Go
+(OTG) host library, in High Speed (HS) modes (configured in FS),
+in order to develop an application exploiting FatFs offred features with USB 
+disk drive configuration.
+</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="FatFs_USBDisk_MultipleAccess_RTOS">FatFs_USBDisk_MultipleAccess_RTOS</p></td>
+        <td align=left>
+This application provides a description on how to use STM32Cube firmware with FatFs 
+middleware component as a generic FAT file system module, FreeRTOS as an RTOS
+module based on using CMSIS-OS wrapping layer common APIs, and also STM32 USB 
+On-The-Go (OTG) host library, in both Full Speed (FS) and High Speed (HS) modes,
+in order to develop an application exploiting FatFs offered features with USB 
+disk drive in RTOS mode configuration.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="FatFs_USBDisk_RTOS">FatFs_USBDisk_RTOS</p></td>
+        <td align=left>
+This application provides a description on how to use STM32Cube firmware with FatFs 
+middleware component as a generic FAT file system module, FreeRTOS as an RTOS
+module based on using CMSIS-OS wrapping layer common APIs, and also STM32 USB 
+On-The-Go (OTG) host library, in both Full Speed (FS) and High Speed (HS) modes,
+in order to develop an application exploiting FatFs offered features with USB 
+disk drive in RTOS mode configuration.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="FatFs_uSD">FatFs_uSD</p></td>
+        <td align=left>
+This application provides a description on how to use STM32Cube firmware with FatFs 
+middleware component as a generic FAT file system module, in order to develop an
+application exploiting FatFs offered features with microSD drive configuration. 
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="FatFs_uSD_RTOS">FatFs_uSD_RTOS</p></td>
+        <td align=left>
+This application provides a description on how to use STM32Cube firmware with FatFs 
+middleware component as a generic FAT file system module, in order to develop an
+application exploiting FatFs offered features with microSD drive in RTOS mode 
+configuration. 
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left rowspan=7><p id="FreeRTOS">FreeRTOS</p></td>
+        <td align=left><p id="FreeRTOS_LowPower">FreeRTOS_LowPower</p></td>
+        <td align=left>
+This directory contains a set of source files that implement an application
+that uses message queues with CMSIS RTOS API
+
+This application creates two threads.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="FreeRTOS_Mutexes">FreeRTOS_Mutexes</p></td>
+        <td align=left>
+This directory contains a set of source files that implement an application
+that uses mutexes with CMSIS RTOS API 
+
+This application creates three threads with different priorities, 
+and access the same mutex
+
+MutexHighPriorityThread() has the highest priority so executes 
+first and grabs the mutex and sleeps for a short period to let the lower 
+priority threads execute.  When it has completed its demo functionality
+it gives the mutex back before suspending itself. 
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="FreeRTOS_Queues">FreeRTOS_Queues</p></td>
+        <td align=left>
+This directory contains a set of source files that implement an application
+that uses message queues with CMSIS RTOS API
+
+This application creates two threads that send and receive an incrementing number 
+to/from a queue.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="FreeRTOS_Semaphore">FreeRTOS_Semaphore</p></td>
+        <td align=left>
+This directory contains a set of source files that implement an application that
+uses semaphores with CMSIS RTOS API 
+
+This application creates two threads that toggle LEDs through a shared semaphore.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="FreeRTOS_SemaphoreFromISR">FreeRTOS_SemaphoreFromISR</p></td>
+        <td align=left>
+This directory contains a set of source files that implement an application that 
+uses semaphore from ISR with CMSIS RTOS API 
+
+This application creates a thread that toggle LED through semaphore given from ISR.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="FreeRTOS_ThreadCreation">FreeRTOS_ThreadCreation</p></td>
+        <td align=left>
+This directory contains a set of sources files that implement a thread creation 
+application using CMSIS RTOS API 
+
+This application creates two threads with the same priority, which executes in 
+a periodic cycle of 15 seconds. 
+</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="FreeRTOS_Timers">FreeRTOS_Timers</p></td>
+        <td align=left>
+This directory contains a set of source files that implement an application that
+uses timers of CMSIS RTOS API 
+
+This application creates a thread that toggles LED2 every 400 ms, and a periodic 
+timer that calls a callback function every 200 ms to toggle the LED1.  
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left rowspan=2><p id="LibJPEG">LibJPEG</p></td>
+        <td align=left><p id="LibJPEG_Decoding">LibJPEG_Decoding</p></td>
+        <td align=left>
+This application demonstrates how to read jpeg file from USB disk, decode it and display
+the final BMP image on the LCD.
+</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="LibJPEG_Encoding">LibJPEG_Encoding</p></td>
+        <td align=left>
+This application demonstrates how to read BMP file from USB disk, encode it, save the jpeg file
+in USB disk then decode the jpeg file and display the final BMP image on the LCD.
+</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left rowspan=10><p id="LwIP">LwIP</p></td>
+        <td align=left><p id="LwIP_HTTP_Server_Netconn_RTOS">LwIP_HTTP_Server_Netconn_RTOS</p></td>
+        <td align=left>
+This application guides STM32Cube HAL API users to run a http server application 
+based on Netconn API of LwIP TCP/IP stack
+The communication is done with a web browser application in a remote PC.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="LwIP_HTTP_Server_Raw">LwIP_HTTP_Server_Raw</p></td>
+        <td align=left>
+This application guides STM32Cube HAL API users to run a http server application 
+based on Raw API of LwIP TCP/IP stack
+The communication is done with a web browser application in a remote PC.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="LwIP_HTTP_Server_Socket_RTOS">LwIP_HTTP_Server_Socket_RTOS</p></td>
+        <td align=left>
+This application guides STM32Cube HAL API users to run a http server application 
+based on Socket API of LwIP TCP/IP stack
+The communication is done with a web browser application in a remote PC.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="LwIP_IAP">LwIP_IAP</p></td>
+        <td align=left>
+This application guides STM32Cube HAL API users to run In-Application Programming 
+(IAP) over Ethernet. 
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="LwIP_TCP_Echo_Client">LwIP_TCP_Echo_Client</p></td>
+        <td align=left>
+This application guides STM32Cube HAL API users to run TCP Echo Client application 
+based on Raw API of LwIP TCP/IP stack
+
+To run this application, On the remote PC, open a command prompt window.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="LwIP_TCP_Echo_Server">LwIP_TCP_Echo_Server</p></td>
+        <td align=left>
+This application guides STM32Cube HAL API users to run TCP Echo Server application 
+based on Raw API of LwIP TCP/IP stack
+
+To run this application, On the remote PC, open a command prompt window.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="LwIP_TFTP_Server">LwIP_TFTP_Server</p></td>
+        <td align=left>
+This application guides STM32Cube HAL API users to run a tftp server demonstration
+for STM32F4xx devices.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="LwIP_UDPTCP_Echo_Server_Netconn_RTOS">LwIP_UDPTCP_Echo_Server_Netconn_RTOS</p></td>
+        <td align=left>
+This application guides STM32Cube HAL API users to run a UDP/TCP Echo Server application 
+based on Netconn API of LwIP TCP/IP stack
+
+To run this application, On the remote PC, open a command prompt window.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="LwIP_UDP_Echo_Client">LwIP_UDP_Echo_Client</p></td>
+        <td align=left>
+This application guides STM32Cube HAL API users to run a UDP Echo Client application 
+based on Raw API of LwIP TCP/IP stack
+
+To run this application, On the remote PC, open a command prompt window.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="LwIP_UDP_Echo_Server">LwIP_UDP_Echo_Server</p></td>
+        <td align=left>
+This application guides STM32Cube HAL API users to run UDP Echo Server application 
+based on Raw API of LwIP TCP/IP stack
+
+To run this application, On the remote PC, open a command prompt window.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left rowspan=2><p id="PolarSSL">PolarSSL</p></td>
+        <td align=left><p id="SSL_Client">SSL_Client</p></td>
+        <td align=left>
+This application guides STM32Cube HAL API users to run an SSL client application 
+based on PolarSSL crypto library and LwIP TCP/IP stack
+
+To off-load the CPU from encryption/decryption, hash and RNG, all these 
+algorithms are implemented using the hardware acceleration AES 128/192/256, 
+Triple DES, MD5, SHA-1 and analog RNG through the STM32Cube HAL APIs 
+
+In this application the client (STM3241G-EVAL) sends a crypted message to the 
+server (test PC), which will decrypt the message then reply to the client.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="SSL_Server">SSL_Server</p></td>
+        <td align=left>
+This application guides STM32Cube HAL API users to run an SSL Server application 
+based on PolarSSL crypto library and LwIP TCP/IP stack
+
+To off-load the CPU from encryption/decryption, hash and RNG, all these 
+algorithms are implemented using the hardware acceleration AES 128/192/256, 
+Triple DES, MD5, SHA-1, SHA2-2 and analog RNG through the STM32Cube HAL APIs
+
+the HTTP server (STM3241G-EVAL) contains a html page dynamically refreshed 
+(every 1 s), it shows the RTOS statistics in runtime
+
+The HyperTerminal can be used to debug messages exchanged between client and 
+server.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left rowspan=2><p id="STemWin">STemWin</p></td>
+        <td align=left><p id="STemWin_HelloWorld">STemWin_HelloWorld</p></td>
+        <td align=left>
+This directory contains a set of source files that implement a simple "Hello
+Wolrd" application based on STemWin for STM32F4xx devices.
+</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="STemWin_SampleDemo">STemWin_SampleDemo</p></td>
+        <td align=left>
+This directory contains a set of source files that implement demo based on STemWin 
+for STM32F4xx devices.
+</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left rowspan=8><p id="USB_Device">USB_Device</p></td>
+        <td align=left><p id="AUDIO_Standalone">AUDIO_Standalone</p></td>
+        <td align=left>
+This application is a part of the USB Device Library package using STM32Cube firmware. It describes how to 
+use USB device application based on the AUDIO Class implementation of an audio streaming 
+(Out: Speaker/Headset) capability on the STM32F4xx devices.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="CDC_Standalone">CDC_Standalone</p></td>
+        <td align=left>
+This application is a part of the USB Device Library package using STM32Cube firmware. It describes how to 
+use USB device application based on the Device Communication Class (CDC) following the PSTN subprotocol
+in the STM32F4xx devices using the OTG-USB and UART peripherals.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="CustomHID_Standalone">CustomHID_Standalone</p></td>
+        <td align=left>
+This application is a part of the USB Device Library package using STM32Cube firmware. It describes how to 
+use USB device application based on the Custom HID Class on the STM32F4xx devices.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="DFU_Standalone">DFU_Standalone</p></td>
+        <td align=left>
+This application is a part of the USB Device Library package using STM32Cube firmware. It describes how to 
+use USB device application based on the Device Firmware Upgrade (DFU) on the STM32F4xx devices.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="DualCore_Standalone">DualCore_Standalone</p></td>
+        <td align=left>
+This application is a part of the USB Device Library package using STM32Cube firmware. It describes how to use
+USB device application based on the STM32F4xx multi core support feature integrating Mass Storage (MSC) 
+and Human Interface (HID) in the same project.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="HID_LPM_Standalone">HID_LPM_Standalone</p></td>
+        <td align=left>
+The STM32F469xx devices support the USB Link Power Management Protocol (LPM-L1) and complies with the USB 2.0
+LPM-L1 ECN. The hpcd.Init.lpm_enable in the usbd_conf.c should be set to 1 to enable the support for LPM-L1
+protocol in the USB stack.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="HID_Standalone">HID_Standalone</p></td>
+        <td align=left>
+This application is a part of the USB Device Library package using STM32Cube firmware. It describes how to 
+use USB device application based on the Human Interface (HID) on the STM32F4xx devices.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="MSC_Standalone">MSC_Standalone</p></td>
+        <td align=left>
+This application is a part of the USB Device Library package using STM32Cube firmware. It describes how to 
+use USB device application based on the Mass Storage Class (MSC) on the STM32F4xx devices.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left rowspan=10><p id="USB_Host">USB_Host</p></td>
+        <td align=left><p id="AUDIO_Standalone">AUDIO_Standalone</p></td>
+        <td align=left>
+This application is a part of the USB Host Library package using STM32Cube firmware. It describes how to use
+USB host application based on the Audio OUT class on the STM32F4xx devices.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="CDC_Standalone">CDC_Standalone</p></td>
+        <td align=left>
+This application is a part of the USB Host Library package using STM32Cube firmware. It describes how to use
+USB host application based on the Communication Class (CDC) on the STM32F4xx devices.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="DualCore_Standalone">DualCore_Standalone</p></td>
+        <td align=left>
+This application is a part of the USB Host Library package using STM32Cube firmware. It describes how to use
+USB host application based on the STM32F4xx multi core support feature integrating Mass Storage (MSC) and
+Human Interface (HID) in the same project.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="DynamicSwitch_Standalone">DynamicSwitch_Standalone</p></td>
+        <td align=left>
+This application is a part of the USB Host Library package using STM32Cube firmware. It describes how to use
+dynamically switch, on the same port, between available USB host applications on the STM32F4xx devices.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="FWupgrade_Standalone">FWupgrade_Standalone</p></td>
+        <td align=left>
+The firmware upgrade application or In-Application programming (IAP) is a feature that 
+allows a user application to erase and write to on-chip flash memory. 
+</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="HID_RTOS">HID_RTOS</p></td>
+        <td align=left>
+This application is a part of the USB Host Library package using STM32Cube firmware. It describes how to use
+USB host application based on the Human Interface Class (HID) on the STM32F4xx devices.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="HID_Standalone">HID_Standalone</p></td>
+        <td align=left>
+This application is a part of the USB Host Library package using STM32Cube firmware. It describes how to use
+USB host application based on the Human Interface Class (HID) on the STM32F4xx devices.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="MSC_RTOS">MSC_RTOS</p></td>
+        <td align=left>
+This application is a part of the USB Host Library package using STM32Cube firmware. It describes how to use
+USB host application based on the Mass Storage Class (MSC) on the STM32F4xx devices in RTOS mode
+configuration.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="MSC_Standalone">MSC_Standalone</p></td>
+        <td align=left>
+This application is a part of the USB Host Library package using STM32Cube firmware. It describes how to use
+USB host application based on the Mass Storage Class (MSC) on the STM32F4xx devices.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr align=center>
+        <td align=left><p id="MTP_Standalone">MTP_Standalone</p></td>
+        <td align=left>  
+This application is a part of the USB Host Library package using STM32Cube firmware. It describes how to use
+USB host application based on the Media Transfer Protocol (MTP) on the STM32F4xx devices.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font size="5" color=green>X</font></td>
+      </tr>
+      <tr style="background-repeat: no-repeat;background-position: right center;background-color: #39A9DC;color: #FFF;" align=center>
+        <td colspan="3"><b>Total number of applications: 215</b></td>
+        <td>10</td>
+        <td>2</td>
+        <td>34</td>
+        <td>0</td>
+        <td>0</td>
+        <td>50</td>
+        <td>0</td>
+        <td>24</td>
+        <td>2</td>
+        <td>0</td>
+        <td>40</td>
+        <td>53</td>
+      </tr>
+      <tr style="background-repeat: no-repeat;background-position: right center;background-color: #39A9DC;color: #FFF;" align=center>
+      	<td colspan="4"><b>Total number of projects: 699</b></td>
+      	<td>38</td>
+      	<td>24</td>
+      	<td>104</td>
+      	<td>12</td>
+      	<td>15</td>
+      	<td>122</td>
+      	<td>9</td>
+      	<td>67</td>
+      	<td>27</td>
+      	<td>6</td>
+      	<td>134</td>
+      	<td>141</td>
+      </tr>
+    </table>
+  </body>
+</html>
