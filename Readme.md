@@ -11,10 +11,6 @@ Setup start with Eclipse
 - all projects are located in /D/git/Joe/Stm32-Tools-Evaluation
 - example projecte created for Stm32F401C-Disco board with STM32F401VCTx (256k Flash, 64k Ram)
 
-TODO:
-- includepfade vergleichen
-- .cproject vergleichen
-
 - File → new → C++ Project → Ac6 Stm32 Mcu Project
 
   - Name = Stm32F4-SW-nofw
@@ -47,6 +43,14 @@ TODO:
         ⦾ As static external libraries
   → adds 3 directories (CMSIS, HAL_Driver, Utilities) to the project (171 files, 33 directories, 64 MiB)
   → much more stuff in .cproject
+  → !!! for unknown reason, this generates a project with a linker script differen to e.g. Stm32F4-SW-cubehal
+    - Stm32F4-SW-cubehal: Linker script for STM32F401VCTx
+    - but here: Linker script for STM32F401CC
+    - http://www.openstm32.org/tiki-view_forum_thread.php?comments_parentId=1438
+  → different things in startup directory
+    - Stm32F4-SW-cubehal: startup_stm32.s (author="Ac6")
+    - Stm32F4-SW-cubehal-source: versus startup_stm32f401xc.s (author="MCD Application Team")
+  → 32 include paths added (all for 6 times gcc, gxx, asm / debug & release)
 
   - Stm32F4-SW-cubehal-lib
     - Firmware Configuration = ⦿ Cube Hal
@@ -56,6 +60,7 @@ TODO:
         ⦿ As static external libraries
   → adds a project "stm32f401c-disco_hal_lib" to the workspace (default workspace location) with the 3 directories (CMSIS, HAL_Driver, Utilities) (279 files, 37 directories, 65 MiB!)
   → I'd moved them to my git repo
+  → when creating such project a second time, the .cproject seems to be incomplete (e.g. all of the includepaths, ...)
 
   - Stm32F4-SW-cubehal-sepfolder-source
     - Firmware Configuration = ⦿ Cube Hal
