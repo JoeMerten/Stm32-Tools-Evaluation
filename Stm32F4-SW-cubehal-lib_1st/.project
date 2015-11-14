@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>Stm32F4-SW-cubehal-lib_STM32F401CC</name>
+	<name>Stm32F4-SW-cubehal-lib_1st</name>
 	<comment></comment>
 	<projects>
 		<project>stm32f401c-disco_hal_lib</project>
