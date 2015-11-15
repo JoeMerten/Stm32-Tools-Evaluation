@@ -11,10 +11,11 @@
 
 #include "stm32f4xx.h"
 #include "stm32f401_discovery.h"
+#include "JoeTest.h"
 
 
 int main(void)
 {
-
+    doJoeTest();
     for(;;);
 }
