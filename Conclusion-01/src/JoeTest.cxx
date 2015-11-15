@@ -1,7 +1,9 @@
 
 #include "JoeTest.h"
 #include "stm32f401_discovery.h"
-#include <stdio.h>
+//#include <stdio.h>
+#include <stm32f4xx_hal_uart.h>
+#include <usart.h>
 
 class JoeTest {
 public:
@@ -19,7 +21,8 @@ JoeTest staticInstance;
 
 
 void doJoeTest() {
-    printf("Hello World\n");
+    HAL_UART_Transmit(&huart2, (uint8_t*)"Hello World!\n", 13, 10000);
+  //  printf("Hello World\n");
     BSP_LED_Init(LED3);
     BSP_LED_Init(LED4);
     BSP_LED_Init(LED5);
