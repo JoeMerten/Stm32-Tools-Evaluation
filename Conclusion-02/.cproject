@@ -33,6 +33,7 @@
 								<option id="gnu.c.compiler.option.debugging.level.587834062" name="Debug Level" superClass="gnu.c.compiler.option.debugging.level" useByScannerDiscovery="false" value="gnu.c.debugging.level.max" valueType="enumerated"/>
 								<option id="gnu.c.compiler.option.include.paths.250377817" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/cubemx/Conclusion-02/Inc&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;../../../../N4/n4-Foundation/Framework/include&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;../../../../N4/n4-Foundation/Framework/lib/FreeRtos/FreeRtos_8.2.2/FreeRtos/Source/Include&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;../../../../N4/n4-Foundation/Framework/lib/FreeRtos/FreeRtos_8.2.2/FreeRtos/Source/portable/GCC/ARM_CM4F&quot;"/>
@@ -57,6 +58,7 @@
 								<option id="gnu.cpp.compiler.option.debugging.level.568769160" name="Debug Level" superClass="gnu.cpp.compiler.option.debugging.level" useByScannerDiscovery="false" value="gnu.cpp.compiler.debugging.level.max" valueType="enumerated"/>
 								<option id="gnu.cpp.compiler.option.include.paths.928784810" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/cubemx/Conclusion-02/Inc&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;../../../../N4/n4-Foundation/Framework/include&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;../../../../N4/n4-Foundation/Framework/lib/FreeRtos/FreeRtos_8.2.2/FreeRtos/Source/Include&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;../../../../N4/n4-Foundation/Framework/lib/FreeRtos/FreeRtos_8.2.2/FreeRtos/Source/portable/GCC/ARM_CM4F&quot;"/>
@@ -87,6 +89,7 @@
 							<tool id="fr.ac6.managedbuild.tool.gnu.cross.assembler.528845892" name="MCU GCC Assembler" superClass="fr.ac6.managedbuild.tool.gnu.cross.assembler">
 								<option id="gnu.both.asm.option.include.paths.583890999" name="Include paths (-I)" superClass="gnu.both.asm.option.include.paths" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/cubemx/Conclusion-02/Inc&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;../../../../N4/n4-Foundation/Framework/include&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;../../../../N4/n4-Foundation/Framework/lib/FreeRtos/FreeRtos_8.2.2/FreeRtos/Source/Include&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;../../../../N4/n4-Foundation/Framework/lib/FreeRtos/FreeRtos_8.2.2/FreeRtos/Source/portable/GCC/ARM_CM4F&quot;"/>
@@ -103,6 +106,8 @@
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="inc"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="startup"/>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="cubemx/Conclusion-02/Src"/>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Cubehal/Drivers/STM32F4xx_HAL_Driver"/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>
@@ -135,6 +140,7 @@
 								<option id="gnu.c.compiler.option.debugging.level.1292564279" name="Debug Level" superClass="gnu.c.compiler.option.debugging.level" useByScannerDiscovery="false" value="gnu.c.debugging.level.none" valueType="enumerated"/>
 								<option id="gnu.c.compiler.option.include.paths.1768149218" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/cubemx/Conclusion-02/Inc&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;../../../../N4/n4-Foundation/Framework/include&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;../../../../N4/n4-Foundation/Framework/lib/FreeRtos/FreeRtos_8.2.2/FreeRtos/Source/Include&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;../../../../N4/n4-Foundation/Framework/lib/FreeRtos/FreeRtos_8.2.2/FreeRtos/Source/portable/GCC/ARM_CM4F&quot;"/>
@@ -158,6 +164,7 @@
 								<option id="gnu.cpp.compiler.option.debugging.level.1918099711" name="Debug Level" superClass="gnu.cpp.compiler.option.debugging.level" useByScannerDiscovery="false" value="gnu.cpp.compiler.debugging.level.none" valueType="enumerated"/>
 								<option id="gnu.cpp.compiler.option.include.paths.1708131711" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/cubemx/Conclusion-02/Inc&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;../../../../N4/n4-Foundation/Framework/include&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;../../../../N4/n4-Foundation/Framework/lib/FreeRtos/FreeRtos_8.2.2/FreeRtos/Source/Include&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;../../../../N4/n4-Foundation/Framework/lib/FreeRtos/FreeRtos_8.2.2/FreeRtos/Source/portable/GCC/ARM_CM4F&quot;"/>
@@ -187,6 +194,7 @@
 							<tool id="fr.ac6.managedbuild.tool.gnu.cross.assembler.2102601749" name="MCU GCC Assembler" superClass="fr.ac6.managedbuild.tool.gnu.cross.assembler">
 								<option id="gnu.both.asm.option.include.paths.271420154" name="Include paths (-I)" superClass="gnu.both.asm.option.include.paths" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/cubemx/Conclusion-02/Inc&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;../../../../N4/n4-Foundation/Framework/include&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;../../../../N4/n4-Foundation/Framework/lib/FreeRtos/FreeRtos_8.2.2/FreeRtos/Source/Include&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;../../../../N4/n4-Foundation/Framework/lib/FreeRtos/FreeRtos_8.2.2/FreeRtos/Source/portable/GCC/ARM_CM4F&quot;"/>
@@ -203,6 +211,7 @@
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="inc"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="startup"/>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="cubemx/Conclusion-02/Src"/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>
