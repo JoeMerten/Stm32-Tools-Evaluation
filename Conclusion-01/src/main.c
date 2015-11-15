@@ -14,7 +14,7 @@
 #include "JoeTest.h"
 
 
-int main(void)
+int SWmain(void)
 {
     doJoeTest();
     for(;;);

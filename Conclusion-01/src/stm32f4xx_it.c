@@ -29,7 +29,7 @@
   * @param  None
   * @retval None
   */
-void SysTick_Handler(void)
+void nope_SysTick_Handler(void)
 {
     HAL_IncTick();
     HAL_SYSTICK_IRQHandler();
