@@ -35,7 +35,7 @@
 									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/inc&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/cubemx/Conclusion-02/Inc&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;../../../../N4/n4-Foundation/Framework/include&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;../../../../N4/n4-Foundation/Framework/lib/FreeRtos/FreeRtos_8.2.2/FreeRtos/Source/Include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;../../../../N4/n4-Foundation/Framework/lib/FreeRtos/FreeRtos_8.2.2/FreeRtos/Source/include&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;../../../../N4/n4-Foundation/Framework/lib/FreeRtos/FreeRtos_8.2.2/FreeRtos/Source/portable/GCC/ARM_CM4F&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;../../../../N4/n4-Foundation/Framework/lib/Stm/STM32Cube_FW_F4_V1.9.0/Drivers/STM32F4xx_HAL_Driver/Inc&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;../../../../N4/n4-Foundation/Framework/lib/Stm/STM32Cube_FW_F4_V1.9.0/Drivers/CMSIS/Include&quot;"/>
@@ -66,7 +66,7 @@
 									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/inc&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/cubemx/Conclusion-02/Inc&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;../../../../N4/n4-Foundation/Framework/include&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;../../../../N4/n4-Foundation/Framework/lib/FreeRtos/FreeRtos_8.2.2/FreeRtos/Source/Include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;../../../../N4/n4-Foundation/Framework/lib/FreeRtos/FreeRtos_8.2.2/FreeRtos/Source/include&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;../../../../N4/n4-Foundation/Framework/lib/FreeRtos/FreeRtos_8.2.2/FreeRtos/Source/portable/GCC/ARM_CM4F&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;../../../../N4/n4-Foundation/Framework/lib/Stm/STM32Cube_FW_F4_V1.9.0/Drivers/STM32F4xx_HAL_Driver/Inc&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;../../../../N4/n4-Foundation/Framework/lib/Stm/STM32Cube_FW_F4_V1.9.0/Drivers/CMSIS/Include&quot;"/>
@@ -95,8 +95,8 @@
 							</tool>
 							<tool id="fr.ac6.managedbuild.tool.gnu.cross.c.linker.719749856" name="MCU GCC Linker" superClass="fr.ac6.managedbuild.tool.gnu.cross.c.linker"/>
 							<tool id="fr.ac6.managedbuild.tool.gnu.cross.cpp.linker.142906102" name="MCU G++ Linker" superClass="fr.ac6.managedbuild.tool.gnu.cross.cpp.linker">
-								<option id="fr.ac6.managedbuild.tool.gnu.cross.cpp.linker.nortti.1607971628" superClass="fr.ac6.managedbuild.tool.gnu.cross.cpp.linker.nortti" value="false" valueType="boolean"/>
-								<option id="fr.ac6.managedbuild.tool.gnu.cross.cpp.linker.noexceptions.1065173189" superClass="fr.ac6.managedbuild.tool.gnu.cross.cpp.linker.noexceptions" value="false" valueType="boolean"/>
+								<option id="fr.ac6.managedbuild.tool.gnu.cross.cpp.linker.nortti.1607971628" name="Disable generation of information about every class with virtual functions (-fno-rtti)" superClass="fr.ac6.managedbuild.tool.gnu.cross.cpp.linker.nortti" value="false" valueType="boolean"/>
+								<option id="fr.ac6.managedbuild.tool.gnu.cross.cpp.linker.noexceptions.1065173189" name="Disable handling exceptions (-fno-exceptions)" superClass="fr.ac6.managedbuild.tool.gnu.cross.cpp.linker.noexceptions" value="false" valueType="boolean"/>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.linker.input.1878104837" superClass="cdt.managedbuild.tool.gnu.cpp.linker.input">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
 									<additionalInput kind="additionalinput" paths="$(LIBS)"/>
@@ -108,7 +108,7 @@
 									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/inc&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/cubemx/Conclusion-02/Inc&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;../../../../N4/n4-Foundation/Framework/include&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;../../../../N4/n4-Foundation/Framework/lib/FreeRtos/FreeRtos_8.2.2/FreeRtos/Source/Include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;../../../../N4/n4-Foundation/Framework/lib/FreeRtos/FreeRtos_8.2.2/FreeRtos/Source/include&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;../../../../N4/n4-Foundation/Framework/lib/FreeRtos/FreeRtos_8.2.2/FreeRtos/Source/portable/GCC/ARM_CM4F&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;../../../../N4/n4-Foundation/Framework/lib/Stm/STM32Cube_FW_F4_V1.9.0/Drivers/STM32F4xx_HAL_Driver/Inc&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;../../../../N4/n4-Foundation/Framework/lib/Stm/STM32Cube_FW_F4_V1.9.0/Drivers/CMSIS/Include&quot;"/>
@@ -120,11 +120,13 @@
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Cubehal/Drivers/STM32F4xx_HAL_Driver"/>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Foundation/src"/>
+						<entry excluding="portable/GCC/ARM_CM0/|portable/GCC/ARM_CM3/|portable/GCC/ARM_CM3_MPU/|portable/GCC/ARM_CM7/|portable/MemMang/heap_1.c|portable/MemMang/heap_2.c|portable/MemMang/heap_3.c|portable/MemMang/heap_5.c|portable/MSVC-MingW/" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="Freertos/FreeRtos/Source"/>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="cubemx/Conclusion-02/Src"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="inc"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="startup"/>
-						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="cubemx/Conclusion-02/Src"/>
-						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Cubehal/Drivers/STM32F4xx_HAL_Driver"/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>
@@ -159,7 +161,7 @@
 									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/inc&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/cubemx/Conclusion-02/Inc&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;../../../../N4/n4-Foundation/Framework/include&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;../../../../N4/n4-Foundation/Framework/lib/FreeRtos/FreeRtos_8.2.2/FreeRtos/Source/Include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;../../../../N4/n4-Foundation/Framework/lib/FreeRtos/FreeRtos_8.2.2/FreeRtos/Source/include&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;../../../../N4/n4-Foundation/Framework/lib/FreeRtos/FreeRtos_8.2.2/FreeRtos/Source/portable/GCC/ARM_CM4F&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;../../../../N4/n4-Foundation/Framework/lib/Stm/STM32Cube_FW_F4_V1.9.0/Drivers/STM32F4xx_HAL_Driver/Inc&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;../../../../N4/n4-Foundation/Framework/lib/Stm/STM32Cube_FW_F4_V1.9.0/Drivers/CMSIS/Include&quot;"/>
@@ -183,7 +185,7 @@
 									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/inc&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/cubemx/Conclusion-02/Inc&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;../../../../N4/n4-Foundation/Framework/include&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;../../../../N4/n4-Foundation/Framework/lib/FreeRtos/FreeRtos_8.2.2/FreeRtos/Source/Include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;../../../../N4/n4-Foundation/Framework/lib/FreeRtos/FreeRtos_8.2.2/FreeRtos/Source/include&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;../../../../N4/n4-Foundation/Framework/lib/FreeRtos/FreeRtos_8.2.2/FreeRtos/Source/portable/GCC/ARM_CM4F&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;../../../../N4/n4-Foundation/Framework/lib/Stm/STM32Cube_FW_F4_V1.9.0/Drivers/STM32F4xx_HAL_Driver/Inc&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;../../../../N4/n4-Foundation/Framework/lib/Stm/STM32Cube_FW_F4_V1.9.0/Drivers/CMSIS/Include&quot;"/>
@@ -213,7 +215,7 @@
 									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/inc&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/cubemx/Conclusion-02/Inc&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;../../../../N4/n4-Foundation/Framework/include&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;../../../../N4/n4-Foundation/Framework/lib/FreeRtos/FreeRtos_8.2.2/FreeRtos/Source/Include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;../../../../N4/n4-Foundation/Framework/lib/FreeRtos/FreeRtos_8.2.2/FreeRtos/Source/include&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;../../../../N4/n4-Foundation/Framework/lib/FreeRtos/FreeRtos_8.2.2/FreeRtos/Source/portable/GCC/ARM_CM4F&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;../../../../N4/n4-Foundation/Framework/lib/Stm/STM32Cube_FW_F4_V1.9.0/Drivers/STM32F4xx_HAL_Driver/Inc&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;../../../../N4/n4-Foundation/Framework/lib/Stm/STM32Cube_FW_F4_V1.9.0/Drivers/CMSIS/Include&quot;"/>
