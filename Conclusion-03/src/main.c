@@ -13,11 +13,12 @@
 //#include "stm32f401_discovery.h"
 
 
-int appMain() {
+void appMain() {
     for(;;);
 }
 
 // TODO: use Foundation instead
 __attribute__((used)) void _exit(int code) {
+    (void)code;
     for (;;);
 }
