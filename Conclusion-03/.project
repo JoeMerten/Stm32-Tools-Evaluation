@@ -25,4 +25,45 @@
 		<nature>org.eclipse.cdt.managedbuilder.core.ScannerConfigNature</nature>
 		<nature>fr.ac6.mcu.ide.core.MCUProjectNature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>Foundation</name>
+			<type>2</type>
+			<locationURI>Foundation</locationURI>
+		</link>
+		<link>
+			<name>Cubehal</name>
+			<type>2</type>
+			<locationURI>Cubehal</locationURI>
+		</link>
+		<link>
+			<name>Freertos</name>
+			<type>2</type>
+			<locationURI>Freertos</locationURI>
+		</link>
+		<link>
+			<name>System/startup_stm32f401xc.s</name>
+			<type>1</type>
+			<location>Cubehal/Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/gcc/startup_stm32f401xc.s</location>
+		</link>
+		<link>
+			<name>System/system_stm32f4xx.c</name>
+			<type>1</type>
+			<location>Cubehal/Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/system_stm32f4xx.c</location>
+		</link>
+	</linkedResources>
+	<variableList>
+		<variable>
+			<name>Foundation</name>
+			<value>$%7BPARENT-3-PROJECT_LOC%7D/N4/n4-Foundation/Framework</value>
+		</variable>
+		<variable>
+			<name>Cubehal</name>
+			<value>$%7BPARENT-3-PROJECT_LOC%7D/N4/n4-Foundation/Framework/lib/Stm/STM32Cube_FW_F4_V1.9.0</value>
+		</variable>
+		<variable>
+			<name>Freertos</name>
+			<value>$%7BPARENT-3-PROJECT_LOC%7D/N4/n4-Foundation/Framework/lib/FreeRtos/FreeRtos_8.2.2</value>
+		</variable>
+	</variableList>
 </projectDescription>

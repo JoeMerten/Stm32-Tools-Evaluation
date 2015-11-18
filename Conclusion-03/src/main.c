@@ -10,11 +10,14 @@
 
 
 #include "stm32f4xx.h"
-#include "stm32f401_discovery.h"
-			
+//#include "stm32f401_discovery.h"
 
-int main(void)
-{
 
-	for(;;);
+int appMain() {
+    for(;;);
+}
+
+// TODO: use Foundation instead
+__attribute__((used)) void _exit(int code) {
+    for (;;);
 }
