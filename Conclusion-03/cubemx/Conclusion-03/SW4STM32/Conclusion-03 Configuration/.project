@@ -29,6 +29,14 @@
 			<type>1</type>
 			<location>PARENT-2-PROJECT_LOC/Middlewares/Third_Party/FreeRTOS/Source/event_groups.c</location>
 		</link><link>
+			<name>Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_uart.c</name>
+			<type>1</type>
+			<location>PARENT-2-PROJECT_LOC/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c</location>
+		</link><link>
+			<name>Application/User/usart.c</name>
+			<type>1</type>
+			<location>PARENT-2-PROJECT_LOC/Src/usart.c</location>
+		</link><link>
 			<name>Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_flash.c</name>
 			<type>1</type>
 			<location>PARENT-2-PROJECT_LOC/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.c</location>
