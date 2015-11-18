@@ -24,7 +24,7 @@
 							<targetPlatform archList="all" binaryParser="org.eclipse.cdt.core.ELF" id="fr.ac6.managedbuild.targetPlatform.gnu.cross.109892424" isAbstract="false" osList="all" superClass="fr.ac6.managedbuild.targetPlatform.gnu.cross"/>
 							<builder buildPath="${workspace_loc:/Conclusion-03}/Debug" id="fr.ac6.managedbuild.builder.gnu.cross.354607760" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="Gnu Make Builder" superClass="fr.ac6.managedbuild.builder.gnu.cross"/>
 							<tool id="fr.ac6.managedbuild.tool.gnu.cross.c.compiler.1309061298" name="MCU GCC Compiler" superClass="fr.ac6.managedbuild.tool.gnu.cross.c.compiler">
-								<option id="fr.ac6.managedbuild.gnu.c.compiler.option.optimization.level.389780363" name="Optimization Level" superClass="fr.ac6.managedbuild.gnu.c.compiler.option.optimization.level" useByScannerDiscovery="false"/>
+								<option id="fr.ac6.managedbuild.gnu.c.compiler.option.optimization.level.389780363" name="Optimization Level" superClass="fr.ac6.managedbuild.gnu.c.compiler.option.optimization.level" useByScannerDiscovery="false" value="fr.ac6.managedbuild.gnu.c.optimization.level.debug" valueType="enumerated"/>
 								<option id="gnu.c.compiler.option.debugging.level.1506986422" name="Debug Level" superClass="gnu.c.compiler.option.debugging.level" useByScannerDiscovery="false" value="gnu.c.debugging.level.max" valueType="enumerated"/>
 								<option id="gnu.c.compiler.option.include.paths.2086158648" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/inc&quot;"/>
@@ -46,14 +46,27 @@
 									<listOptionValue builtIn="false" value="USE_HAL_DRIVER"/>
 									<listOptionValue builtIn="false" value="STM32F401xC"/>
 								</option>
+								<option id="gnu.c.compiler.option.dialect.std.2137322053" superClass="gnu.c.compiler.option.dialect.std" value="gnu.c.compiler.dialect.default" valueType="enumerated"/>
+								<option id="gnu.c.compiler.option.dialect.flags.1595792189" superClass="gnu.c.compiler.option.dialect.flags" value="-std=gnu11" valueType="string"/>
+								<option id="fr.ac6.managedbuild.tool.gnu.cross.c.compiler.fdata.1308651051" superClass="fr.ac6.managedbuild.tool.gnu.cross.c.compiler.fdata" value="true" valueType="boolean"/>
+								<option id="gnu.c.compiler.option.warnings.extrawarn.1073383541" superClass="gnu.c.compiler.option.warnings.extrawarn" value="true" valueType="boolean"/>
+								<option id="fr.ac6.managedbuid.gnu.c.compiler.option.misc.other.1927723769" superClass="fr.ac6.managedbuid.gnu.c.compiler.option.misc.other" value="-fmessage-length=0 -Wundef" valueType="string"/>
 								<inputType id="fr.ac6.managedbuild.tool.gnu.cross.c.compiler.input.c.409972445" superClass="fr.ac6.managedbuild.tool.gnu.cross.c.compiler.input.c"/>
 								<inputType id="fr.ac6.managedbuild.tool.gnu.cross.c.compiler.input.s.837194403" superClass="fr.ac6.managedbuild.tool.gnu.cross.c.compiler.input.s"/>
 							</tool>
 							<tool id="fr.ac6.managedbuild.tool.gnu.cross.cpp.compiler.802012218" name="MCU G++ Compiler" superClass="fr.ac6.managedbuild.tool.gnu.cross.cpp.compiler">
-								<option id="fr.ac6.managedbuild.gnu.cpp.compiler.option.optimization.level.1825989163" name="Optimization Level" superClass="fr.ac6.managedbuild.gnu.cpp.compiler.option.optimization.level" useByScannerDiscovery="false"/>
+								<option id="fr.ac6.managedbuild.gnu.cpp.compiler.option.optimization.level.1825989163" name="Optimization Level" superClass="fr.ac6.managedbuild.gnu.cpp.compiler.option.optimization.level" useByScannerDiscovery="false" value="fr.ac6.managedbuild.gnu.cpp.optimization.level.debug" valueType="enumerated"/>
 								<option id="gnu.cpp.compiler.option.debugging.level.2146696123" name="Debug Level" superClass="gnu.cpp.compiler.option.debugging.level" useByScannerDiscovery="false" value="gnu.cpp.compiler.debugging.level.max" valueType="enumerated"/>
 								<option id="gnu.cpp.compiler.option.include.paths.1429648816" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/cubemx/Conclusion-03/Inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;../../../../N4/n4-Foundation/Framework/lib/FreeRtos/FreeRtos_8.2.2/FreeRtos/Source/include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;../../../../N4/n4-Foundation/Framework/lib/FreeRtos/FreeRtos_8.2.2/FreeRtos/Source/portable/GCC/ARM_CM4F&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;../../../../N4/n4-Foundation/Framework/lib/FreeRtos/FreeRtos_8.2.2/FreeRtos/Source/include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;../../../../N4/n4-Foundation/Framework/lib/Stm/STM32Cube_FW_F4_V1.9.0/Drivers/STM32F4xx_HAL_Driver/Inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;../../../../N4/n4-Foundation/Framework/lib/Stm/STM32Cube_FW_F4_V1.9.0/Drivers/CMSIS/Include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;../../../../N4/n4-Foundation/Framework/lib/Stm/STM32Cube_FW_F4_V1.9.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;../../../../N4/n4-Foundation/Framework/lib/Stm/STM32Cube_FW_F4_V1.9.0/Drivers/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS&quot;"/>
 								</option>
 								<option id="gnu.cpp.compiler.option.preprocessor.def.1447907286" name="Defined symbols (-D)" superClass="gnu.cpp.compiler.option.preprocessor.def" useByScannerDiscovery="false" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="STM32F401C_DISCO"/>
@@ -64,12 +77,22 @@
 									<listOptionValue builtIn="false" value="USE_HAL_DRIVER"/>
 									<listOptionValue builtIn="false" value="STM32F401xC"/>
 								</option>
+								<option id="gnu.cpp.compiler.option.dialect.std.547209852" superClass="gnu.cpp.compiler.option.dialect.std" value="gnu.cpp.compiler.dialect.default" valueType="enumerated"/>
+								<option id="gnu.cpp.compiler.option.dialect.flags.1185598295" superClass="gnu.cpp.compiler.option.dialect.flags" value="-std=gnu++1y" valueType="string"/>
+								<option id="fr.ac6.managedbuild.tool.gnu.cross.cpp.compiler.fdata.1042699173" superClass="fr.ac6.managedbuild.tool.gnu.cross.cpp.compiler.fdata" value="true" valueType="boolean"/>
+								<option id="gnu.cpp.compiler.option.warnings.extrawarn.1989965331" superClass="gnu.cpp.compiler.option.warnings.extrawarn" value="true" valueType="boolean"/>
+								<option id="fr.ac6.managedbuild.gnu.cpp.compiler.option.misc.other.2138757245" superClass="fr.ac6.managedbuild.gnu.cpp.compiler.option.misc.other" value="-fmessage-length=0 -Wundef -Weffc++ -Woverloaded-virtual" valueType="string"/>
+								<option id="fr.ac6.managedbuild.tool.gnu.cross.cpp.compiler.noexceptions.776869305" superClass="fr.ac6.managedbuild.tool.gnu.cross.cpp.compiler.noexceptions" value="false" valueType="boolean"/>
+								<option id="fr.ac6.managedbuild.tool.gnu.cross.cpp.compiler.pcrop.574399748" superClass="fr.ac6.managedbuild.tool.gnu.cross.cpp.compiler.pcrop" value="false" valueType="boolean"/>
+								<option id="fr.ac6.managedbuild.tool.gnu.cross.cpp.compiler.nortti.1655720917" superClass="fr.ac6.managedbuild.tool.gnu.cross.cpp.compiler.nortti" value="false" valueType="boolean"/>
 								<inputType id="fr.ac6.managedbuild.tool.gnu.cross.cpp.compiler.input.cpp.1190532466" superClass="fr.ac6.managedbuild.tool.gnu.cross.cpp.compiler.input.cpp"/>
 								<inputType id="fr.ac6.managedbuild.tool.gnu.cross.cpp.compiler.input.s.1099719918" superClass="fr.ac6.managedbuild.tool.gnu.cross.cpp.compiler.input.s"/>
 							</tool>
 							<tool id="fr.ac6.managedbuild.tool.gnu.cross.c.linker.357557089" name="MCU GCC Linker" superClass="fr.ac6.managedbuild.tool.gnu.cross.c.linker"/>
 							<tool id="fr.ac6.managedbuild.tool.gnu.cross.cpp.linker.742987829" name="MCU G++ Linker" superClass="fr.ac6.managedbuild.tool.gnu.cross.cpp.linker">
-								<option id="fr.ac6.managedbuild.tool.gnu.cross.cpp.linker.script.2143975355" superClass="fr.ac6.managedbuild.tool.gnu.cross.cpp.linker.script" value="../cubemx/Conclusion-03/SW4STM32/Conclusion-03 Configuration/STM32F401VCTx_FLASH.ld" valueType="string"/>
+								<option id="fr.ac6.managedbuild.tool.gnu.cross.cpp.linker.script.2143975355" name="Linker Script (-T)" superClass="fr.ac6.managedbuild.tool.gnu.cross.cpp.linker.script" value="../cubemx/Conclusion-03/SW4STM32/Conclusion-03 Configuration/STM32F401VCTx_FLASH.ld" valueType="string"/>
+								<option id="fr.ac6.managedbuild.tool.gnu.cross.cpp.linker.noexceptions.1360438980" superClass="fr.ac6.managedbuild.tool.gnu.cross.cpp.linker.noexceptions" value="false" valueType="boolean"/>
+								<option id="fr.ac6.managedbuild.tool.gnu.cross.cpp.linker.nortti.1287277989" superClass="fr.ac6.managedbuild.tool.gnu.cross.cpp.linker.nortti" value="false" valueType="boolean"/>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.linker.input.576236705" superClass="cdt.managedbuild.tool.gnu.cpp.linker.input">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
 									<additionalInput kind="additionalinput" paths="$(LIBS)"/>
@@ -121,10 +144,18 @@
 							<targetPlatform archList="all" binaryParser="org.eclipse.cdt.core.ELF" id="fr.ac6.managedbuild.targetPlatform.gnu.cross.1430235266" isAbstract="false" osList="all" superClass="fr.ac6.managedbuild.targetPlatform.gnu.cross"/>
 							<builder buildPath="${workspace_loc:/Conclusion-03}/Release" id="fr.ac6.managedbuild.builder.gnu.cross.1239665178" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="Gnu Make Builder" superClass="fr.ac6.managedbuild.builder.gnu.cross"/>
 							<tool id="fr.ac6.managedbuild.tool.gnu.cross.c.compiler.600173040" name="MCU GCC Compiler" superClass="fr.ac6.managedbuild.tool.gnu.cross.c.compiler">
-								<option id="fr.ac6.managedbuild.gnu.c.compiler.option.optimization.level.788162596" name="Optimization Level" superClass="fr.ac6.managedbuild.gnu.c.compiler.option.optimization.level" useByScannerDiscovery="false" value="fr.ac6.managedbuild.gnu.c.optimization.level.most" valueType="enumerated"/>
+								<option id="fr.ac6.managedbuild.gnu.c.compiler.option.optimization.level.788162596" name="Optimization Level" superClass="fr.ac6.managedbuild.gnu.c.compiler.option.optimization.level" useByScannerDiscovery="false" value="fr.ac6.managedbuild.gnu.c.optimization.level.size" valueType="enumerated"/>
 								<option id="gnu.c.compiler.option.debugging.level.1261588212" name="Debug Level" superClass="gnu.c.compiler.option.debugging.level" useByScannerDiscovery="false" value="gnu.c.debugging.level.none" valueType="enumerated"/>
 								<option id="gnu.c.compiler.option.include.paths.131968455" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/cubemx/Conclusion-03/Inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;../../../../N4/n4-Foundation/Framework/lib/FreeRtos/FreeRtos_8.2.2/FreeRtos/Source/include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;../../../../N4/n4-Foundation/Framework/lib/FreeRtos/FreeRtos_8.2.2/FreeRtos/Source/portable/GCC/ARM_CM4F&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;../../../../N4/n4-Foundation/Framework/lib/FreeRtos/FreeRtos_8.2.2/FreeRtos/Source/include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;../../../../N4/n4-Foundation/Framework/lib/Stm/STM32Cube_FW_F4_V1.9.0/Drivers/STM32F4xx_HAL_Driver/Inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;../../../../N4/n4-Foundation/Framework/lib/Stm/STM32Cube_FW_F4_V1.9.0/Drivers/CMSIS/Include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;../../../../N4/n4-Foundation/Framework/lib/Stm/STM32Cube_FW_F4_V1.9.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;../../../../N4/n4-Foundation/Framework/lib/Stm/STM32Cube_FW_F4_V1.9.0/Drivers/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS&quot;"/>
 								</option>
 								<option id="gnu.c.compiler.option.preprocessor.def.symbols.1476677907" name="Defined symbols (-D)" superClass="gnu.c.compiler.option.preprocessor.def.symbols" useByScannerDiscovery="false" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="STM32F401C_DISCO"/>
@@ -134,14 +165,27 @@
 									<listOptionValue builtIn="false" value="USE_HAL_DRIVER"/>
 									<listOptionValue builtIn="false" value="STM32F401xC"/>
 								</option>
+								<option id="gnu.c.compiler.option.dialect.std.1679124532" superClass="gnu.c.compiler.option.dialect.std" value="gnu.c.compiler.dialect.default" valueType="enumerated"/>
+								<option id="gnu.c.compiler.option.dialect.flags.843474406" superClass="gnu.c.compiler.option.dialect.flags" value="-std=gnu11" valueType="string"/>
+								<option id="fr.ac6.managedbuild.tool.gnu.cross.c.compiler.fdata.1728559327" superClass="fr.ac6.managedbuild.tool.gnu.cross.c.compiler.fdata" value="true" valueType="boolean"/>
+								<option id="gnu.c.compiler.option.warnings.extrawarn.1314609053" superClass="gnu.c.compiler.option.warnings.extrawarn" value="true" valueType="boolean"/>
+								<option id="fr.ac6.managedbuid.gnu.c.compiler.option.misc.other.1985295093" superClass="fr.ac6.managedbuid.gnu.c.compiler.option.misc.other" value="-fmessage-length=0 -Wundef " valueType="string"/>
 								<inputType id="fr.ac6.managedbuild.tool.gnu.cross.c.compiler.input.c.369810738" superClass="fr.ac6.managedbuild.tool.gnu.cross.c.compiler.input.c"/>
 								<inputType id="fr.ac6.managedbuild.tool.gnu.cross.c.compiler.input.s.1429929771" superClass="fr.ac6.managedbuild.tool.gnu.cross.c.compiler.input.s"/>
 							</tool>
 							<tool id="fr.ac6.managedbuild.tool.gnu.cross.cpp.compiler.1721994407" name="MCU G++ Compiler" superClass="fr.ac6.managedbuild.tool.gnu.cross.cpp.compiler">
-								<option id="fr.ac6.managedbuild.gnu.cpp.compiler.option.optimization.level.1890918677" name="Optimization Level" superClass="fr.ac6.managedbuild.gnu.cpp.compiler.option.optimization.level" useByScannerDiscovery="false" value="fr.ac6.managedbuild.gnu.cpp.optimization.level.most" valueType="enumerated"/>
+								<option id="fr.ac6.managedbuild.gnu.cpp.compiler.option.optimization.level.1890918677" name="Optimization Level" superClass="fr.ac6.managedbuild.gnu.cpp.compiler.option.optimization.level" useByScannerDiscovery="false" value="fr.ac6.managedbuild.gnu.cpp.optimization.level.size" valueType="enumerated"/>
 								<option id="gnu.cpp.compiler.option.debugging.level.1253808531" name="Debug Level" superClass="gnu.cpp.compiler.option.debugging.level" useByScannerDiscovery="false" value="gnu.cpp.compiler.debugging.level.none" valueType="enumerated"/>
 								<option id="gnu.cpp.compiler.option.include.paths.1742593852" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/cubemx/Conclusion-03/Inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;../../../../N4/n4-Foundation/Framework/lib/FreeRtos/FreeRtos_8.2.2/FreeRtos/Source/include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;../../../../N4/n4-Foundation/Framework/lib/FreeRtos/FreeRtos_8.2.2/FreeRtos/Source/portable/GCC/ARM_CM4F&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;../../../../N4/n4-Foundation/Framework/lib/FreeRtos/FreeRtos_8.2.2/FreeRtos/Source/include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;../../../../N4/n4-Foundation/Framework/lib/Stm/STM32Cube_FW_F4_V1.9.0/Drivers/STM32F4xx_HAL_Driver/Inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;../../../../N4/n4-Foundation/Framework/lib/Stm/STM32Cube_FW_F4_V1.9.0/Drivers/CMSIS/Include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;../../../../N4/n4-Foundation/Framework/lib/Stm/STM32Cube_FW_F4_V1.9.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;../../../../N4/n4-Foundation/Framework/lib/Stm/STM32Cube_FW_F4_V1.9.0/Drivers/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS&quot;"/>
 								</option>
 								<option id="gnu.cpp.compiler.option.preprocessor.def.1516703779" name="Defined symbols (-D)" superClass="gnu.cpp.compiler.option.preprocessor.def" useByScannerDiscovery="false" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="STM32F401C_DISCO"/>
@@ -151,11 +195,18 @@
 									<listOptionValue builtIn="false" value="USE_HAL_DRIVER"/>
 									<listOptionValue builtIn="false" value="STM32F401xC"/>
 								</option>
+								<option id="gnu.cpp.compiler.option.dialect.std.110884805" superClass="gnu.cpp.compiler.option.dialect.std" value="gnu.cpp.compiler.dialect.default" valueType="enumerated"/>
+								<option id="gnu.cpp.compiler.option.dialect.flags.754863071" superClass="gnu.cpp.compiler.option.dialect.flags" value="-std=gnu++1y" valueType="string"/>
+								<option id="fr.ac6.managedbuild.tool.gnu.cross.cpp.compiler.fdata.1674148370" superClass="fr.ac6.managedbuild.tool.gnu.cross.cpp.compiler.fdata" value="true" valueType="boolean"/>
+								<option id="gnu.cpp.compiler.option.warnings.extrawarn.889542576" superClass="gnu.cpp.compiler.option.warnings.extrawarn" value="true" valueType="boolean"/>
+								<option id="fr.ac6.managedbuild.gnu.cpp.compiler.option.misc.other.1598305151" superClass="fr.ac6.managedbuild.gnu.cpp.compiler.option.misc.other" value="-fmessage-length=0 -Wundef -Weffc++ -Woverloaded-virtual" valueType="string"/>
 								<inputType id="fr.ac6.managedbuild.tool.gnu.cross.cpp.compiler.input.cpp.511618533" superClass="fr.ac6.managedbuild.tool.gnu.cross.cpp.compiler.input.cpp"/>
 								<inputType id="fr.ac6.managedbuild.tool.gnu.cross.cpp.compiler.input.s.1820394341" superClass="fr.ac6.managedbuild.tool.gnu.cross.cpp.compiler.input.s"/>
 							</tool>
 							<tool id="fr.ac6.managedbuild.tool.gnu.cross.c.linker.1489476332" name="MCU GCC Linker" superClass="fr.ac6.managedbuild.tool.gnu.cross.c.linker"/>
 							<tool id="fr.ac6.managedbuild.tool.gnu.cross.cpp.linker.175866929" name="MCU G++ Linker" superClass="fr.ac6.managedbuild.tool.gnu.cross.cpp.linker">
+								<option id="fr.ac6.managedbuild.tool.gnu.cross.cpp.linker.noexceptions.1566363958" superClass="fr.ac6.managedbuild.tool.gnu.cross.cpp.linker.noexceptions" value="false" valueType="boolean"/>
+								<option id="fr.ac6.managedbuild.tool.gnu.cross.cpp.linker.nortti.903112038" superClass="fr.ac6.managedbuild.tool.gnu.cross.cpp.linker.nortti" value="false" valueType="boolean"/>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.linker.input.1306075110" superClass="cdt.managedbuild.tool.gnu.cpp.linker.input">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
 									<additionalInput kind="additionalinput" paths="$(LIBS)"/>
@@ -172,7 +223,10 @@
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
-						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="HAL_Driver"/>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Cubehal/Drivers/STM32F4xx_HAL_Driver"/>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Cubehal/Drivers/Middlewares"/>
+						<entry excluding="portable/GCC/ARM_CM0/|portable/GCC/ARM_CM3/|portable/GCC/ARM_CM3_MPU/|portable/GCC/ARM_CM7/|portable/MemMang/heap_1.c|portable/MemMang/heap_2.c|portable/MemMang/heap_3.c|portable/MemMang/heap_5.c|portable/MSVC-MingW/" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="Freertos/FreeRtos/Source"/>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="cubemx/Conclusion-03/Src"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="inc"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="System"/>
