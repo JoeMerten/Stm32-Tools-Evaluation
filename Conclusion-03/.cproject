@@ -69,6 +69,7 @@
 							</tool>
 							<tool id="fr.ac6.managedbuild.tool.gnu.cross.c.linker.357557089" name="MCU GCC Linker" superClass="fr.ac6.managedbuild.tool.gnu.cross.c.linker"/>
 							<tool id="fr.ac6.managedbuild.tool.gnu.cross.cpp.linker.742987829" name="MCU G++ Linker" superClass="fr.ac6.managedbuild.tool.gnu.cross.cpp.linker">
+								<option id="fr.ac6.managedbuild.tool.gnu.cross.cpp.linker.script.2143975355" superClass="fr.ac6.managedbuild.tool.gnu.cross.cpp.linker.script" value="../cubemx/Conclusion-03/SW4STM32/Conclusion-03 Configuration/STM32F401VCTx_FLASH.ld" valueType="string"/>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.linker.input.576236705" superClass="cdt.managedbuild.tool.gnu.cpp.linker.input">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
 									<additionalInput kind="additionalinput" paths="$(LIBS)"/>
