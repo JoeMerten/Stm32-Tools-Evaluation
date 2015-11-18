@@ -36,8 +36,11 @@
 #include "task.h"
 #include "cmsis_os.h"
 
-/* USER CODE BEGIN Includes */     
-
+/* USER CODE BEGIN Includes */
+// Currently, we don't things like a "default task", so we disable this part of code completely (for the first)
+// Further, we have our own hooks for runtime statistics and stackoverflow in n4-foundation
+void MX_FREERTOS_Init() {}
+#if 0
 /* USER CODE END Includes */
 
 /* Variables -----------------------------------------------------------------*/
@@ -87,7 +90,7 @@ void vApplicationStackOverflowHook(TaskHandle_t xTask, signed char *pcTaskName)
 
 void MX_FREERTOS_Init(void) {
   /* USER CODE BEGIN Init */
-       
+
   /* USER CODE END Init */
 
   /* USER CODE BEGIN RTOS_MUTEX */
@@ -130,7 +133,7 @@ void StartDefaultTask(void const * argument)
 }
 
 /* USER CODE BEGIN Application */
-     
+#endif
 /* USER CODE END Application */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
