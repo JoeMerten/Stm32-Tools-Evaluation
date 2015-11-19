@@ -1,5 +1,7 @@
 #MicroXplorer Configuration settings - do not modify
-FREERTOS.IPParameters=Tasks01
+FREERTOS.INCLUDE_eTaskGetState=1
+FREERTOS.INCLUDE_pcTaskGetTaskName=1
+FREERTOS.IPParameters=Tasks01,INCLUDE_pcTaskGetTaskName,INCLUDE_eTaskGetState
 FREERTOS.Tasks01=defaultTask,0,128,StartDefaultTask
 File.Version=5
 KeepUserPlacement=true
